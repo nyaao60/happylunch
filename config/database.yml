@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: Sqlnao48! 
+  host: localhost
+
+development:
+  <<: *default
+  database: happylunch_development
+
+
+test:
+  <<: *default
+  database: happylunch_test
+
+
+production:
+  <<: *default
+  database: happylunch_production
+  username: root
+  password: <%= ENV['happylunch__DATABASE_PASSWORD'] %>
