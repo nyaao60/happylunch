@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_name: MyString
+  adress: MyString
+  latitude: 1.5
+  longtitude: 1.5
+  price: 1
+  five_star_rating: 1
+  lots_of_vegetables: false
+  body: MyText
+  user: one
+
+two:
+  store_name: MyString
+  adress: MyString
+  latitude: 1.5
+  longtitude: 1.5
+  price: 1
+  five_star_rating: 1
+  lots_of_vegetables: false
+  body: MyText
+  user: two
