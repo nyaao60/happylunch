@@ -1,0 +1,28 @@
+header {
+  height: 50px;
+  width: 100%;
+  background-color:#FAF4EF;
+}
+
+#logo{
+  width:50px;
+  height:20px;
+}
+
+.header-right{
+  float:right; 
+  }
+
+header-right-image{
+  width:50px;
+  height:20px;
+}
+
+.header-left{
+float: left;
+}
+
+.header-right li{
+float: right;
+list-style:none;
+}

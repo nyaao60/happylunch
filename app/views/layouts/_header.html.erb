@@ -1,0 +1,24 @@
+<header>
+  <div class="container">
+    <div class="header-left">
+    <h2>ハピランチ</h2>
+    <%= link_to image_tag('/assets/ロゴ.png'),root_path,id:"logo" %>
+    </div>
+    <% if logged_in? %>
+     <div class="header-right">
+        <div class="header-right-image">
+        <%= link_to image_tag("/assets/投稿.png"),'#' %>
+        <%= link_to image_tag("/assets/マイページ.png"),'#' %>
+      </div>
+         <ul>
+          <li>投稿</li>
+          <li>マイページ</li>
+        </ul>
+      </div> 
+      <% else %>
+      <div class="header-right">
+        <%= link_to image_tag("/assets/マイページ.png"),login_path %>
+      </div>
+      <% end %>  
+  </div>
+</header>   
