@@ -1,7 +1,6 @@
-<h1>ログイン</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="login-page">
+<h2>ログイン</h2>
+<div class="login-page-form">
 <%= form_with(url: login_path,scope: :session,local: true) do |f| %>
 
   <%= f.label :email,"メールアドレス" %>
@@ -10,11 +9,15 @@
   <%= f.label :password,"パスワード" %>
   <%= f.password_field :password %>
 
-  <%= f.submit "ログイン",class: "btn btn-primary" %>
+  <%= f.submit "ログイン",id:"signup-button" %>
 
-<% end %>
- 
-  <p><%= link_to "パスワードをお忘れの場合","#"></p> 
+  <p><%= link_to "パスワードをお忘れの場合","#",id:"password-forgot" %></p>
+  <hr class="hr1">
+  <div  class="guest-user-login">
   <h3>ユーザー登録せずに機能を試したい方はこちら</h3> 
-  <p><%= link_to "ゲストユーザーでログイン","#"></p> 
- 
+  <%= link_to "ゲストユーザーでログイン","#" %>
+  </div>
+<% end %>
+</div>
+
+</div>

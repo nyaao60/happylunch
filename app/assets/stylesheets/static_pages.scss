@@ -2,13 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f6f5f4;
+}
 
 .top-wrapper {
-  padding: 100px 0 100px 0;
-  background-size: cover;
+  width: 100%;
+  padding:170px 0 70px 0;
   color:#505050;
   background-color:#fac18f;
   text-align: center;
+}
+
+.top-wrapper h2{
+  font-size:25px;
 }
 
 .btn-primary{
@@ -16,10 +27,10 @@
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-  margin:5px 0px;
-  padding: 10px 24px;
+  padding: 10px 25px;
+  margin-top:15px;
   color:#505050;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color:white;
   opacity: 0.8;
 }
@@ -29,15 +40,19 @@
   color:white;
 }
 
-.description-wrapper{
-  padding: 30px  100px ;
+.description{
+  padding: 40px  100px ;
   background-color:#FAF4EF;
   background-size: cover;
   color:#505050;
 } 
 
-.description-wrapper h3{
-  margin-top:-10px;
+.description-title{
+font-size:20px;
+}
+
+.description h3{
+  padding-top:10px;
 }
 
 

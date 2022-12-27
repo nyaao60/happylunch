@@ -1,8 +1,10 @@
-<%= @user.name %> 
+<div class="user-info">
+<p class="info-name"><%= @user.name %> </p>
 <% if logged_in? %>
-<p> sessioidは,<%= session[:user_id] %></p>
-<p><%= link_to "ログアウト(ログインしてたら表示)", logout_path, method: :delete %></p>
+<p class="info-id"> sessioidは,<%= @current_user.id %></p>
+<p class=inf0-link><%= link_to "ログアウト(ログインしてたら表示)", logout_path, method: :delete %></p>
 <%else%>
 <p> sessioidは,<%= session[:user_id] %></p>
 <p>ログアウトしてたら表示</p>
-<% end %>
+</div>
+<% end %> 

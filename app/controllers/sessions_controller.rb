@@ -17,8 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
   logout
-  redirect_to "/signup"
-  #仮置き,後でTOP画面に変更する。
+  redirect_to root_path
   end  
 
 end

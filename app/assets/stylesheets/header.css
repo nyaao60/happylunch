@@ -1,28 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #f6f5f4;
+}
 header {
-  height: 50px;
   width: 100%;
+  height: 100px;
+  display: flex; /* flexboxを作る */
+  align-items: center; /* 上下中央に揃える */ 
+  justify-content: space-between; /* 両端に配置 */
+  padding-left: 30px;
+  padding-right: 30px;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
   background-color:#FAF4EF;
 }
 
-#logo{
-  width:50px;
-  height:20px;
+h1 a {
+  color: #1a1a1a;
+  font-size: 30px;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  display: flex;
 }
 
-.header-right{
-  float:right; 
-  }
-
-header-right-image{
-  width:50px;
-  height:20px;
+ul li{
+margin:10px;
 }
 
-.header-left{
-float: left;
+ul li a {
+  padding: 10px 15px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: bold;
+}
+ul li a:hover {
+  text-decoration: underline;
 }
 
-.header-right li{
-float: right;
-list-style:none;
+.header-image{
+width:40px;
+height:40px;
+margin:0 auto;
+}
+
+.header-text{
+ margin:20px;
+}
+
+.header-title{
+ display:flex; 
+}
+
+.logo{
+width:60px;
+height:60px;
+margin-left:10px;
+}
+
+.logo-image{
+top: 0;
+bottom: 0;
+margin: auto;
+}
+.header-login{
+padding-right:10px;
+
 }

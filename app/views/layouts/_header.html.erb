@@ -1,24 +1,34 @@
 <header>
-  <div class="container">
-    <div class="header-left">
-    <h2>ハピランチ</h2>
-    <%= link_to image_tag('/assets/ロゴ.png'),root_path,id:"logo" %>
-    </div>
     <% if logged_in? %>
-     <div class="header-right">
-        <div class="header-right-image">
-        <%= link_to image_tag("/assets/投稿.png"),'#' %>
-        <%= link_to image_tag("/assets/マイページ.png"),'#' %>
-      </div>
-         <ul>
-          <li>投稿</li>
-          <li>マイページ</li>
-        </ul>
-      </div> 
-      <% else %>
-      <div class="header-right">
-        <%= link_to image_tag("/assets/マイページ.png"),login_path %>
-      </div>
-      <% end %>  
-  </div>
-</header>   
+        <div class="header-title">
+        <h1><a href="#">ハピランチ</a></h1>
+        <div class="logo"><%= link_to image_tag('/assets/ロゴ.png'),root_path, {class: "logo-image"}%></div>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                <div class="header-image"><%= link_to image_tag("/assets/投稿.png"),'#' %></div>
+                <p class="header-text">投稿</p>
+                </li>
+                <li>
+                <div  class="header-image"><%= link_to image_tag("/assets/マイページ.png"),
+                user_path(current_user) %></div>
+                <p class="header-text">マイページ</p>
+                </li>           
+            </ul>
+        </nav>
+    <%else%>
+        <div class="header-title">
+        <h1><a href="#">ハピランチ</a></h1>
+        <div class="logo"><%= link_to image_tag('/assets/ロゴ.png'),root_path, {class: "logo-image"}%></div>
+        </div>
+        <nav>
+            <ul>
+                <li class="header-login">
+                <div  class="header-image"><%= link_to image_tag("/assets/マイページ.png"),login_path %></div>
+                <p class="header-text">ログイン</p>
+                </li>           
+            </ul>
+        </nav>
+    <%end%>
+</header>
