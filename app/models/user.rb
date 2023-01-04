@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes,dependent: :destroy
   has_many :comments,dependent: :destroy
-  has_many :active_relationships, class_name:  "Relationship",
+  has_many :active_relationships,
+  class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
   has_many :passive_relationships,class_name:  "Relationship",
@@ -11,9 +12,11 @@ class User < ApplicationRecord
 
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships,  source: :follower
+  
+  mount_uploader :image, ImageUploader
 
   before_save   :downcase_email
- 
+
   validates :name,  presence: true, length: { maximum: 15 },uniqueness:true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
