@@ -9,7 +9,11 @@
   <%= f.label :password,"パスワード" %>
   <%= f.password_field :password %>
 
-  <%= f.submit "ログイン",id:"signup-button" %>
+  <%= f.check_box :remember ,id:"remember-box" %>
+  <%= f.label :remember,"次回から自動的にログインする。" %>
+  
+
+<%= f.submit "ログイン",id:"signup-button" %>
 
   <p><%= link_to "パスワードをお忘れの場合","#",id:"password-forgot" %></p>
   <hr class="hr1">
