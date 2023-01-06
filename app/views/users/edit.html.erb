@@ -1,0 +1,20 @@
+<div class="signup-page">
+  <h2>ユーザー情報変更</h2>
+
+  <div class="form">
+  <%= form_with(model: @user, local:true) do |f| %>
+  <%= render 'shared/error_messages' %>
+  
+  <%= f.label :user_image,"ユーザー画像" %>
+  <p id="profile"><%= f.file_field :user_image %></P>
+  
+  <%= f.label :name,"ユーザー名" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :self_introduction,"自己紹介" %>
+  <%= f.text_area :self_introduction %>
+
+  <%= f.submit "保存", id:"signup-button"%>
+  </div>
+</div>
+  <% end %> 
