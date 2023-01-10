@@ -1,19 +1,16 @@
-<div class="user-info">
-  <% if logged_in? %>
-    <%= link_to "編集", edit_user_path(current_user), class: 'btn btn-default' %>
-    <p class=inf0-link>
-    <%= link_to "ログアウト(ログインしてたら表示)", logout_path, method: :delete %>
-    </p>
-  <% end %>
+<p class="title-bar">マイページ</p>
+<div class="user-page"> 
+<p> <%= image_tag @user.user_image.thumb.url,class:'profile-icon' %> </p>
 
-  <%= image_tag @user.user_image.thumb.url %>
-  <p class="info-name"><%= @user.name %> </p>
-
-  <%= @user.self_introduction %>
-  <% if logged_in? %>
-    <p class="info-id"> sessioidは,<%= @current_user.id %></p>
-    <%else%>
-    <p> sessioidは,<%= session[:user_id] %></p>
-    <p>ログアウトしてたら表示</p>
-  <% end %> 
+    <div class="user-info">
+      <div class="user-edit">
+      <h3><%= @user.name %> </h3>
+      <% if current_user=User.find(params[:id])%>
+      <h4 id="edit-btn"> <%= link_to "編集", edit_user_path(current_user), class: 'btn btn-default' %></h4>
+      <%end%>
+      </div>
+  <h3 style="white-space:pre-wrap;" class="self-introduction"><%= @user.self_introduction %></h3>
+    </div>
+  
+  </div>
 </div>

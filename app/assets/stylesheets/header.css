@@ -72,3 +72,19 @@ margin: auto;
 padding-right:10px;
 
 }
+
+ul li ul{
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+}
+
+header ul li:hover ul{
+  visibility: visible;
+  opacity: 1;
+  background-color: rgb(246, 214, 188);
+  transition: .60s;
+}

@@ -51,7 +51,7 @@ class User < ApplicationRecord
     def forget
       update_attribute(:remember_digest,nil)
     end
-
+    
   private
 
   # メールアドレスをすべて小文字にする
