@@ -47,8 +47,62 @@ opacity:0.6;
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
+/* show画面 */
 
-.user-info{
+.title-bar{
+font-weight: bold;
 padding-top:100px;
+width: 100%;  
+line-height:60px;
+background-color:rgba(249, 171, 93,0.7);
+text-align:center;
 }
+
+.edit-logout{
+  padding:0px 0px 0px 300px;
+  }
+  
+.user-page{
+padding:50px 0px 200px 200px;
+display:flex;
+}
+
+.profile-icon{
+float:left;
+width:120px;
+height:120px;
+border:2px solid #bfbeb2;
+border-radius:80px;
+}
+
+.user-info h3{
+font-size:20px;
+margin-left:30px;
+width:100%;
+}
+
+.user-edit{
+  display:flex; 
+}
+
+#edit-btn {
+ font-size:15px; 
+  padding:5px 0 0 100px;
+  width:100%;
+}
+
+/* .self-introduction{
+  margin-top:10px;
+  background-color:#b8b7b7; 
+  border-bottom:solid 9px #9e9d9d;
+  border-radius:5px;
+  padding:0px 300px 80px 5px;
+}  */
+
+.self-introduction{
+  margin-top:10px;
+  border: 2px solid #b8b7b7; 
+  border-radius:5px;
+  padding:0px 200px 80px 5px;
+} 
 
