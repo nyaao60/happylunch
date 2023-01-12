@@ -1,0 +1,15 @@
+<p class="title-bar">投稿詳細</p>
+<div class="posting-page">
+  <div class="post-form"> 
+    <div class="post-show-page">
+    <p class="reviewer-info">投稿者:<%=image_tag @user.user_image.thumb.url, id:"reviewer-icon"%><%=@user.name%></p>
+    <p>店名：<%= @post.store_name%></p>
+    <p>住所：<%= @post.adress%></p>
+    <p>価格：<%= @post.price%>円</p>
+    <p>評価：<%= @post.five_star_rating%></p>
+    <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
+    <h3 stylcurree="white-space:pre-wrap;" id="post-review"><%= 
+    @post.body %></h3>
+    </div>
+  </div>
+</div>  

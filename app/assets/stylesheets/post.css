@@ -1,0 +1,81 @@
+#post-review{
+  margin-top:10px;
+  border: 2px solid #b8b7b7; 
+  border-radius:5px;
+  padding:0px 200px 80px 5px;
+}
+
+.posting-page{
+  width: 600px;
+  padding: 50px 0px 0px 0px;
+  margin: auto;
+  font-size: 20px;
+  font-weight:400;
+}
+
+.posting-page h2{
+  font-size: 25px;
+  font-weight:bold;
+  text-align: center;
+  padding-bottom:30px;
+  opacity:0.6;
+}
+
+.post-form{
+  background: #FFFFFF;
+  max-width: 6000px;
+  margin: 0 auto 80px;
+  padding: 45px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.post-form input,textarea,select {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  outline: 0;
+  background: #f2f2f2;
+  border: 0;
+  margin: 10px 0 30px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#price-box{
+width:30%;
+}
+
+#check-box{
+display:inline-block;
+width:20px;
+height:20px;
+margin: 10px;
+padding: 0px;
+background-color: #f0bb86;
+border:1px solid;
+border-color:rgb(42, 42, 42,0.6);
+border-radius:5px;
+}
+
+.post-form p{
+margin-top:15px;
+}
+
+#review-comment{
+height:180px;
+display: inline-block;
+}
+
+/* 投稿詳細 */
+.reviewer-info{
+text-align:right;
+}
+
+#reviewer-icon{
+  width:40px;
+  height:40px;
+  border:2px solid #bfbeb2;
+  border-radius:80px;
+}
+

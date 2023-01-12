@@ -86,9 +86,11 @@ width:100%;
 }
 
 #edit-btn {
- font-size:15px; 
-  padding:5px 0 0 100px;
-  width:100%;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:10px;
+  padding:5px 10px;
+  font-size:15px; 
 }
 
 /* .self-introduction{

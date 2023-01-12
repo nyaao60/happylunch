@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   validates :store_name, presence: true  
   validates :adress, presence: true
   validates :price, presence: true,numericality: { in: 1..700 }
+  mount_uploader :post_images, ImageUploader
 end
