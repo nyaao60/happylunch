@@ -1,6 +1,6 @@
 <div class="posting-page">
-  <h2>投稿作成</h2>
-
+  <h2>投稿編集</h2>
+  
   <div class="post-form">
   <%= form_with(model: @post, local:true) do |f| %>
     <%= render 'shared/error_messages',object: f.object %>
@@ -12,7 +12,7 @@
     <%= f.text_field :adress%>
 
     <%= f.label :post_images,"写真" %>
-    <%= f.file_field :post_images,multiple: true %>
+    <%= f.file_field :post_images,multiple: true%>
 
     <%= f.label :price,"価格" %>
     <p><%= f.number_field :price,id:"price-box" %>円</p>
