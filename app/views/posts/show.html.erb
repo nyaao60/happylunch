@@ -15,11 +15,13 @@
       <%= button_to "削除", post_path(@post),  { method: :delete, id:"edit-btn"} %>
       <% end %>
     </div>
-  
-    <% @post.post_images.each do |image|%>
-    <%= image_tag image.to_s %>
-    <% end %>
-    
+
+    <% if @post.post_images.present? %>
+      <% @post.post_images.each do |image|%>
+      <%= image_tag image.to_s %>
+      <% end %>
+    <%end%>
+
     <p>住所：<%= @post.adress%></p>
     <p>価格：<%= @post.price%>円</p>
     <p>評価：<%= render 'layouts/five_star_rating' %></p>

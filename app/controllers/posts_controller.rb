@@ -24,9 +24,20 @@ class PostsController < ApplicationController
     @post=Post.find(params[:id])
   end  
 
-  def update
-    @post=Post.find(params[:id])      
-    if @post.update(post_params)
+  # def update
+  #   @post=Post.find(params[:id])      
+  #   if @post.update(post_params)
+  #     flash[:success]="投稿を更新しました"
+  #     redirect_to @post
+  #   else
+  #     render 'edit'
+  #   end 
+  # end  
+
+  ApplicationRecord.transaction do
+    @post = current_user.posts.find(params[:id]).destroy
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:success]="投稿を更新しました"
       redirect_to @post
     else
