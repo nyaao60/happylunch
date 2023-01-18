@@ -36,7 +36,6 @@
   outline: 0;
   background: #f2f2f2;
   border: 0;
-  margin: 10px 0 30px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
@@ -72,9 +71,38 @@ display: inline-block;
 margin-left:auto;  
 } */
 
+.post-edit{
+  display:flex;
+  justify-content: flex-end;
+  margin:0 20px 20px 0;
+}
+
+#post-edit-btn{
+  font-size:15px;
+  width: 60px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:30px;
+  padding:5px 5px;  
+  font-size:15px;
+}
+
+#post-delete-btn{
+  font-size:15px;
+  width: 60px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:30px;
+  padding:5px 5px;
+  margin-left:10px;
+}
+
+
+
 .reviewer-info{
 display:flex;
 justify-content: flex-end;
+margin-right:25px;
 }
 
 #reviewer-icon{
@@ -85,3 +113,10 @@ justify-content: flex-end;
   margin:0 0 0 10px;
 }
 
+#post-file{
+  width:120px;
+  height:120px;
+  display:inline-block;  
+  border:2px solid #bfbeb2;
+  margin:15px 10px 10px 0;
+}
