@@ -28,6 +28,13 @@
     <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
     <h3 style="white-space:pre-wrap;" id="post-review"><%= 
     @post.body %></h3>
+
+    <%= javascript_pack_tag 'index.js' %>
+    
+    <div id="like">
+      <like-button :user_id="<%= current_user.id %>" :post_id="<%= @post.id %>"></like-button>
+    </div>
+
     </div>
   </div>
 </div>  
