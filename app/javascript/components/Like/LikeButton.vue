@@ -18,7 +18,7 @@ axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken()
 
 export default {
   // propsでrailsのviewからデータを受け取る
-  props: ['user_id', 'post_id'],
+  props: ['userId', 'postId'],
   data() {
     return {
       likelist: []  // いいね一覧を格納するための変数　{ id: 1, user_id: 1, post_id: 1 } がArrayで入る
@@ -45,7 +45,7 @@ export default {
   methods: {
     // rails側のindexアクションにリクエストするメソッド
     fetchLikeByPostId: async function() {
-      const res = await axios.get(`/api/likes/?post_id=${this.post_id}`)
+      const res = await axios.get(`/api/likes/?post_id=${this.postId}`)
       if (res.status !== 200) {
         // エラー処理
       }
@@ -53,7 +53,7 @@ export default {
     },
     // rails側のcreateアクションにリクエストするメソッド
     registerLike: async function() {
-      const res = await axios.post('/api/likes', { post_id: this.post_id })
+      const res = await axios.post('/api/likes', { post_id: this.postId })
       if (res.status !== 201) {
         // エラー処理
       }

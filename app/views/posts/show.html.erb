@@ -32,7 +32,9 @@
     <%= javascript_pack_tag 'index.js' %>
     
     <div id="like">
-      <like-button :user_id="<%= current_user.id %>" :post_id="<%= @post.id %>"></like-button>
+    <p>
+      <like-button :user-id="<%= current_user.id %>" :post-id="<%= @post.id %>"></like-button>
+    </p>
     </div>
 
     </div>
