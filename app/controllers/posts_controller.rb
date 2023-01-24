@@ -18,6 +18,8 @@ class PostsController < ApplicationController
   def show
     @post=Post.find(params[:id])
     @user=User.find_by(id:@post.user_id)
+    @comment=@post.comments.build
+    @comments = @post.comments.includes(:user)
   end
   
   def edit
@@ -33,26 +35,14 @@ class PostsController < ApplicationController
       render 'edit'
     end 
   end
-
-  # def update
-  #   ApplicationRecord.transaction do
-  #     @post = current_user.posts.find(params[:id]).destroy
-  #     @post = current_user.posts.build(post_params)
-  #     if @post.save
-  #       flash[:success]="投稿を更新しました"
-  #       redirect_to @post
-  #     else
-  #       render 'edit'
-  #     end 
-  #   end  
-  # end  
+ 
 
   def destroy
     @post=Post.find(params[:id])
-    if @post.destroy
-    flash[:success]="投稿を削除しました" 
-    redirect_to root_url
-    end
+      if @post.destroy
+      flash[:success]="投稿を削除しました" 
+      redirect_to root_url
+      end
   end
   
   private

@@ -1,0 +1,13 @@
+<h4>コメント一覧</h4>
+  <% if @comments.present? %>
+    <%= @comments.each do |comment| %>
+    <%= link_to image_tag(comment.user.user_image.thumb.url,id:"reviewer-icon"),user_path(comment.user)%>
+    <%= comment.user.name%>
+    <%= comment.content %>
+      <% if current_user == @user%>
+        <%= button_to "削除", post_comment_path(commennt),  { method: :delete, id:"post-delete-btn"} %>
+      <%end%>
+    <%end%>
+  <% else %>
+    <p>この投稿にはコメントがありません</p>
+  <%end%>

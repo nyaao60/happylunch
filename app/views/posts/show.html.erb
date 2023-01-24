@@ -34,7 +34,10 @@
     <div id="like">
       <like-button :user_id="<%= current_user.id %>" :post_id="<%= @post.id %>"></like-button>
     </div>
-
+ 
     </div>
+ 
   </div>
+  <p><%= render 'layouts/comment' %></p>
+  <p><%= render 'layouts/comment_form' %></p>
 </div>  
