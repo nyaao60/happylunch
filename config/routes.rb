@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
 
-  namespace :api, { format: 'json' } do
-    resources :likes, only: [:index, :create, :destroy]
-  end
+  # namespace :api, { format: 'json' } do
+  #   resources :likes, only: [:index, :create, :destroy]
+  # end
 
 end

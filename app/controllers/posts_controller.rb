@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def show
     @post=Post.find(params[:id])
     @user=User.find_by(id:@post.user_id)
-    @comment=@post.comments.build
+    @comment=@post.comments.new
     @comments = @post.comments.includes(:user)
   end
   
@@ -35,7 +35,6 @@ class PostsController < ApplicationController
       render 'edit'
     end 
   end
- 
 
   def destroy
     @post=Post.find(params[:id])
