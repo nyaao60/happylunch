@@ -1,6 +1,6 @@
 <%if logged_in?%>
   <%= form_with(model: [@post, @comment], local: true) do |f| %>
-  <%= f.text_area :content,placeholder: "コメントを入力", rows: "3"%>
-  <%= f.submit "コメントする", id:"signup-button"%>
+  <%= f.text_area :content,placeholder: "コメントを入力", rows: "3", id:"comment-input-field"%>
+  <%= f.submit "コメントする", id:"comment-button"%>
   <%end%>
 <% end %>

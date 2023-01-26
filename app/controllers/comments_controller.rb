@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @post=Post.find(params[:post_id])
-    @comment = Comment.new(user_id: current_user.id, post_id:@post.id, content: comment_params)
+    @comment = Comment.new(user_id: current_user.id, post_id:@post.id, content:comment_params["content"])
     if @comment.save
         flash[:success]="投稿しました！"
         redirect_to post_path(@post)
