@@ -17,5 +17,9 @@ module Happylunch
     # the framework and any gems in your application.
    # 日本語の言語設定。この一行を追加。
    config.i18n.default_locale = :ja
+    # 時刻を日本時間に
+   config.time_zone = 'Tokyo'
+  # デフォルトのロケールを日本（ja）に設定
+  config.i18n.default_locale = :ja
   end
 end

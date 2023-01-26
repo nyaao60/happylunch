@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to @user 
     else
+      flash.now[:alert]="入力に誤りがあります"
       render 'new'
     end
   end      

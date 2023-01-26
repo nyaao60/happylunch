@@ -1,0 +1,208 @@
+#post-review{
+  margin-top:10px;
+  border: 2px solid #b8b7b7; 
+  border-radius:5px;
+  padding:0px 200px 80px 5px;
+}
+
+/* 投稿作成画面 */
+.posting-page{
+  width: 600px;
+  padding: 50px 0px 0px 0px;
+  margin: auto;
+  font-size: 20px;
+  font-weight:400;
+}
+
+.posting-page h2{
+  font-size: 25px;
+  font-weight:bold;
+  text-align: center;
+  padding-bottom:30px;
+  opacity:0.6;
+}
+
+.post-form{
+  background: #fcfaf8;;
+  max-width: 6000px;
+  margin: 0 auto 60px;
+  padding: 45px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.post-form input,textarea,select {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  outline: 0;
+  background: #f2f2f2;
+  border: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#price-box{
+width:30%;
+}
+
+#check-box{
+display:inline-block;
+width:20px;
+height:20px;
+margin: 10px;
+padding: 0px;
+background-color: #f0bb86;
+border:1px solid;
+border-color:rgb(42, 42, 42,0.6);
+border-radius:5px;
+}
+
+.post-form p{
+margin-top:15px;
+}
+
+#review-comment{
+height:180px;
+display: inline-block;
+}
+
+/* 投稿詳細 */
+
+.post-edit{
+  display:flex;
+  justify-content: flex-end;
+  margin:0 20px 20px 0;
+}
+
+#post-edit-btn{
+  font-size:15px;
+  width: 60px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:30px;
+  padding:5px 5px;  
+  font-size:15px;
+}
+
+#post-delete-btn{
+  font-size:15px;
+  width: 60px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:30px;
+  padding:5px 5px;
+  margin-left:10px;
+}
+
+
+/* 投稿者情報 */
+.reviewer-info{
+display:flex;
+justify-content: flex-end;
+margin-right:25px;
+}
+
+#reviewer-icon{
+  width:30px;
+  height:30px;
+  border:2px solid #bfbeb2;
+  border-radius:80px;
+  margin:0 0 0 10px;
+}
+
+/* 投稿画像 */
+#post-file{
+  width:120px;
+  height:120px;
+  display:inline-block;  
+  border:2px solid #bfbeb2;
+  margin:15px 10px 10px 0;
+}
+
+/* コメント機能 */
+.comment-box{
+  width:100%;
+  font-size:14px;
+}
+
+/* コメント一覧 */
+.comment h4{
+  font-size:16px;
+  border-bottom: 1px solid rgba(184, 183, 183,0.6); 
+  padding-bottom:5px;
+;}
+
+/* コメントヘッダー */
+.comment-header{
+  width:100%;
+  display:flex;
+  margin-top:10px;
+}
+
+.comment-header-left{
+  width:100%;
+  display:flex;
+  justify-content: flex-start;  
+}
+
+.comment-header-right{
+  width:100%;
+  display:flex;
+  justify-content: flex-end;  
+}
+
+/* コメント投稿者アイコン */
+#commenter-icon{
+  width:30px;
+  height:30px;
+  border:2px solid #bfbeb2;
+  border-radius:80px;
+}
+
+/* 削除ボタン */
+#comment-delete-btn{
+  font-size:12px;
+  width: 40px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:30px;
+  padding:5px 5px;
+  margin-left:10px; 
+}
+
+/* コメント内容 */
+#comment-content{
+border-bottom: 1px solid rgba(184, 183, 183,0.6);
+padding:10px 0 20px 0;
+}
+
+
+/* コメント入力欄 */
+#comment-input-field{
+  font-family: "Roboto", sans-serif;
+  background: #f2f2f2;
+  width: 100%;
+  border: 1px solid #b8b7b7; 
+  border-radius:5px;
+  margin: 20px 0 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* コメントボタン */
+#comment-button{
+  display:block;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #f17509;
+  width: 120px;
+  height:35px;
+  padding: 5px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin:0 0 0 auto;
+  border-radius:5px;
+}
