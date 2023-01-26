@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  
   def new
     @post=Post.new
   end
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post=current_user.posts.build(post_params)
     if @post.save
       flash[:success]="投稿しました！"
-      redirect_to root_url
+      redirect_to post_path(@post)
     else
       flash.now[:alert]="入力に誤りがあります"
       render 'new'
@@ -29,8 +29,8 @@ class PostsController < ApplicationController
   def update
     @post=Post.find(params[:id])      
     if @post.update(post_params)
-      flash[:success]="投稿を更新しました"
-      redirect_to @post
+      flash[:success]="投稿を更新しました！"
+      redirect_to post_path(@post)
     else
       render 'edit'
     end 
@@ -38,15 +38,15 @@ class PostsController < ApplicationController
 
   def destroy
     @post=Post.find(params[:id])
-      if @post.destroy
-      flash[:success]="投稿を削除しました" 
+    if @post.destroy
+      flash[:success]="投稿を削除しました！" 
       redirect_to root_url
-      end
+    end
   end
   
   private
     def post_params
       params.require(:post).permit(:store_name,:adress, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
     end
-
+    
 end

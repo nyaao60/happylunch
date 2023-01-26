@@ -11,6 +11,10 @@
   </head>
   <body>
   <%= render 'layouts/header' %>
+  <%= render 'layouts/title-bar' %>
+  <% flash.each do |message_type, message| %>
+    <div class="flash-<%= message_type %>"><%= message %></div>
+  <% end %>
   <%= yield %>
   <%= render 'layouts/footer' %>  
   </body>
