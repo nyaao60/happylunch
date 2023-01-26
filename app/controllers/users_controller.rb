@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :correct_user,only:[:edit,:update]
+before_action :correct_user,only:[:edit,:update]
 
   def new
     @user= User.new
@@ -14,6 +13,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save
       log_in(@user)
+      flash[:success]="ようこそ、ハピランチへ！"
       redirect_to @user 
     else
       flash.now[:alert]="入力に誤りがあります"
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_update_params)
-      flash[:success]="プロフィールを更新しました"
+      flash[:success]="プロフィールを更新しました！"
       redirect_to @user
     else
       render 'edit'
@@ -50,5 +50,4 @@ class UsersController < ApplicationController
       redirect_to root_url unless current_user=User.find(params[:id])
     end
 
-    
 end   

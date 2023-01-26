@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @post=Post.find(params[:post_id])
     @comment = Comment.new(user_id: current_user.id, post_id:@post.id, content:comment_params["content"])
     if @comment.save
-        flash[:success]="投稿しました！"
+        flash[:success]="コメントを投稿しました！"
         redirect_to post_path(@post)
       else
         flash[:alert]="コメントできませんでした"
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @post=Post.find(params[:post_id])
     @comment=Comment.find(params[:id])  
     if @comment.destroy
-        flash[:success]="コメントを削除しました" 
+        flash[:success]="コメントを削除しました！" 
         redirect_to post_path(@post)
       end  
   end

@@ -1,27 +1,20 @@
+ <% provide(:titlebar, "ログイン画面") %>
 <div class="login-page">
-<h2>ログイン</h2>
-<div class="login-page-form">
-<%= form_with(url: login_path,scope: :session,local: true) do |f| %>
-
-  <%= f.label :email,"メールアドレス" %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password,"パスワード" %>
-  <%= f.password_field :password %>
-
-  <%= f.check_box :remember ,id:"remember-box" %>
-  <%= f.label :remember,"次回から自動的にログインする。" %>
-  
-
-<%= f.submit "ログイン",id:"signup-button" %>
-
-  <p><%= link_to "パスワードをお忘れの場合","#",id:"password-forgot" %></p>
-  <hr class="hr1">
-  <div  class="guest-user-login">
-  <h3>ユーザー登録せずに機能を試したい方はこちら</h3> 
-  <%= link_to "ゲストユーザーでログイン","#" %>
+  <div class="login-page-form">
+    <%= form_with(url: login_path,scope: :session,local: true) do |f| %>
+      <%= f.label :email,"メールアドレス" %>
+      <%= f.email_field :email %>
+      <%= f.label :password,"パスワード" %>
+      <%= f.password_field :password %>
+      <%= f.check_box :remember ,id:"remember-box" %>
+      <%= f.label :remember,"次回から自動的にログインする。" %>
+      <%= f.submit "ログイン",id:"signup-button" %>
+      <p><%= link_to "パスワードをお忘れの場合","#",id:"password-forgot" %></p>
+      <hr class="hr1">
+      <div  class="guest-user-login">
+        <h3>ユーザー登録せずに機能を試したい方はこちら</h3> 
+        <%= link_to "ゲストユーザーでログイン","#" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-</div>
-
 </div>

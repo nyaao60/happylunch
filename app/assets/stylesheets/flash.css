@@ -1,0 +1,11 @@
+.flash-success{
+  background-color:rgba(132, 154, 201,0.8);    
+  color:rgb(255, 255, 255); 
+  text-align: center;
+}
+
+.flash-alert{
+  background-color:rgba(215, 42, 15,0.8); 
+  color:rgb(255, 255, 255);
+  text-align: center;
+  }

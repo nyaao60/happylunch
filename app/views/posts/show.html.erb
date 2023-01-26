@@ -1,12 +1,12 @@
-<p class="title-bar">投稿詳細</p>
+<% provide(:titlebar, "投稿詳細") %>
 <div class="posting-page">
   <div class="post-form"> 
-      <div class="post-edit">
-        <% if current_user == @user%>
-        <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
+    <div class="post-edit">
+    <% if current_user == @user%>
+      <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
       <%= button_to "削除", post_path(@post),  { method: :delete, id:"post-delete-btn"} %>
-      <% end %>
-      </div>
+    <% end %>
+    </div>
     <div class="post-show-page">
       <div class="reviwer">
         <p class="reviewer-info">
@@ -15,19 +15,17 @@
         <%=@user.name%></p>
       </div>        
       <p>店名：<%= @post.store_name%></p>
-
-    <% if @post.post_images.present? %>
-      <% @post.post_images.each do |image|%>
-      <%= image_tag image.to_s,id:"post-file"%>
-    <% end %>
-    <% end %>
-
-    <p>住所：<%= @post.adress%></p>
-    <p>価格：<%= @post.price%>円</p>
-    <p>評価：<%= render 'layouts/five_star_rating' %></p>
-    <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
-    <h3 style="white-space:pre-wrap;" id="post-review"><%= 
-    @post.body %></h3>
+      <% if @post.post_images.present? %>
+        <% @post.post_images.each do |image|%>
+          <%= image_tag image.to_s,id:"post-file"%>
+        <%end%>  
+      <% end %>
+      <p>住所：<%= @post.adress%></p>
+      <p>価格：<%= @post.price%>円</p>
+      <p>評価：<%= render 'layouts/five_star_rating' %></p>
+      <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
+      <h3 style="white-space:pre-wrap;" id="post-review"><%= 
+      @post.body %></h3>
 <%
 =begin%>
  
@@ -40,7 +38,8 @@
     </div> 
 <%
 =end%>
-  </div>
-</div>  
-<p><%= render 'layouts/comment' %></p>
-<p><%= render 'layouts/comment_form' %></p>
+    </div>
+  </div>  
+  <p><%= render 'layouts/comment' %></p>
+  <p><%= render 'layouts/comment_form' %></p>
+</div>
