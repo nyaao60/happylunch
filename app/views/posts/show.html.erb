@@ -26,18 +26,13 @@
       <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
       <h3 style="white-space:pre-wrap;" id="post-review"><%= 
       @post.body %></h3>
-<%
-=begin%>
- 
-    <%= javascript_pack_tag 'index.js' %>
-    
-    <div id="like">
-      <like-button :user_id="<%= current_user.id %>" :post_id="<%= @post.id %>"></like-button>
-    </div>
- 
-    </div> 
-<%
-=end%>
+      <div class="post-subinfo">
+        <p><%= render 'layouts/like' %></p>
+          <div class="comment-count">
+            <p><i class="fa-regular fa-comment-dots comment-icon"></i>
+          <%= @comments.size %></p>
+          </div>
+      </div>
     </div>
   </div>  
   <p><%= render 'layouts/comment' %></p>

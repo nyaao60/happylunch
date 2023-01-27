@@ -17,9 +17,12 @@ class PostsController < ApplicationController
 
   def show
     @post=Post.find(params[:id])
+    @posts=Post.includes(:likes)
     @user=User.find_by(id:@post.user_id)
     @comment=@post.comments.new
     @comments = @post.comments.includes(:user)
+    @likes=@post.likes.includes(:user)
+    
   end
   
   def edit
