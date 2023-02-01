@@ -7,7 +7,12 @@ before_action :correct_user,only:[:edit,:update]
 
   def show
     @user = User.find(params[:id])
+    @relationship=Relationship.find_by(follower_id:current_user.id,followed_id:@user.id)
   end  
+
+  def index
+    @users = User.all.page(params[:page])
+  end
 
   def create
     @user=User.new(user_params)
@@ -34,6 +39,21 @@ before_action :correct_user,only:[:edit,:update]
       render 'edit'
     end 
   end
+
+  def following
+    @title = "フォローしているユーザー"
+    @user = User.find(params[:id])
+    @users = @user.following.page(params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォローされているユーザー"
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page])
+    render 'show_follow'
+  end
+
 
   private
 
