@@ -1,0 +1,5 @@
+<% provide(:titlebar, "ユーザー一覧") %>
+<ul class="users">
+<%=render @users%>
+</ul>
+<%= paginate @users %>

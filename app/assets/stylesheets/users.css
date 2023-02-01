@@ -65,33 +65,46 @@ text-align:center;
   
 .user-page{
 padding:50px 0px 200px 200px;
-display:flex;
 }
 
 .profile-icon{
 float:left;
-width:100px;
-height:100px;
+width:80px;
+height:80px;
 border:2px solid #bfbeb2;
 border-radius:80px;
 }
 
-.user-info h3{
-font-size:20px;
-margin-left:30px;
-width:100%;
+.user-topinfo {
+  display:flex;
+  width: 100%;
 }
 
-.user-edit{
-  display:flex; 
+.user-topinfo-left{
+  display:flex;
+  width: 100%;
+  justify-content: flex-start;
 }
+
+
+.user-topinfo h3{
+font-size:20px;
+margin-left:15px;
+padding-top:15px;
+}
+
+
+/* .user-edit{
+  display:flex; 
+} */
 
 #edit-btn {
   background-color: rgb(236, 156, 102);
   color: #FFFFFF;
-  border-radius:10px;
+  border-radius:20px;
   padding:5px 10px;
   font-size:15px; 
+  margin:10px 0 0 20px;
 }
 
 /* .self-introduction{
@@ -103,9 +116,78 @@ width:100%;
 }  */
 
 .self-introduction{
+  font-size:18px;
+  width:600px;
+  height:150px;
+  padding:5px 0 0 5px;
   margin-top:10px;
   border: 2px solid #b8b7b7; 
-  border-radius:5px;
-  padding:0px 200px 80px 5px;
+  border-radius:10px;
 } 
+
+.followbutton{
+background-color: rgb(236, 156, 102);
+border:2px solid #ffffff;
+padding:10px;
+color: #FFFFFF;
+border-radius:20px;
+height:40px;
+margin:10px 0 0 20px;
+}
+
+.unfollowbutton{
+  font-size:15px;
+  background-color: rgb(236, 156, 102);
+  border:2px solid #ffffff;
+  padding:10px;
+  color: #FFFFFF;
+  border-radius:20px;
+  height:42px;
+  margin:10px 0 0 20px;
+  }
+  
+.user-status
+{
+ display:flex
+}
+
+.status-count{
+margin:30px 0 0 55px;
+font-size:25px;
+/* font-weight: bold; */
+font-style: italic;
+}
+
+.status-title{
+margin:10px 0 0 40px;
+font-size:20px
+}
+
+/* user一覧 */
+.users {
+  list-style: none;
+  margin: 0; 
+  display:block;
+}
+
+.users li {
+  font-size:20px;
+  display:flex;
+  width:800px;
+  overflow: auto;
+  padding: 10px;
+  border-bottom: 1px solid #dad8d8;
+}
+
+#user-index-icon{
+  width:60px;
+  height:60px;
+  border:2px solid #bfbeb2;
+  border-radius:80px; 
+}
+
+.user-index-name{
+margin:30px 30px 0 15px;
+width:180px;
+}
 

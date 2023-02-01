@@ -1,0 +1,7 @@
+<% provide(:titlebar, @title) %>
+<% if @users.any? %>
+  <ul class="users">
+  <%= render @users %>
+  </ul>
+  <%= paginate @users %>
+<% end %>
