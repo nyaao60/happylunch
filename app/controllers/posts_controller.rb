@@ -22,7 +22,6 @@ class PostsController < ApplicationController
     @comment=@post.comments.new
     @comments = @post.comments.includes(:user)
     @likes=@post.likes.includes(:user)
-    
   end
   
   def edit
@@ -49,7 +48,7 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:store_name,:adress, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
+      params.require(:post).permit(:store_name,:address, :latitude, :longitude, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
     end
     
 end

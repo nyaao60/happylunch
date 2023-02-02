@@ -1,8 +1,11 @@
 #post-review{
+  width:510px;
+  height:200px;
+  padding:10px ;
   margin-top:10px;
   border: 2px solid #b8b7b7; 
   border-radius:5px;
-  padding:0px 200px 80px 5px;
+  
 }
 
 /* 投稿作成画面 */
@@ -62,6 +65,7 @@ border-radius:5px;
 margin-top:15px;
 }
 
+/* 新規作成、編集時のレビュー欄 */
 #review-comment{
 height:180px;
 display: inline-block;
@@ -110,6 +114,23 @@ margin-right:25px;
   border-radius:80px;
   margin:0 0 0 10px;
 }
+/* ランチ情報bar */
+#lunch-info{
+  font-size:17px;
+  font-weight: bold;
+  width: 100%;  
+  line-height:50px;
+  background-color:rgba(249, 171, 93,0.7);
+  text-align:center;  
+  border-radius:10px;
+  margin-bottom:10px;
+}
+.fa-utensils{
+margin-left:5px;
+}
+.shop-info{
+font-weight: bolder;  
+}
 
 /* 投稿画像 */
 #post-file{
@@ -118,6 +139,13 @@ margin-right:25px;
   display:inline-block;  
   border:2px solid #bfbeb2;
   margin:15px 10px 10px 0;
+}
+
+/* map機能 */
+#map {
+  height: 250px;
+  width: 500px;
+  margin:10px 0;
 }
 
 /* コメント機能 */
@@ -230,3 +258,4 @@ font-size: 25px;
 .comment-count{
 margin-left:20px;  
 }
+
