@@ -1,0 +1,11 @@
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <%= post.store_name %>
+    <%= post.address %>
+    <% if post.post_images.present? %>
+      <%= post.post_images %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>検索結果は見つかりませんでした</p>
+<% end %>

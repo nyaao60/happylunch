@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'static_pages#home'
-   # 修正前
+  # 修正前
   # resources :users do
   #   resource :relationships, only: [:create, :destroy]
   #   member do
@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
-
+  get '/search', to: 'posts#search'
 end
