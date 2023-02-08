@@ -1,13 +1,15 @@
-<%= form_with url: search_path, :method => 'get' do |f| %>
-
-    <%= f.text_field :location, value: params[:location], placeholder: "住所や行きたい場所を入力してください。" %>
-    <%= f.select :keyword, [
-      ['距離が近い順', 'near']
-    ] %>
-    <%= f.submit '検索', class: "button p-2" %>
-<% end %>
-<button id="get_current_spot" type="button" class="button p-2">現在地を取得</button>
-
+<div class="search">
+  <%= form_with url: search_path, :method => 'get' , local: true do |f| %>
+    <div class="search-form">
+      <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
+      <%= f.select :keyword, [
+        ['距離が近い順', 'near']
+      ], id:"search-selection"%>
+      <%= f.submit '検索', class: "basic-btn" %>
+    </div>
+  <% end %>
+  <button id="get_current_spot" type="button" class="basic-btn">現在地を取得</button>
+</div>
 <script>
   function geoFindMe() {
     function success(position) {
@@ -15,7 +17,7 @@
       const longitude = position.coords.longitude;
       document.getElementById('location').value = `${latitude},${longitude}`;
       // 上記text_fieldのlocationに情報を渡す。
-    }
+  }
 
     function error() {
       alert('エラーが発生しました。')

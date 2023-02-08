@@ -57,11 +57,11 @@ class PostsController < ApplicationController
       latitude = results.first.coordinates[0]
       longtitude = results.first.coordinates[1]
       #distance = 0.621371 マイルを約1キロ換算
-      posts = Post.within_box(20,latitude,longtitude)
+      posts = Post.within_box(200,latitude,longtitude)
       # 入力された場所情報の1km範囲内のpostの配列をpostsに入れている。
       case selection
       when 'near' 
-        @posts=Post.near(results.first.coordinates,20).page(params[:page])
+        @posts=Post.near(results.first.coordinates).page(params[:page])
       else
         @posts=posts
       end
