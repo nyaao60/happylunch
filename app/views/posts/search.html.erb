@@ -1,0 +1,8 @@
+<% provide(:titlebar, "検索結果") %>
+<% if @posts.any? %>
+  <ul class="posts">
+  <%= render @posts %>
+  </ul>
+<% else %>
+  <p>検索結果は見つかりませんでした</p>
+<% end %>

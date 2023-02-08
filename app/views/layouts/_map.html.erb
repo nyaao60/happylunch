@@ -1,0 +1,35 @@
+<% if @post.latitude && @post.latitude.present? %>
+<div class="map">
+  <div id="map">
+  </div>
+</div>
+<% end %>
+
+  <script>
+    function initMap(){
+      var posi = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+      center: posi,
+      zoom: 15
+      });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+    // 情報ウィンド設定
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString,// 情報ウィンド内容
+    size: new google.maps.Size(100, 100)//情報ウィンドウのサイズ（幅、高さ）
+    });
+    // マーカー設定
+    var marker = new google.maps.Marker({
+                    position:posi,
+                    map: map,
+                    title: contentString
+                  });
+    marker.addListener('click', function() {
+    infowindow.open(map, marker);
+    });
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async></script>

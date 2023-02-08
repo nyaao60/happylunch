@@ -1,0 +1,35 @@
+<div class="search">
+  <%= form_with url: search_path, :method => 'get' , local: true do |f| %>
+    <div class="search-form">
+      <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
+      <%= f.select :keyword, [
+        ['距離が近い順', 'near']
+      ], id:"search-selection"%>
+      <%= f.submit '検索', class: "basic-btn" %>
+    </div>
+  <% end %>
+  <button id="get_current_spot" type="button" class="basic-btn">現在地を取得</button>
+</div>
+<script>
+  function geoFindMe() {
+    function success(position) {
+      const latitude  = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      document.getElementById('location').value = `${latitude},${longitude}`;
+      // 上記text_fieldのlocationに情報を渡す。
+  }
+
+    function error() {
+      alert('エラーが発生しました。')
+    }
+
+    if(!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser');
+    } else {
+      navigator.geolocation.getCurrentPosition(success, error);
+    // navigator.geolocation.getCurrentPositionは。現在の端末位置を取得し、successもしくは、errorに渡す。
+    }
+  }
+
+  document.querySelector('#get_current_spot').addEventListener('click', geoFindMe);
+</script>

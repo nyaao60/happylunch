@@ -1,8 +1,11 @@
 #post-review{
+  width:510px;
+  height:200px;
+  padding:10px ;
   margin-top:10px;
   border: 2px solid #b8b7b7; 
   border-radius:5px;
-  padding:0px 200px 80px 5px;
+  
 }
 
 /* 投稿作成画面 */
@@ -31,8 +34,8 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
+
 .post-form input,textarea,select {
-  font-family: "Roboto", sans-serif;
   width: 100%;
   outline: 0;
   background: #f2f2f2;
@@ -62,6 +65,7 @@ border-radius:5px;
 margin-top:15px;
 }
 
+/* 新規作成、編集時のレビュー欄 */
 #review-comment{
 height:180px;
 display: inline-block;
@@ -110,6 +114,23 @@ margin-right:25px;
   border-radius:80px;
   margin:0 0 0 10px;
 }
+/* ランチ情報bar */
+#lunch-info{
+  font-size:17px;
+  font-weight: bold;
+  width: 100%;  
+  line-height:50px;
+  background-color:rgba(249, 171, 93,0.7);
+  text-align:center;  
+  border-radius:10px;
+  margin-bottom:10px;
+}
+.fa-utensils{
+margin-left:5px;
+}
+.shop-info{
+font-weight: bolder;  
+}
 
 /* 投稿画像 */
 #post-file{
@@ -118,6 +139,13 @@ margin-right:25px;
   display:inline-block;  
   border:2px solid #bfbeb2;
   margin:15px 10px 10px 0;
+}
+
+/* map機能 */
+#map {
+  height: 250px;
+  width: 500px;
+  margin:10px 0;
 }
 
 /* コメント機能 */
@@ -190,8 +218,7 @@ padding:10px 0 20px 0;
 
 /* コメント入力欄 */
 #comment-input-field{
-  font-family: "Roboto", sans-serif;
-  background: #f2f2f2;
+  background-color: #f2f2f2;
   width: 100%;
   border: 1px solid #b8b7b7; 
   border-radius:5px;
@@ -204,7 +231,6 @@ padding:10px 0 20px 0;
 /* コメントボタン */
 #comment-button{
   display:block;
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #FFFFFF;
   background-color: #f17509;
@@ -229,4 +255,77 @@ font-size: 25px;
 
 .comment-count{
 margin-left:20px;  
+}
+
+/* 検索 */
+.search{
+width: 1000px;
+margin:50px auto;
+border:1px solid  rgb(0, 0, 0,0.6);
+border-radius:10px;
+padding:30px;
+background-color: #FFFFFF;
+}
+
+.search-form{
+display: flex;
+}
+
+.basic-btn{
+  font-size:15px;
+  width: 60px;
+  background-color: rgb(236, 156, 102);
+  color: #FFFFFF;
+  border-radius:5px;
+  padding:5px 5px;  
+  font-size:15px;
+}
+
+
+.search-location{
+width:500px;  
+border: 1px solid;
+}
+
+#keyword{
+  width:300px;
+  margin:0 20px;
+  background-color: #FFFFFF;
+  border: 1px solid;
+}
+
+#get_current_spot{
+margin:20px 0 0 350px;  
+width:200px;
+height:50px;
+}
+
+/* 検索結果 */
+.post-search-top{
+display:flex;
+
+}
+
+.posts {
+  list-style: none;
+  margin: 0; 
+  display:block;
+}
+
+.posts li {
+  font-size:20px;
+  overflow: auto;
+  padding: 10px;
+  border-bottom: 1px solid #dad8d8;
+}
+
+.post-search-star{
+margin-left:10px;
+}
+
+/* selectの矢印を復活させる */
+select {
+  -moz-appearance: menulist-button;
+  -webkit-appearance: menulist-button;
+  appearance: menulist-button;
 }

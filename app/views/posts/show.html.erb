@@ -14,18 +14,22 @@
         <%= link_to image_tag(@user.user_image.thumb.url,id:"reviewer-icon"),user_path(@user) %>
         <%=@user.name%></p>
       </div>        
-      <p>店名：<%= @post.store_name%></p>
+      <p id="lunch-info">ランチ情報<span class="fa-solid fa-utensils"></span></p>
       <% if @post.post_images.present? %>
         <% @post.post_images.each do |image|%>
           <%= image_tag image.to_s,id:"post-file"%>
         <%end%>  
       <% end %>
-      <p>住所：<%= @post.adress%></p>
-      <p>価格：<%= @post.price%>円</p>
-      <p>評価：<%= render 'layouts/five_star_rating' %></p>
-      <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
-      <h3 style="white-space:pre-wrap;" id="post-review"><%= 
-      @post.body %></h3>
+      <div class="shop-info">
+        <p>店名：<%= @post.store_name%></p>
+        <p>住所：<%= @post.address%></p>
+        <%=render 'layouts/map'  %>
+        <p>価格：<%= @post.price%>円</p>
+        <p>評価：<%= render 'layouts/five_star_rating' %></p>
+        <p>野菜豊富：<%= @post.lots_of_vegetables%></p>
+        <h3 style="white-space:pre-wrap;" id="post-review"><%= 
+        @post.body %></h3>
+      </div>
       <div class="post-subinfo">
         <p><%= render 'layouts/like' %></p>
           <div class="comment-count">
