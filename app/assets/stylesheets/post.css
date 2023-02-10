@@ -303,24 +303,46 @@ height:50px;
 /* 検索結果 */
 .post-search-top{
 display:flex;
-
 }
 
 .posts {
   list-style: none;
-  margin: 0; 
+  margin:40px 0 0 0; 
   display:block;
 }
 
+/* １投稿 */
 .posts li {
+  margin:20px auto;
+  width:70%;
   font-size:20px;
+  font-weight: bold;
   overflow: auto;
-  padding: 10px;
-  border-bottom: 1px solid #dad8d8;
+  padding: 20px;
+  border: 3px solid  rgba(53, 52, 52, 0.501);
+  background-color:#FAF4EF;
+  border-radius:10px;
+}
+.posts li a{
+padding-left:0; 
+}
+.posts li p{
+margin-bottom:5px;  
+}
+
+.post-search-time{
+text-align: right;  
+margin-right:20px;
 }
 
 .post-search-star{
 margin-left:10px;
+}
+
+.post-search-body{
+  padding:15px 10px;
+  height:150px;
+  border:1px solid;  
 }
 
 /* selectの矢印を復活させる */
