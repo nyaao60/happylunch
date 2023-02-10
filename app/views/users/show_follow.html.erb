@@ -4,4 +4,6 @@
   <%= render @users %>
   </ul>
   <%= paginate @users %>
+<% else %>
+  <p class="no-post"> <%= "#{@title}はいません。"%> </p>
 <% end %>
