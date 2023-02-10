@@ -1,0 +1,26 @@
+<div class="user-status">
+  <ul>
+    <li>
+    <p class="status-count"><%= @user.following.count %> </p>  
+    <%= link_to("フォロー",following_user_path(@user),{class:"status-title"})%>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <p class="status-count"><%= @user.followers.count %> </p>  
+    <%= link_to("フォロワー",followers_user_path(@user),{class:"status-title"})%>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <p class="status-count"><%= @user.posts.count %> </p>  
+    <%= link_to("投稿",personal_posts_user_path(@user),{class:"status-title"})%>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <p class="status-count"><%= @user.likes.count %> </p>  
+    <%= link_to("いいね",likes_user_path(@user),{class:"status-title"})%>
+    </li>
+  </ul>
+</div>  

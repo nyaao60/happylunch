@@ -53,6 +53,19 @@ background-color:rgba(249, 171, 93,0.7);
 text-align:center;
 }
 
+.title-bar2{
+  font-size:17px;
+  font-weight: bold;
+  width: 200px;  
+  line-height:60px;
+  border-radius:100px;
+  background-color:rgba(218, 196, 181, 0.708);
+  text-align:center;
+  margin: 0 auto;
+  padding:0 10px;
+}
+
+
 .edit-logout{
   padding:0px 0px 0px 300px;
   }
@@ -61,6 +74,7 @@ text-align:center;
 padding:50px 0px 200px 200px;
 margin: auto;
 width: 960px;
+height:480px;
 }
 
 .profile-icon{
@@ -145,17 +159,19 @@ margin:10px 0 0 20px;
 .user-status
 {
 display:flex;
+margin-left:30px;
 }
 
 .status-count{
-margin:30px 0 0 55px;
+margin:30px 0 0 30px;
+padding-left:5px;
 font-size:25px;
 /* font-weight: bold; */
 /* font-style: italic; */
 }
 
 .status-title{
-margin:10px 0 0 40px;
+margin:10px 0 0 10px;
 font-size:20px
 }
 
@@ -186,4 +202,9 @@ font-size:20px
 margin:30px 30px 0 15px;
 width:180px;
 }
-
+/* ユーザーの投稿、いいねした投稿 */
+.no-post{
+text-align: center;
+font-size:20px;
+margin-top:10px;
+}
