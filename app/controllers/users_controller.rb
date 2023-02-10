@@ -8,6 +8,7 @@ before_action :correct_user,only:[:edit,:update]
   def show
     @user = User.find(params[:id])
     @relationship=Relationship.find_by(follower_id:current_user.id,followed_id:@user.id)
+    @posts=Post.where(user_id:params[:id])
   end  
 
   def index
@@ -54,6 +55,16 @@ before_action :correct_user,only:[:edit,:update]
     render 'show_follow'
   end
 
+  def personal_posts
+    @user=User.find(params[:id])
+    @posts=Post.where(user_id:params[:id])
+  end
+
+  def likes
+    @user=User.find(params[:id])
+    likes=Like.where(user_id:params[:id]).pluck(:post_id)
+    @posts=Post.where(id:likes)
+  end
 
   private
 
