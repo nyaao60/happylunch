@@ -1,13 +1,15 @@
 <li>
   <div class="post-search-top">
-      
-      <p>店名：<%= link_to "#{post.store_name}",post_path(post) %></p>
-      <p class="post-search-star">★<%=post.five_star_rating.to_f %></p>
-    </div>
+    <p>店名：<%= link_to "#{post.store_name}",post_path(post) %></p>
+    <p class="post-search-star">★<%=post.five_star_rating.to_f %></p>
+  </div>
     <p>住所： <%= post.address %></p>
+    <p>価格： <%= post.price %> 円</p>
     <% if post.post_images.present? %>
       <% post.post_images.each do |image|%>
         <%= image_tag image.to_s,id:"post-file"%>
       <%end%>  
     <% end %>
-</li>  
+  <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
+  <p class="post-search-time">投稿日：<%=l post.created_at %></p>
+</li>
