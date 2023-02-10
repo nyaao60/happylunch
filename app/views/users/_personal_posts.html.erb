@@ -1,0 +1,7 @@
+<% if @posts.any? %>
+  <ul class="posts">
+    <%= render @posts %>
+  </ul>
+<% else %>
+  <p><%=@user.name%>さんの投稿投稿はありません。</p>
+<% end %>

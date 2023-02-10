@@ -1,13 +1,4 @@
-<% provide(:titlebar, "マイページ") %>
-<div class="user-page"> 
-  <div class="user-topinfo">
-    <p> <%= image_tag @user.user_image.thumb.url,class:'profile-icon' %> </p>
-    <h3><%= @user.name %> </h3>
-    <p><%= render 'layouts/follow_form' %></p>
-    <% if current_user == @user%>
-      <%= button_to "編集", edit_user_path(current_user), { method: :get, id:"edit-btn"} %>
-    <%end%>
-  </div>
-    <h3 style="white-space:pre-wrap;" class="self-introduction"><%= @user.self_introduction %></h3>
-    <p><%= render 'layouts/user_status' %></p>
-</div>
+<%= render 'user_info' %> 
+<% provide(:titlebar2, "#{@user.name}さんの投稿") %>
+<%= render 'layouts/title-bar2' %>
+<%= render 'personal_posts' %>

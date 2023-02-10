@@ -1,0 +1,8 @@
+<% provide(:titlebar, "#{@user.name}さんのいいね投稿") %>
+<% if @posts.any? %>
+  <ul class="posts">
+    <%= render @posts %>
+  </ul>
+<% else %>
+  <p class="no-post"><%=@user.name%>さんのいいねした投稿はありません。</p>
+<% end %>

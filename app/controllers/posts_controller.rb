@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       flash.now[:alert]="入力に誤りがあります"
       render 'new'
     end
-  end
+  end 
 
   def show
     @post=Post.find(params[:id])
