@@ -265,6 +265,9 @@ border:1px solid  rgb(0, 0, 0,0.6);
 border-radius:10px;
 padding:30px;
 background-color: #FFFFFF;
+} 
+.search-part h3{
+text-align:center;
 }
 
 .search-form{
@@ -332,7 +335,7 @@ margin-bottom:5px;
 
 .post-search-time{
 text-align: right;  
-margin-right:20px;
+margin-top:10px;
 }
 
 .post-search-star{
@@ -343,11 +346,70 @@ margin-left:10px;
   padding:15px 10px;
   height:150px;
   border:1px solid;  
+  margin-bottom:10px;
 }
+
 
 /* selectの矢印を復活させる */
 select {
   -moz-appearance: menulist-button;
   -webkit-appearance: menulist-button;
   appearance: menulist-button;
+}
+
+
+
+/* HOME画面のpost */
+.home-titlebar{
+  font-size:17px;
+  font-weight: bold;
+  width: 200px;  
+  line-height:60px;
+  border-radius:100px;
+  background-color:rgba(231, 221, 163, 0.71);
+  text-align:center;
+  margin: 20px  auto 0;
+  padding:0 10px;
+
+}
+
+.home-posts{
+  flex-wrap: wrap; 
+  margin:  0  auto;
+  margin-top:20px;
+  width:80%;
+  justify-content:space-between; 
+  row-gap:20px;
+  column-gap:10px
+}
+
+.home-posts li{
+  padding:20px;
+  border: 3px solid  rgba(53, 52, 52, 0.501);
+    /* background-color:#FAF4EF; */
+    border-radius:10px;
+    width: 30%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+/* HOMEに存在する投稿 */
+.reviewer-info-top{
+  display:flex;
+  justify-content: flex-end;
+  margin:0 10px 15px 0;
+}
+
+.reviewer-info-top a{
+  padding:0;
+}
+
+#reviewer-icon-top{
+  width:30px;
+  height:30px;
+  margin-left:10px;
+  border:2px solid #bfbeb2;
+  border-radius:80px;
+}
+
+.post-search-top a{
+  padding:0 0 0 5px ;
 }
