@@ -77,4 +77,34 @@ RSpec.describe User, type: :model do
       end  
     end 
   end
+
+  describe "インスタンスメソッド" do
+    let(:user_a) { create(:user) }
+    let(:user_b) { create(:user) }
+    let(:user_c) { create(:user) }
+    let(:post_by_user_a) { create(:post, user:user_a) }
+    let(:post_by_user_b) { create(:post, user: user_b) }
+    let(:post_by_user_c) { create(:post, user: user_c) }
+
+    context "フォロメソッド" do
+      it 'フォローができること' do
+        expect { user_a.follow(user_b) }.to change { Relationship.count }.by(1) 
+        binding.pry
+      end
+      
+      it 'フォローが解除できること' do
+        user_a.follow(user_b)
+        expect { user_a.unfollow(user_b) }.to change { Relationship.count }.by(-1)
+      end
+      
+      it 'フォローしている場合 true' do
+        user_a.follow(user_b)
+        expect(user_a.following?(user_b)).to eq true
+      end
+
+      it 'フォローしていない場合 false' do
+        expect(user_a.following?(user_c)).to eq false
+      end
+    end  
+  end
 end
