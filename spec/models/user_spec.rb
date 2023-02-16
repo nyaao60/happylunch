@@ -39,13 +39,6 @@ RSpec.describe User, type: :model do
         expect(other_user).to be_invalid
       end
 
-      # it 'メールアドレスの一意性'
-      #   other_user= user.dup
-      #   user.save
-      #   expect(other_user).to be_invalid
-      #   # expect(other_user.errors[:email]).to include('はすでに存在します')
-      # end
-
       it '無効なメールアドレスフォーマットのため保存不可' do
         invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.foo@bar_baz.com foo@bar+baz.com]
         invalid_addresses.each do |invalid_address|
@@ -78,33 +71,57 @@ RSpec.describe User, type: :model do
     end 
   end
 
-  describe "インスタンスメソッド" do
-    let(:user_a) { create(:user) }
-    let(:user_b) { create(:user) }
-    let(:user_c) { create(:user) }
-    let(:post_by_user_a) { create(:post, user:user_a) }
-    let(:post_by_user_b) { create(:post, user: user_b) }
-    let(:post_by_user_c) { create(:post, user: user_c) }
+  describe "フォロー関連メソッド" do
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user) }
 
-    context "フォロメソッド" do
-      it 'フォローができること' do
-        expect { user_a.follow(user_b) }.to change { Relationship.count }.by(1) 
-        binding.pry
-      end
-      
-      it 'フォローが解除できること' do
-        user_a.follow(user_b)
-        expect { user_a.unfollow(user_b) }.to change { Relationship.count }.by(-1)
-      end
-      
-      it 'フォローしている場合 true' do
-        user_a.follow(user_b)
-        expect(user_a.following?(user_b)).to eq true
-      end
+    it 'フォローができること' do
+      expect { user.follow(other_user.id) }.to change { Relationship.count }.by(1) 
+      binding.pry
+    end
+    
+    it 'フォローが解除できること' do
+      user.follow(other_user.id)
+      expect { user.unfollow(other_user) }.to change { Relationship.count }.by(-1)
+    end
+    
+    it 'フォローしている場合 フォロー一覧に存在すること' do
+      user.follow(other_user.id)
+      expect(user.following?(other_user)).to eq true
+    end
 
-      it 'フォローしていない場合 false' do
-        expect(user_a.following?(user_c)).to eq false
-      end
-    end  
+    it 'フォローしていない場合 フォロー一覧に存在しない' do
+      expect(user.following?(other_user)).to eq false
+    end
   end
+    
+  describe "削除の依存性検証" do  
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    
+    it '削除すると紐づく投稿も削除されること' do
+      create(:post, user: user)
+      expect { user.destroy }.to change(user.posts, :count).by(-1)
+    end
+
+    it '削除すると紐づくお気に入りも削除されること' do
+      create(:like, user: user)
+      expect { user.destroy }.to change(user.likes, :count).by(-1)
+    end
+
+    it '削除すると紐づくフォローも削除されること' do
+      user.follow(other_user.id)
+      expect { user.destroy }.to change(user.following, :count).by(-1)
+    end
+
+    it '削除すると紐づくフォロワーも削除されること' do
+      user.follow(other_user.id)
+      expect { user.destroy }.to change(other_user.followers, :count).by(-1)
+    end
+  
+    it '削除すると紐づくコメントも削除されること' do
+      create(:comment, user: user)
+      expect { user.destroy }.to change(user.comments, :count).by(-1)
+    end
+  end  
 end

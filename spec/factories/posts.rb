@@ -9,5 +9,6 @@ FactoryBot.define do
     five_star_rating{ 3 }
     lots_of_vegetables{ true }    
     body {'a'*100}
+    association :user
   end
 end
