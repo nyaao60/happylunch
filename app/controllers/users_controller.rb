@@ -22,7 +22,7 @@ before_action :correct_user,only:[:edit,:update]
       flash[:success]="ようこそ、ハピランチへ！"
       redirect_to @user 
     else
-      flash.now[:alert]="入力に誤りがあります"
+      flash.now[:alert]="ユーザーの作成に失敗しました"
       render 'new'
     end
   end      
