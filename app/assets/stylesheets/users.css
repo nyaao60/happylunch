@@ -203,6 +203,17 @@ font-size:20px
 margin:30px 30px 0 15px;
 width:180px;
 }
+
+.user-index-selfintro{
+  margin:10px 30px 30px 15px;
+  width:500px;
+  }
+
+.users-follow {
+display: flex;
+width:50px;
+}
+
 /* ユーザーの投稿、いいねした投稿 */
 .no-post{
 text-align: center;
