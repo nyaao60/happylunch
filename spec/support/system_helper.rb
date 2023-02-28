@@ -9,7 +9,6 @@ module SystemHelper
   end
   
   def login_as(user)
-    user = create(:user)
     visit login_path
     fill_in'メールアドレス', with: user.email
     fill_in'パスワード', with: user.password
