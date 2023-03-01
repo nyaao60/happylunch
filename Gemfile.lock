@@ -100,6 +100,13 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     geocoder (1.8.1)
     globalid (1.0.0)
@@ -288,6 +295,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   dotenv-rails
+  factory_bot_rails
+  faker
   geocoder
   gmaps4rails
   jbuilder (~> 2.7)

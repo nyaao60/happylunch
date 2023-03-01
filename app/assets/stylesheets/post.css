@@ -57,7 +57,7 @@ margin: 10px;
 padding: 0px;
 background-color: #f0bb86;
 border:1px solid;
-border-color:rgb(42, 42, 42,0.6);
+border-color:rgba(42, 42, 42,0.6);
 border-radius:5px;
 }
 
@@ -261,7 +261,7 @@ margin-left:20px;
 .search{
 width: 1000px;
 margin:50px auto;
-border:1px solid  rgb(0, 0, 0,0.6);
+border:1px solid  rgba(0, 0, 0,0.6);
 border-radius:10px;
 padding:30px;
 background-color: #FFFFFF;
@@ -317,7 +317,7 @@ display:flex;
 /* １投稿 */
 .posts li {
   margin:20px auto;
-  width:70%;
+  width:60%;
   font-size:20px;
   font-weight: bold;
   overflow: auto;
@@ -344,7 +344,7 @@ margin-left:10px;
 
 .post-search-body{
   padding:15px 10px;
-  height:150px;
+  height:200px;
   border:1px solid;  
   margin-bottom:10px;
 }

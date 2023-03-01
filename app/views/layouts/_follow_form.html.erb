@@ -1,12 +1,16 @@
-<% unless current_user == @user%>
-  <% if current_user.following?(@user) %>
-    <%= link_to relationship_path(@relationship.id),method:"delete" do %>
-    <p class="unfollowbutton"> フォロー中</p>
-    <%end%> 
-  <%else%>
-    <%= link_to relationships_path(followed_id:@user),method:"post" do %>
-      <p class="fa-solid fa-user-plus followbutton">
-    フォロー</p>
+<% unless current_user == user%>
+    <% if current_user.following?(user) %>
+      <div>
+      <%= link_to(relationship_path(current_user.active_relationships.find_by(followed_id: user.id)),method:"delete",id:"unfollow-form-#{user.id}" )do %>
+      <p class="unfollowbutton"> フォロー中</p>
+      <%end%> 
+      </div>
+    <%else%>
+      <div>
+        <%= link_to(relationships_path(followed_id:user),method:"post",id:"follow-form-#{user.id}") do %>
+          <p class="fa-solid fa-user-plus followbutton">
+        フォロー</p>
+        <%end%>
+      </div>
     <%end%>
-  <%end%>
-<%end%> 
+  <%end%> 

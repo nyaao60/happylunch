@@ -2,4 +2,5 @@
   <p> <%= link_to image_tag(user.user_image.thumb.url,id:"user-index-icon"),user_path(user) %></p>  
   <p class="user-index-name"><%= user.name %> </p>
   <p style="white-space:pre-wrap;"  class="user-index-selfintro"><%=user.self_introduction %></p>
+  <p class="users-follow"><%= render 'layouts/follow_form',user: user %></p>
 </li>  
