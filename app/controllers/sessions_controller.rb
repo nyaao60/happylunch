@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     else
       forget(user) 
     end  
-      redirect_to (user_url(user.id))
+      redirect_to root_path
     else
       flash.now[:danger]='メールアドレスとパスワードの組み合わせが誤っています'
       render 'new'
@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
   def destroy
     logout if logged_in?
     redirect_to root_url
+    flash[:success]="ログアウトしました"
   end  
 
 end
