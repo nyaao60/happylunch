@@ -7,7 +7,7 @@ RSpec.describe Relationship, type: :model do
 
     context '正常に保存できる場合' do
       let(:relationship) do
-        create(
+        build(
           :relationship,
           follower_id: user.id,
           followed_id: other_user.id
@@ -21,7 +21,7 @@ RSpec.describe Relationship, type: :model do
 
     context '正常に保存できない場合' do
       let!(:relationship) do
-        create(
+        build(
           :relationship,
           follower_id: user.id,
           followed_id: other_user.id
