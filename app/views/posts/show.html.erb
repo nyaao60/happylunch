@@ -22,7 +22,7 @@
       <% end %>
       <div class="shop-info">
         <p>店名：<%= @post.store_name%></p>
-        <p>住所：<%= @post.address%></p>
+        <p>住所：<%= @post.address %></p>
         <%=render 'layouts/map'  %>
         <p>価格：<%= @post.price%>円</p>
         <p>評価：<%= render 'layouts/five_star_rating' %></p>

@@ -1,8 +1,8 @@
 <header>
     <% if logged_in? %>
         <div class="header-title">
-        <h1><a href="#">ハピランチ</a></h1>
-        <div class="logo"><%= link_to image_tag('/assets/ロゴ.png'),root_path, {class: "logo-image"}%></div>
+            <h1><%= link_to("ハピランチ",root_path)%></h1>
+            <div class="logo"><%= link_to image_tag('/assets/ロゴ.png'),root_path, {class: "logo-image"}%></div>
         </div>
         <nav>
             <ul>
@@ -24,15 +24,17 @@
         </nav>
     <%else%>
         <div class="header-title">
-        <h1><a href="#">ハピランチ</a></h1>
+        <h1><%= link_to("ハピランチ",root_path)%></h1>
         <div class="logo"><%= link_to image_tag('/assets/ロゴ.png'),root_path, {class: "logo-image"}%></div>
         </div>
         <nav>
             <ul>
-                <li class="header-login">
-                <div  class="header-image"><%= link_to image_tag("/assets/マイページ.png"),login_path %></div>
-                <p class="header-text">ログイン</p>
-                </li>           
+                <li id="header-login">  
+                    <%= link_to(login_path) do %>
+                        <p class="fa-solid fa-circle-user fa-3x"></p>
+                        <p class="header-text-logout">ログイン</p>
+                    <%end%>  
+                </li>
             </ul>
         </nav>
     <%end%>
