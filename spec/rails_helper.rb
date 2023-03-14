@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -26,13 +26,27 @@ require 'capybara/rspec'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
+
+Capybara.register_driver :headless_chrome do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << "--headless"
+    opts.args << "--disable-gpu"
+    opts.args << "--no-sandbox"
+  end
+  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: browser_options)
+end
+
+Capybara.server = :puma, { Silent: true }
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -64,6 +78,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # config.include(RequestSpecHelper, type: :request)
+  # config.include(SystemSpecHelper, type: :system)
+  # config.include(ViewSpecHelper, type: :view)
+
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :headless_chrome
+  end
+
   config.include FactoryBot::Syntax::Methods
   config.include SystemHelper, type: :system
 

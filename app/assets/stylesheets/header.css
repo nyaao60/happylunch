@@ -54,6 +54,10 @@ margin:0 auto;
  margin:20px;
 }
 
+.header-text-logout{
+padding:3px 0 0 5px;  
+}
+
 .header-title{
  display:flex; 
 }
@@ -69,9 +73,13 @@ top: 0;
 bottom: 0;
 margin: auto;
 }
-.header-login{
-padding-right:10px;
 
+#header-login{
+margin:30px 50px 0 0;
+}
+
+.fa-circle-user{
+padding:0px;
 }
 
 ul li ul{
@@ -89,3 +97,4 @@ header ul li:hover ul{
   background-color: rgb(246, 214, 188);
   transition: .60s;
 }
+

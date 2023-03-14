@@ -11,8 +11,8 @@ class Post < ApplicationRecord
   mount_uploaders :post_images, ImageUploader
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+  # # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode
 
   def liked_by(user_id)
     likes.where(user_id: user_id).exists?
