@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
   
   root 'static_pages#home'
-  # 修正前
-  # resources :users do
-  #   resource :relationships, only: [:create, :destroy]
-  #   member do
-  #     get :following,:followers
-  # end 
-
+  
   resources :users do
     member do
       get :following, :followers,:likes,:personal_posts
@@ -23,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/signup', to:'users#new' 
   get '/login', to:'sessions#new'
+  post '/guest', to: 'users#guest'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
   get '/search', to: 'posts#search'
