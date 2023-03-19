@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-before_action :correct_user,only:[:edit,:update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :ensure_normal_user, only: [:update,:destroy]
 
   def new
     @user= User.new
@@ -33,13 +34,20 @@ before_action :correct_user,only:[:edit,:update]
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_update_params)
+    if @user.update(user_update_params) 
       flash[:success]="プロフィールを更新しました！"
       redirect_to @user
     else
       render 'edit'
     end 
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to root_url
+  end
+
 
   def following
     @title = "フォローしているユーザー"
@@ -66,6 +74,17 @@ before_action :correct_user,only:[:edit,:update]
     @posts=Post.where(id:likes)
   end
 
+  def guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = "ゲストユーザー"
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation=user.password
+    end
+    log_in(user)
+    flash[:success] = "ゲストユーザーとしてログインしました！"
+    redirect_to root_url
+  end
+
   private
 
     def user_params
@@ -74,11 +93,19 @@ before_action :correct_user,only:[:edit,:update]
 
     def user_update_params
       params.require(:user).permit(:name,
-        :user_image,:self_introduction)
+      :user_image,:self_introduction)
     end
 
     def correct_user 
-      redirect_to root_url unless current_user=User.find(params[:id])
+      if current_user != User.find(params[:id])
+        redirect_to user_path(current_user),alert: '他のユーザーの編集や削除はできません。'  
+      end
+    end
+
+    def ensure_normal_user
+      if current_user.email == 'guest@example.com'
+        redirect_to user_path, alert: '申し訳ございません、ゲストユーザーはユーザー編集や削除ができません。'
+      end
     end
 
 end   

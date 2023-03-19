@@ -9,11 +9,11 @@
       <%= f.check_box :remember ,id:"remember-box" %>
       <%= f.label :remember,"次回から自動的にログインする。" %>
       <%= f.submit "ログイン",id:"signup-button" %>
-      <p><%= link_to "パスワードをお忘れの場合","#",id:"password-forgot" %></p>
       <hr class="hr1">
       <div  class="guest-user-login">
-        <h3>ユーザー登録せずに機能を試したい方はこちら</h3> 
-        <%= link_to "ゲストユーザーでログイン","#" %>
+        <h3>    
+          <%= link_to 'ユーザー登録せずに機能を試したい方はこちら', guest_path, method: :post,id:"password-forgot"%>
+        </h3>
       </div>
     <% end %>
   </div>

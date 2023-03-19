@@ -12,6 +12,12 @@
       <%= f.label :password_confirmation,"パスワード(確認)" %>
       <%= f.password_field :password_confirmation %>
       <%= f.submit "登録", id:"signup-button"%>
+      <hr class="hr1">
+      <div  class="guest-user-login">
+        <h3>    
+        <%= link_to 'ユーザー登録せずに機能を試したい方はこちら', guest_path, method: :post,id:"password-forgot"%>
+        </h3>
+      </div>
     <% end %> 
   </div>
 </div>
