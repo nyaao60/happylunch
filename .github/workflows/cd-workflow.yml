@@ -11,7 +11,7 @@ env:
   ECS_WEBAPP_SERVICE: service-main
   WEBAPP_CONTAINER_NAME: rails 
   WEBAPP_TAG: latest
- 
+
 jobs:
   deploy:
     name: deploy
@@ -40,8 +40,9 @@ jobs:
       run: |
         cd webapp
         docker build -t $WEBAPP_CONTAINER_NAME .
-        docker tag $WEBAPP_CONTAINER_NAME:WEBAPP_TAG $ECR_REGISTRY/$WEBAPP_CONTAINER_NAME:WEBAPP_TAG
-        docker push $ECR_REGISTRY/$WEBAPP_CONTAINER_NAME:WEBAPP_TAG
+        docker tag $WEBAPP_CONTAINER_NAME:$WEBAPP_TAG $ECR_REGISTRY/$WEBAPP_CONTAINER_NAME:$WEBAPP_TAG
+        docker push $ECR_REGISTRY/$WEBAPP_CONTAINER_NAME:$WEBAPP_TAG
+        
     - name: Deploy to ECS
       run: |
         aws ecs update-service --service $ECS_WEBAPP_SERVICE --cluster ecs-lessson-cluster --force-new-deployment
