@@ -44,4 +44,4 @@ jobs:
 
     - name: Deploy to ECS
       run: |
-        aws ecs update-service --service $ECS_WEBAPP_SERVICE --cluster ecs-lessson-cluster --force-new-deployment
+        aws ecs update-service --service $ECS_WEBAPP_SERVICE --cluster cluster-main1 --force-new-deployment
