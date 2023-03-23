@@ -10,14 +10,8 @@ development:
   <<: *default
   database: happylunch_development
 
-
 test:
-  adapter: mysql2
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  host: localhost
+  <<: *default
   database: happylunch_test
 
 production:
