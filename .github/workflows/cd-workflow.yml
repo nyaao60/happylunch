@@ -6,6 +6,13 @@ on:
       - develop
     types: [closed]
 
+env:
+  AWS_REGION: ap-northeast-1
+  ECS_WEBAPP_SERVICE: service-main
+  WEBAPP_CONTAINER_NAME: rails 
+  WEBAPP_TAG: latest
+
+
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -44,13 +51,6 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec
 
-env:
-  AWS_REGION: ap-northeast-1
-  ECS_WEBAPP_SERVICE: service-main
-  WEBAPP_CONTAINER_NAME: rails 
-  WEBAPP_TAG: latest
-
-jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
