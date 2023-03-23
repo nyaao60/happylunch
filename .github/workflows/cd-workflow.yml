@@ -53,6 +53,7 @@ jobs:
 
   deploy:
     name: deploy
+    needs: rspec
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
