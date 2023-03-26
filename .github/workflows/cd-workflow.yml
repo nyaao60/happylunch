@@ -11,6 +11,7 @@ env:
   ECS_WEBAPP_SERVICE: service-main
   WEBAPP_CONTAINER_NAME: rails 
   WEBAPP_TAG: latest
+  GOOGLE_MAP_API: ${{ secrets.GOOGLE_MAP_API }}
 
 jobs:
   rspec:
