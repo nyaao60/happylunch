@@ -10,7 +10,7 @@
           </div>
           <div class="comment-header-right">
               <% if current_user == comment.user%>
-              <%= button_to "削除", post_comments_path(comment.post_id,comment.id),  { method: :delete, id:"comment-delete-btn"} %>
+              <%= button_to "削除", post_comment_path(comment.post_id,comment.id),  { method: :delete, id:"comment-delete-btn"} %>
               <%end%>
               <%= l comment.created_at%>
           </div>

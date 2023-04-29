@@ -23,7 +23,6 @@ RSpec.describe '投稿', type: :system do
                 expect(page).to_not have_content other_user_post.store_name
             end
         end
-
         context "ログインしていない場合" do
             it 'home画面に全ての投稿が表示される' do
                 visit root_path 
@@ -49,6 +48,109 @@ RSpec.describe '投稿', type: :system do
             expect(page).to have_content 'テスト店'
             expect(page).to have_content '600円'
             expect(page).to have_content 'とても美味しかったです！'
+        end
+    end
+
+    describe '投稿の削除、更新関係' do
+        let!(:login_user) { create(:user) }
+        let!(:login_user_post) { create(:post, user: login_user)}
+        let!(:other_user_post) { create(:post) }
+        
+        before do
+            login_as login_user 
+        end 
+
+        context '自分の投稿の場合' do
+        
+            it '編集ボタンが表示され編集ができること' do
+                visit post_path(login_user_post.id)
+                expect(page).to have_css '#post-edit-btn'
+                find("#post-edit-btn").click
+                attach_file '写真', Rails.root.join('spec', 'fixtures', 'sample.png')
+                fill_in 'post[body]', with: 'とっても美味しかったです！'
+                click_button '更新'
+                expect(page).to have_content '投稿を更新しました！'
+                expect(page).to have_content 'とっても美味しかったです！'
+            end
+
+            it '削除ボタンが表示され削除できること' do
+                visit post_path(login_user_post.id)
+                expect(page).to have_css '#post-delete-btn'
+                expect{
+                    find("#post-delete-btn").click
+                    }
+                    .to change{Post.where(user_id:login_user.id).count}.by(-1)
+            end
+        end
+
+        context '他人の投稿の場合' do
+            
+            it '削除ボタンが表示されないこと' do
+                visit post_path(other_user_post.id)
+                expect(page).to_not have_css ".post-delete-btn"
+            end
+
+            it '編集ボタンが表示されないこと' do
+                visit post_path(other_user_post.id)
+                expect(page).to_not have_css '.post-edit-btn'
+            end
+        end
+    end
+
+    describe 'いいね' do
+        let!(:user) { create(:user) }
+        let!(:post) { create(:post) }
+        
+        before do
+            login_as user
+        end
+        
+        it '投稿にいいねができること' do
+            visit post_path(post.id)
+            binding.pry
+            expect{
+            find(".fa") .click
+            }
+            .to change { Like.where(post_id:post.id).count}.by(1)
+            expect(page).to have_css '.liked-button'            
+        end
+
+        it '投稿のいいねを取り消せること' do
+            visit post_path(post.id)
+            find(".unliked-btn") .click
+            expect{
+            find(".liked-btn") .click
+            }
+            .to change { Like.where(user_id:user.id).count}.by(-1)
+            expect(page).to have_css '.unliked-button'            
+        end
+    end
+
+    describe 'コメント' do
+        let!(:user) { create(:user) }
+        let!(:post) { create(:post) }
+        let!(:post2) { create(:post) }
+        let!(:comment_user) { create(:user) }
+        let!(:comment) { create(:comment, user:comment_user,post:post2)}
+
+        before do
+            login_as comment_user
+        end
+        
+        it 'コメントができること' do
+            visit post_path(post.id)
+            fill_in 'comment[content]', with: 'テストコメントをしました'   
+            click_button 'コメントする'
+            expect(page).to have_content 'テストコメントをしました'
+        end
+
+        it 'コメントを削除できること' do
+            visit post_path(post2.id)
+            expect{
+            find("#comment-delete-btn") .click
+            }
+            .to change { Comment.where(user_id:comment_user.id).count}.by(-1)
+            expect(page).to_not have_content 'b' * 10 
         end
     end
 end
