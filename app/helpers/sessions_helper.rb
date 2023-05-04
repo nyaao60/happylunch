@@ -19,8 +19,6 @@ module SessionsHelper
   def logged_in?
     current_user.present?
   end
- #メソッドの返り値は最後判定式の結果、つまりif session[:user_id]=nil=ログインしていない状態
-
 
   def remember(user)
   user.remember

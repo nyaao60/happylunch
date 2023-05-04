@@ -6,7 +6,8 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
     describe 'ログイン' do
         context '認証情報が正しい場合' do
             it 'ログインができる' do
-                visit '/login'
+                visit root_path
+                click_on 'ログイン'
                 fill_in 'メールアドレス', with: user.email
                 fill_in 'パスワード', with: user.password
                 click_button'ログイン'
@@ -14,10 +15,10 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
             end
         end   
         
-  
         context "入力に誤りがある" do
             it 'ログインできない' do
-                visit '/login'
+                visit root_path
+                click_on 'ログイン'
                 fill_in 'メールアドレス', with: user.email
                 fill_in 'パスワード', with: '1234'
                 click_button'ログイン'
@@ -27,13 +28,21 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
         end
     end
 
+    describe '簡単ログイン' do
+        it 'ログインできる' do
+            visit login_path
+            click_on 'ユーザー登録せずに機能を試したい方はこちら'
+            expect(current_path).to eq(root_path)            
+        end
+    end
+        
     describe "ログアウトできる" do
         before do
             login
         end
         
         it 'ログアウトの確認' do
-            click_link'ログアウト'
+            click_on 'ログアウト'
             expect(current_path).to eq (root_path) 
             expect(page).to have_content 'ログアウトしました'
         end
