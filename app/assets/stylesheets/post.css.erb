@@ -5,7 +5,7 @@
   margin-top:10px;
   border: 2px solid #b8b7b7; 
   border-radius:5px;
-  
+  overflow-y: scroll;   
 }
 
 /* 投稿作成画面 */
@@ -259,15 +259,29 @@ margin-left:20px;
 
 /* 検索 */
 .search{
-width: 1000px;
-margin:50px auto;
-border:1px solid  rgba(0, 0, 0,0.6);
-border-radius:10px;
+width:90%;
+margin:60px auto;
+/*border:1px solid  rgba(0, 0, 0,0.6);*/
 padding:30px;
-background-color: #FFFFFF;
+background-color:rgba(255,255,255,0.7);
 } 
+
+.search-part{
+  height:400px;  
+  background-image: url(<%= asset_path 'topimage.png' %>);
+  background-color:rgba(255,255,255,0.4);
+  background-blend-mode:lighten;
+  background-position: center;
+  background-size:100% auto;
+}
+
 .search-part h3{
-text-align:center;
+  font-size:30px;
+  color:black;
+  font-weight:bold;
+  text-align:center;
+  padding-top:40px;
+  font-family: 'Kiwi Maru', serif;  
 }
 
 .search-form{
@@ -286,21 +300,25 @@ display: flex;
 
 
 .search-location{
-width:500px;  
+width:50%;  
+font-size:19px;
 border: 1px solid;
 }
 
 #keyword{
-  width:300px;
+  font-size:15px;
+  width:30%;
   margin:0 20px;
   background-color: #FFFFFF;
   border: 1px solid;
 }
 
 #get_current_spot{
-margin:20px 0 0 350px;  
-width:200px;
+width:30%;
 height:50px;
+display: block;
+margin: auto;
+margin-top:2%;
 }
 
 /* 検索結果 */
@@ -344,8 +362,9 @@ margin-left:10px;
 
 .post-search-body{
   padding:15px 10px;
-  height:200px;
-  border:1px solid;  
+  height:150px;
+  border:1px solid; 
+  overflow-y: scroll;  
   margin-bottom:10px;
 }
 
@@ -375,23 +394,31 @@ select {
 
 .home-posts{
   flex-wrap: wrap; 
-  margin:  0  auto;
-  margin-top:20px;
-  width:80%;
+  margin:  20px  auto;
+  width:100%;
   justify-content:space-between; 
   row-gap:20px;
-  column-gap:10px
+  /* column-gap:10px */
+  font-weight:bold;
 }
 
 .home-posts li{
+  width:30%;
+  font-size:20px;
+  display:block;
+  margin:0 auto;
   padding:20px;
   border: 3px solid  rgba(53, 52, 52, 0.501);
     /* background-color:#FAF4EF; */
     border-radius:10px;
-    width: 30%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
-/* HOMEに存在する投稿 */
+
+  .home-posts p{
+  margin:5px 0;  
+  }
+
+  /* HOMEに存在する投稿 */
 .reviewer-info-top{
   display:flex;
   justify-content: flex-end;
