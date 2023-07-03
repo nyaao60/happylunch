@@ -1,21 +1,25 @@
-<li>
+<div class="post-form">
   <p class="reviewer-info-top">
     投稿者:
     <%= link_to image_tag(post.user.user_image.thumb.url,id:"reviewer-icon-top"),user_path(post.user) %>
     <%=post.user.name%>
   </p>
-  <div class="post-search-top">
-    <p>店名：<%= link_to "#{post.store_name}",post_path(post) %></p>
-    <p class="post-search-star">★<%=post.five_star_rating.to_f %></p>
+  <div class="review-info">
+      <% if post.post_images.present? %>
+
+        <%= image_tag(post.post_images[0].to_s,id:"post-file")%>
+      
+      <% end %>
+      <li id="post-notimage">
+      <div class="post-top">
+        <p>店名：<%= link_to "#{post.store_name}",post_path(post) %></p>
+        <p class="post-search-star">★<%=post.five_star_rating.to_f %></p>
+      </div>
+      <p>住所： <%= post.address %></p>
+      <p>価格： <%= post.price %> 円</p>         
+      <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
+      </li>
   </div>
-  <p>住所： <%= post.address %></p>
-  <p>価格： <%= post.price %> 円</p>
-  <% if post.post_images.present? %>
-    <% post.post_images.each do |image|%>
-      <%= image_tag image.to_s,id:"post-file"%>
-    <%end%>  
-  <% end %>
-  <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
   <div class="post-subinfo">
     <span class="fa fa-heart liked-btn"></span>
     <p><%= post.likes.count %></p>
@@ -25,4 +29,4 @@
     </div>
   </div>
   <p class="post-search-time">投稿日：<%=l post.created_at %></p>
-</li>
+</div>

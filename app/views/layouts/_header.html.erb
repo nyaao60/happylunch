@@ -6,20 +6,28 @@
         </div>
         <nav>
             <ul>
-                <li>
-                <div class="header-image"><%= link_to image_tag("/assets/投稿.png"),new_post_path %></div>
-                <p class="header-text">投稿</p>
-                </li>
-                <li>
-                <div  class="header-image"><%= link_to image_tag("/assets/マイページ.png"),
-                user_path(current_user) %></div>
-                <p class="header-text">マイページ</p>
+                <li class="header-link">
+                    <div class="header-image">           
+                        <%= link_to user_path(current_user) do %>
+                            <span class="fa-solid fa-user-group"></span>
+                        <% end %> 
+                    </div>
+                    <p class="header-text">マイページ</p>
                     <ul>
                         <li><%= link_to "マイページ", user_path(current_user) %></li>
                         <li><%=link_to "アカウント情報変更",'#' %> </li>
                         <li><%= link_to"ログアウト",logout_path, method: :delete %></li>
                     </ul>
-                </li>           
+                </li>
+                
+                <li class="header-link">
+                    <div class="header-image">           
+                        <%= link_to new_post_path do %>
+                            <span class="fa-solid fa-file-pen"></span>
+                        <% end %> 
+                    </div>
+                    <p class="header-text">投稿作成 </p>
+                </li>          
             </ul>
         </nav>
     <%else%>

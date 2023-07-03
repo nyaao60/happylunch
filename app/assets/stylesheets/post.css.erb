@@ -25,7 +25,7 @@
   opacity:0.6;
 }
 
-.post-form{
+.make-form{
   background: #fcfaf8;;
   max-width: 6000px;
   margin: 0 auto 60px;
@@ -35,7 +35,7 @@
 }
 
 
-.post-form input,textarea,select {
+.make-form input,textarea,select {
   width: 100%;
   outline: 0;
   background: #f2f2f2;
@@ -61,7 +61,7 @@ border-color:rgba(42, 42, 42,0.6);
 border-radius:5px;
 }
 
-.post-form p{
+.make-form p{
 margin-top:15px;
 }
 
@@ -100,12 +100,13 @@ display: inline-block;
 }
 
 
-/* 投稿者情報 */
+/* 投稿に係る投稿者情報 */
 .reviewer-info{
 display:flex;
 justify-content: flex-end;
 margin-right:25px;
 }
+
 
 #reviewer-icon{
   width:30px;
@@ -114,6 +115,21 @@ margin-right:25px;
   border-radius:80px;
   margin:0 0 0 10px;
 }
+
+/* 投稿情報関連 */
+.review-info{
+display:flex;
+}
+
+/* 店名と評価を並べる */
+.post-top{
+display:flex;
+}
+
+#post-notimage{
+width:80%;
+}
+
 /* ランチ情報bar */
 #lunch-info{
   font-size:17px;
@@ -134,8 +150,8 @@ font-weight: bolder;
 
 /* 投稿画像 */
 #post-file{
-  width:120px;
-  height:120px;
+  width:220px;
+  height:220px;
   display:inline-block;  
   border:2px solid #bfbeb2;
   margin:15px 10px 10px 0;
@@ -259,20 +275,21 @@ margin-left:20px;
 
 /* 検索 */
 .search{
-width:90%;
-margin:60px auto;
+width:70%;
+margin:250px  auto 0;
 /*border:1px solid  rgba(0, 0, 0,0.6);*/
 padding:30px;
-background-color:rgba(255,255,255,0.7);
+background-color:rgba(255,255,255,0.9);
+border-radius:50px
 } 
 
 .search-part{
-  height:400px;  
-  background-image: url(<%= asset_path 'topimage.png' %>);
-  background-color:rgba(255,255,255,0.4);
+  height:500px;  
+  background-image: url(<%= asset_path 'topimage2.jpeg' %>);
+  background-color:rgba(255,255,255,0.1);
   background-blend-mode:lighten;
   background-position: center;
-  background-size:100% auto;
+  background-repeat: no-repeat;
 }
 
 .search-part h3{
@@ -280,7 +297,6 @@ background-color:rgba(255,255,255,0.7);
   color:black;
   font-weight:bold;
   text-align:center;
-  padding-top:40px;
   font-family: 'Kiwi Maru', serif;  
 }
 
@@ -321,10 +337,6 @@ margin: auto;
 margin-top:2%;
 }
 
-/* 検索結果 */
-.post-search-top{
-display:flex;
-}
 
 .posts {
   list-style: none;
@@ -333,9 +345,9 @@ display:flex;
 }
 
 /* １投稿 */
-.posts li {
+.post-form {
   margin:20px auto;
-  width:60%;
+  width:70%;
   font-size:20px;
   font-weight: bold;
   overflow: auto;
@@ -363,9 +375,11 @@ margin-left:10px;
 .post-search-body{
   padding:15px 10px;
   height:150px;
+  border-radius:5px;
   border:1px solid; 
   overflow-y: scroll;  
   margin-bottom:10px;
+  width:100%;
 }
 
 
@@ -402,17 +416,7 @@ select {
   font-weight:bold;
 }
 
-.home-posts li{
-  width:30%;
-  font-size:20px;
-  display:block;
-  margin:0 auto;
-  padding:20px;
-  border: 3px solid  rgba(53, 52, 52, 0.501);
-    /* background-color:#FAF4EF; */
-    border-radius:10px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
+
 
   .home-posts p{
   margin:5px 0;  

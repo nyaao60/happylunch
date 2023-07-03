@@ -1,6 +1,6 @@
 <% provide(:titlebar, "投稿詳細") %>
 <div class="posting-page">
-  <div class="post-form"> 
+  <div class="make-form"> 
     <div class="post-edit">
     <% if current_user == @user%>
       <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>

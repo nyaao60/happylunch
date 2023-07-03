@@ -1,6 +1,6 @@
  <% provide(:titlebar, "投稿編集") %>
 <div class="posting-page">
-  <div class="post-form">
+  <div class="make-form">
   <%= form_with(model: @post, local:true) do |f| %>
     <%= render 'shared/error_messages',object: f.object %>
     <%= f.label :store_name,"店名" %>
