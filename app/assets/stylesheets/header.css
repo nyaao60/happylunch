@@ -1,10 +1,14 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
   color: #0c0a0a;
   /* font-family: 'Noto Sans JP', sans-serif; */
   font-family:'Zen Maru Gothic', sans-serif;
-
+  font-size:1.6em;
   background: #f6f5f4;
 }
 
@@ -24,7 +28,7 @@ header {
 
 h1 a {
   color: #1a1a1a;
-  font-size: 30px;
+  font-size: 3rem;
   text-decoration: none;
 }
 ul {
@@ -63,13 +67,13 @@ margin:0 auto;
 
 /* 投稿イメージ */
 .fa-file-pen{
-font-size:30px;
+font-size:3rem;
 margin-right:5px;
 
 }
 
 .fa-user-group{
-  font-size:30px;
+  font-size:3rem;
 }
 
 .header-text-logout{

@@ -1,0 +1,11 @@
+<% if post.five_star_rating == 1%>
+  <span class="star1"%>★</span><span class="star2">☆☆☆☆</span>
+<% elsif post.five_star_rating == 2%>
+  <span class="star1"%>★★</span><span class="star2">☆☆☆</span>
+<% elsif post.five_star_rating == 3%>
+  <span class="star1"%>★★★</span><span class="star2">☆☆</span>
+<% elsif post.five_star_rating == 4%>
+  <span class="star1"%>★★★★</span><span class="star2">☆</span>
+<% else %>
+  <span class="star1"%>★★★★★</span>
+<%end%>

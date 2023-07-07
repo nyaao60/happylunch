@@ -1,14 +1,19 @@
 <div class="search">
   <%= form_with url: search_path, :method => 'get' , local: true do |f| %>
-    <div class="search-form">
+    <div class="search-conditions">
       <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
-      <%= f.select :keyword, [
-        ['距離が近い順', 'near']
-      ], id:"search-selection"%>
-      <%= f.submit '検索', class: "basic-btn" %>
+        <li  id="get_current_spot">
+          <span class="fa-solid fa-magnifying-glass-location"></span>
+          <p id="current_spot">現在地取得</p>
+        </li>
+        <%= f.select :keyword, [
+          ['距離が近い順', 'near']
+        ], id:"search-selection"%>
     </div>
+    <%= button_tag type: "submit", id: "post-search-btn" do %>
+    <p><span class="fas fa-search"></span>今日のランチを検索</p>
+    <% end %>
   <% end %>
-  <button id="get_current_spot" type="button" class="basic-btn">現在地を取得</button>
 </div>
 <script>
   function geoFindMe() { 
