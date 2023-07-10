@@ -18,44 +18,44 @@
 
 /* 検索フォーム */
 .search{
-width:70%;
-margin:25rem  auto 0;
-padding:3rem;
-background-color:rgba(255,255,255,0.9);
-border-radius:50px
+  width:70%;
+  margin:25rem  auto 0;
+  padding:3rem;
+  background-color:rgba(255,255,255,0.9);
+  border-radius:50px
 } 
 
 /* 検索条件 */
 .search-conditions{
-display: flex;
+  display: flex;
 }
 
 /* 現在地等入力欄 */
 .search-location{
-width:50%;  
-font-size:1.9rem;
-font-weight:bold;
-border: 1px solid;
+  width:50%;  
+  font-size:1.9rem;
+  font-weight:bold;
+  border: 1px solid;
 }
 
 /* 現在地取得欄 */
 #get_current_spot{
-width:12%;
-list-style:none;
-border: solid 1px;
-border-left:none;
-padding-top:0.5rem;
+  width:12%;
+  list-style:none;
+  border: solid 1px;
+  border-left:none;
+  padding-top:0.5rem;
 }
 /* 虫眼鏡フォント */
 .fa-magnifying-glass-location{
-font-size:3rem;
-margin-left:2rem;
+  font-size:3rem;
+  margin-left:2rem;
 }
 
 /* 現在地取得文字 */
 #current_spot{
-font-size:1.2rem;
-margin-left:1rem;
+  font-size:1.2rem;
+  margin-left:1rem;
 }
 
 /* 検索条件 */
@@ -84,9 +84,12 @@ margin-left:1rem;
 
 /*投稿検索アイコン */
 .fa-search{
-padding-right:1rem;
+  padding-right:1rem;
 }
-
+/* HOME画面のpost */
+.home-everyone-post{
+background-image: url(<%= asset_path 'topimage3.jpeg' %>);
+}
 /*みんなの投稿欄*/
 .home-posts{
   flex-wrap: wrap; 
@@ -122,18 +125,20 @@ padding-right:1rem;
 
 /* 投稿に係る投稿者情報 */
 .reviewer-info{
-display:flex;
-justify-content: flex-end;
-margin-right:25px;
+  display:flex;
+  justify-content: flex-end;
+  margin-right:2.5rem;
 }
 /* 画像、情報を並べる */
 .review-info{
-display:flex;
+  display:flex;
+  margin-top:2rem;
+  margin-left:3rem;
 }
 
 #post-notimage{
-width:60%;
-margin-left:6rem;
+  width:60%;
+  margin-left:6rem;
 }
 
 
@@ -143,54 +148,47 @@ margin-left:6rem;
   height:min(18vw,240px);
   display:inline-block;  
   border-radius:50px;
-  margin:0 4rem   0 4rem;
+  margin:0 4rem  0 4rem;
 }
 
 /* おすすめと評価を並べる */
 .post-top{
-display:flex;
-width:100%;
+  display:flex;
+  width:100%;
 }
 
-
 .post-recommend{
-margin-top:1.5rem;
+  margin-top:1.5rem;
 }
 
 .post-star{
-margin-left:1rem;
+  margin-left:1rem;
 }
 
 .star1{
-color:rgb(243,154,48);
+  color:rgb(243,154,48);
 }
 
 .star2{
-opacity:0.4;
+  opacity:0.4;
 }
 
 .post-price-yen{
-margin-left:5rem;
+  margin-left:5rem;
 }
 
 .post-price{
-font-size:4rem;
+  font-size:4rem;
 }
 
 .post-storename{
-font-size:2.5rem;
-text-decoration: underline;
-margin-bottom:1rem;
-
-}
-
-.post-lunchname{
-font-size:1.7rem;
+  font-size:2.5rem;
+  text-decoration: underline;
+  margin-bottom:1rem;
 }
 
 .post-lunchname span{
-font-size:2rem;
-background-color:rgb(224,214,111);
+  background-color:rgb(224,214,111);
 }
 
 .post-search-body{
@@ -203,51 +201,63 @@ background-color:rgb(224,214,111);
   width:100%;
 }
 
-/* いいね、コメント数表示 */
+/* 住所、いいね、コメント数表示 */
 .post-subinfo{
-display: flex;
-margin-top:2rem;
+  display: flex;
+  margin-top:1rem;
+  margin-bottom:2rem;
 }
 
 .post-subinfo-left{
-display:flex;
-margin-left:8rem;
-width:100%;
+  display:flex;
+  margin-left:8rem;
+  width:100%;
 }
 
 .post-subinfo-address{
-font-size:1.8rem;
-margin-top:1rem;
+  font-size:1.8rem;
+  margin-top:1rem;
 }
 
 .post-subinfo-right{
-display:flex;
-margin-right:16rem;
-justify-content: flex-end;
-width:100%;
+  display:flex;
+  margin-right:11rem;
+  justify-content: flex-end;
+  width:100%;
 }
 
 .post-subinfo-right p{
-font-size:2.8rem;
+  font-size:2.8rem;
 }
 
 .likes-count{
-margin-right:2rem;
-}
-
-.comment-icon{
-font-size: 2.5rem;  
-opacity:0.6;
+  margin-right:2rem;
 }
 
 .comment-count{
-margin-left:2rem;  
+  margin-left:2rem;  
+}
+
+.comment-icon{
+  font-size: 2.5rem;  
+  opacity:0.6;
+}
+/* 投稿情報 */
+.post-bottom{
+  display:flex;
+  justify-content: flex-end;
+  font-size:1.7rem;
+} 
+
+.reviewer-info-bottom{
+  display:flex;
+  margin:0 10rem 1.5rem 0;
 }
 
 .post-search-time{
-font-size:1.8rem;
-text-align: right;  
-margin-right:14rem;
+  font-size:1.8rem;
+  text-align: right;  
+  margin-right:2rem;
 }
 
 
@@ -299,29 +309,29 @@ margin-right:14rem;
 }
 
 #price-box{
-width:30%;
+  width:30%;
 }
 
 #check-box{
-display:inline-block;
-width:20px;
-height:20px;
-margin: 10px;
-padding: 0px;
-background-color: #f0bb86;
-border:1px solid;
-border-color:rgba(42, 42, 42,0.6);
-border-radius:5px;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  margin: 10px;
+  padding: 0px;
+  background-color: #f0bb86;
+  border:1px solid;
+  border-color:rgba(42, 42, 42,0.6);
+  border-radius:5px;
 }
 
 .make-form p{
-margin-top:15px;
+  margin-top:15px;
 }
 
 /* 新規作成、編集時のレビュー欄 */
 #review-comment{
-height:180px;
-display: inline-block;
+  height:180px;
+  display: inline-block;
 }
 
 /* 投稿詳細 */
@@ -373,13 +383,11 @@ display: inline-block;
   margin-bottom:10px;
 }
 .fa-utensils{
-margin-left:5px;
+  margin-left:5px;
 }
 .shop-info{
-font-weight: bolder;  
+  font-weight: bolder;  
 }
-
-
 
 /* map機能 */
 #map {
@@ -454,8 +462,8 @@ font-weight: bolder;
 
 /* コメント内容 */
 #comment-content{
-border-bottom: 1px solid rgba(184, 183, 183,0.6);
-padding:10px 0 20px 0;
+  border-bottom: 1px solid rgba(184, 183, 183,0.6);
+  padding:10px 0 20px 0;
 }
 
 
@@ -502,16 +510,6 @@ padding-left:0;
 margin-bottom:5px;  
 }
 
-  /* HOMEに存在する投稿 */
-
-
-.reviewer-info-top{
-  display:flex;
-  justify-content: flex-end;
-  margin:0 15rem 1.5rem 0;
-}
-
-
 /* selectの矢印を復活させる */
 select {
   -moz-appearance: menulist-button;
@@ -519,18 +517,7 @@ select {
   appearance: menulist-button;
 }
 
-
-
-/* HOME画面のpost */
-.home-everyone-post{
-background-image: url(<%= asset_path 'topimage3.jpeg' %>);
-}
-
-
-
-
-
-.reviewer-info-top a{
+.reviewer-info-bottom a{
   padding:0;
 }
 

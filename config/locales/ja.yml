@@ -1,4 +1,4 @@
 ja:
   time:
     formats:
-      default: "%Y年%m月%d日"
+      default: "%Y/%m/%d"
