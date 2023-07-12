@@ -3,8 +3,10 @@
     <div class="search-conditions">
       <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
         <li  id="get_current_spot">
-          <span class="fa-solid fa-magnifying-glass-location"></span>
-          <p id="current_spot">現在地取得</p>
+          <div class=search-spot>
+            <span class="fa-solid fa-magnifying-glass-location"></span>
+            <p id="current_spot">現在地取得</p>
+          </div>
         </li>
         <%= f.select :keyword, [
           ['距離が近い順', 'near']
