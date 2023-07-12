@@ -1,17 +1,19 @@
- <% provide(:titlebar, "投稿作成") %>
+<% provide(:titlebar, "投稿作成") %>
 <div class="posting-page">
   <div class="make-form">
     <%= form_with(model: @post, local:true) do |f| %>
       <%= render 'shared/error_messages',object: f.object %>
       <%= f.label :store_name,"店名" %>
       <%= f.text_field :store_name%>
+      <%= f.label :store_name,"おすすめのランチ" %>
+      <%= f.text_field :lunch_name%>
       <%= f.label :address,"住所" %>
       <%= f.text_field :address%>
       <%= f.label :post_images,"写真" %>
       <%= f.file_field :post_images,multiple: true %>
       <%= f.label :price,"価格" %>
       <p><%= f.text_field :price,id:"price-box" %>円</p>
-      <p><%= f.label :five_star_rating,"点数(5点満点)" %></p>
+      <p><%= f.label :five_star_rating,"おすすめ度" %></p>
       <%= f.select :five_star_rating,[['★☆☆☆☆',1],['★★☆☆☆',2],['★★★☆☆',3],['★★★★☆',4],['★★★★★',5]],{selected:3}%>
       <%= f.label :lots_of_vegetables,"野菜が豊富" %>
       <%= f.check_box :lots_of_vegetables, id:"check-box"%>

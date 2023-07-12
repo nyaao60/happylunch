@@ -15,7 +15,7 @@
       <%= link_to "#{post.store_name}",post_path(post) %>
       </p>
       <p class="post-lunchname">
-      おすすめのランチ：<span>野菜いっぱい定食</span>
+      おすすめのランチ：<span><%=link_to"#{post.lunch_name}",post_path(post)%></span>
       </p>         
       <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
     </li>
