@@ -3,12 +3,12 @@
   <div class="form">
     <%= form_with(model: @user, local:true) do |f| %>
       <%= render 'shared/error_messages' , object: f.object%>
-      <%= f.label :user_image,"ユーザー画像" %>
+      <%= f.label :user_image,"ユーザー画像",class: "user-edittitle"%>
       <p id="profile"><%= f.file_field :user_image %></p>
-      <%= f.label :name,"ユーザー名" %>
-      <%= f.text_field :name %>
-      <%= f.label :self_introduction,"自己紹介" %>
-      <%= f.text_area :self_introduction %>
+      <%= f.label :name,"ユーザー名",class: "user-edittitle" %>
+      <%= f.text_field :name,class:"name-space"%>
+      <%= f.label :self_introduction,"自己紹介" ,class: "user-edittitle"%>
+      <%= f.text_area :self_introduction,class:"introduction-space" %>
       <%= f.submit "保存", id:"signup-button"%>
     <% end %> 
   </div>
