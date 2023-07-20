@@ -9,7 +9,6 @@
     </h3>  
   </div> 
   <p class=home-titlebar>みんなの投稿</p>
-  <%= render 'layouts/title-bar2' %>
   <%=render 'users/home_posts' %>
 <% else %>
   <div class="search-part">
@@ -18,7 +17,6 @@
   </div>
   <div class="home-everyone-post"> 
     <h2 class=home-titlebar>みんなの投稿</h2>
-    <%= render 'layouts/title-bar2' %>
     <%= render 'users/home_posts' %>
   </div>
 <%end%>

@@ -47,11 +47,11 @@
   padding-top:0.5rem;
 }
 .fa-magnifying-glass-location{
-margin-right:2rem;
+  margin-right:2rem;
 }
 
 .search-spot{
-text-align:center;
+  text-align:center;
 }
 
 /* 虫眼鏡フォント */
@@ -97,7 +97,9 @@ text-align:center;
 /* HOME画面のpost */
 .home-everyone-post{
 background-image: url(<%= asset_path 'topimage3.jpeg' %>);
+padding:4rem 0;
 }
+
 /*みんなの投稿欄*/
 .home-posts{
   flex-wrap: wrap; 
@@ -113,8 +115,10 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   font-weight: bold;
   width: 20%;  
   text-align:center;
+  padding-top:3rem;
   padding-bottom:1rem;
   margin: 0 auto;
+  margin-bottom:5rem;
   border-bottom:4px solid rgb(236, 156, 102);
 }
 
@@ -124,7 +128,7 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   font-weight: bold;
   width:min(70%,1000px);
   padding: 2rem;
-  margin:2rem auto;
+  margin:2rem auto 0;
   overflow: auto;
   border: 0px solid  rgba(255,255,255);
   background-color:#FAF4EF;
@@ -148,7 +152,6 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   width:60%;
   margin-left:6rem;
 }
-
 
 /* 投稿画像 */
 #post-file{
@@ -193,6 +196,10 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   font-size:2.5rem;
   margin-bottom:1rem;
   text-decoration: underline;
+}
+
+.post-lunchname{
+  max-width:43rem;
 }
 
 .post-lunchname span{
@@ -305,7 +312,6 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-
 .make-form input,textarea,select {
   width: 100%;
   outline: 0;
@@ -390,9 +396,11 @@ background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   border-radius:10px;
   margin-bottom:10px;
 }
+
 .fa-utensils{
   margin-left:5px;
 }
+
 .shop-info{
   font-weight: bolder;  
 }
