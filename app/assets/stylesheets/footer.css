@@ -1,6 +1,10 @@
 footer{
-  background-color:#FAF4EF;
+  background-color:#fdc89df5;
   text-align: center;
   opacity:0.6px;
   padding:50px 0;
+}
+
+footer h3{
+  font-size:2.4rem;
 }
