@@ -13,23 +13,25 @@
 }
 .form {
   background: #FFFFFF;
-  width: 500px;
-  margin: 0 auto 100px;
-  padding: 45px;
+  width: 55rem;
+  margin: 0 auto 10rem;
+  padding: 4.5rem;
   text-align: left;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .user-edittitle{
-  font-weight:bold;
+ font-size:2rem;
 }
 
-.name-space{
-  height:6rem;  
+#name-space{
+  height:7rem;  
+  font-size:1.8rem;
 }
 
-.introduction-space{
-height:6rem;
+#introduction-space{
+height:16rem;
+font-size:1.8rem;
 }
 
 .form input,textarea {
@@ -111,8 +113,8 @@ height:6rem;
 
 .profile-icon{
   float:left;
-  width:10rem;
-  height:10rem;
+  width:12rem;
+  height:12rem;
   border:3px solid #9a9a9aa3 ;
   border-radius:80px;
 }
@@ -168,6 +170,21 @@ height:6rem;
   border: 2px solid ; 
   border-radius:30px;
 } 
+
+#image-input{
+  height:7rem;
+  font-size:1.8rem;
+}
+
+/* プレビュー画像 */
+#image-preview{
+  display:none;
+  max-width: 15rem;
+  max-height: 15rem;
+  border-radius:80px;
+  margin-bottom:2.5rem;
+}
+
 
 .user-status{
   display:flex;
