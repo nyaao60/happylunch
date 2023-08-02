@@ -1,4 +1,10 @@
-<%= render 'user_info' %> 
-<% provide(:titlebar2, "#{@user.name}さんの投稿") %>
-<%= render 'layouts/title-bar2' %>
-<%= render 'personal_posts' %>
+<div class="mypage">
+  <%= render 'user_info' %> 
+  <div class="mypage-post">
+    <% provide(:titlebar2, "#{@user.name}さんの投稿") %>
+    <%= render 'layouts/title-bar2' %>
+    <div id="personal_posts">
+      <%= render 'personal_posts' %>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,40 @@
- <% provide(:titlebar, "ユーザー情報変更") %>
+<% provide(:titlebar, "ユーザー情報変更") %>
 <div class="signup-page">
   <div class="form">
-    <%= form_with(model: @user, local:true) do |f| %>
-      <%= render 'shared/error_messages' , object: f.object%>
-      <%= f.label :user_image,"ユーザー画像" %>
-      <p id="profile"><%= f.file_field :user_image %></p>
-      <%= f.label :name,"ユーザー名" %>
-      <%= f.text_field :name %>
-      <%= f.label :self_introduction,"自己紹介" %>
-      <%= f.text_area :self_introduction %>
-      <%= f.submit "保存", id:"signup-button"%>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <p id="profile">
+        <img id="image-preview" src="#" alt="プレビュー画像">
+      </p>
+      <%= f.label :user_image, "ユーザー画像", class: "user-edittitle" %>
+      <%= f.file_field :user_image, id: "image-input" %>
+      <%= f.label :name, "ユーザー名", class: "user-edittitle" %>
+      <%= f.text_field :name, id: "name-space" %>
+      <%= f.label :self_introduction, "自己紹介", class: "user-edittitle" %>
+      <%= f.text_area :self_introduction, id: "introduction-space" %>
+      <%= f.submit "保存", id: "signup-button" %>
     <% end %> 
   </div>
 </div>
-  
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const imageInput = document.getElementById("image-input");
+  const imagePreview = document.getElementById("image-preview");
+
+  imageInput.addEventListener("change", function() {
+    const file = imageInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.addEventListener("load", function() {
+        imagePreview.src = reader.result;
+        imagePreview.style.display = "block";
+      });
+
+      reader.readAsDataURL(file);
+    }
+  });
+});
+</script>

@@ -1,28 +1,46 @@
-<li>
-  <p class="reviewer-info-top">
-    投稿者:
-    <%= link_to image_tag(post.user.user_image.thumb.url,id:"reviewer-icon-top"),user_path(post.user) %>
-    <%=post.user.name%>
-  </p>
-  <div class="post-search-top">
-    <p>店名：<%= link_to "#{post.store_name}",post_path(post) %></p>
-    <p class="post-search-star">★<%=post.five_star_rating.to_f %></p>
+<div class="post-form">
+  <div class="review-info">
+    <% if post.post_images.present? %>
+      <%= image_tag(post.post_images[0].to_s,id:"post-file")%>
+    <% end %>
+    <li id="post-notimage">
+      <div class="post-top">
+        <p class="post-recommend">おすすめ度<span class="post-star"> <%=render 'layouts/star',post:post%></span>
+        </p>
+        <p class="post-price-yen">
+        <span class="post-price"> <%= post.price %></span> 円
+        </p>
+      </div>
+      <p class="post-storename">
+      <%= link_to "#{post.store_name}",post_path(post) %>
+      </p>
+      <p class="post-lunchname">
+      おすすめのランチ：<span><%=link_to"#{post.lunch_name}",post_path(post)%></span>
+      </p>         
+      <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
+    </li>
   </div>
-  <p>住所： <%= post.address %></p>
-  <p>価格： <%= post.price %> 円</p>
-  <% if post.post_images.present? %>
-    <% post.post_images.each do |image|%>
-      <%= image_tag image.to_s,id:"post-file"%>
-    <%end%>  
-  <% end %>
-  <p style="white-space:pre-wrap;" class="post-search-body" ><%= post.body %></p>
   <div class="post-subinfo">
-    <span class="fa fa-heart liked-btn"></span>
-    <p><%= post.likes.count %></p>
-    <div class="comment-count">
-      <p><i class="fa-regular fa-comment-dots comment-icon"></i>
-      <%= post.comments.size %></p>
+    <div class="post-subinfo-left">
+      <p class="post-subinfo-address"> 
+      <span class="fa-solid fa-location-dot"></span><%= post.address %>
+      </p>
+    </div>
+    <div class="post-subinfo-right">
+      <span class="fa fa-heart liked-btn"></span>
+      <p class=likes-count><%= post.likes.count %></p>
+      <div class="comment-count">
+        <p><span class="fa-regular fa-comment-dots comment-icon"></span><%= post.comments.size %>
+        </p>
+      </div>
     </div>
   </div>
-  <p class="post-search-time">投稿日：<%=l post.created_at %></p>
-</li>
+  <div class="post-bottom"> 
+        <p class="post-search-time"><%=l post.created_at %></p>
+    <p class="reviewer-info-bottom">
+    投稿者：
+    <%= link_to image_tag(post.user.user_image.thumb.url,id:"reviewer-icon-top"),user_path(post.user) %>
+    <%=post.user.name%>
+    </p>
+  </div>
+</div>

@@ -2,6 +2,9 @@
   background-color:rgba(132, 154, 201,0.8);    
   color:rgb(255, 255, 255); 
   text-align: center;
+  height:5rem;
+  font-size:2.5rem;
+  font-weight:bold;
 }
 
 .flash-alert{

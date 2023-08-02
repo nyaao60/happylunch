@@ -38,6 +38,8 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 app_root = File.expand_path("..", __dir__)
+
+# ローカル切り替え範囲
 bind "unix://#{app_root}/tmp/sockets/puma.sock"
 
 stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.log", true

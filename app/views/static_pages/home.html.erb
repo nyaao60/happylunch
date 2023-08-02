@@ -9,14 +9,14 @@
     </h3>  
   </div> 
   <p class=home-titlebar>みんなの投稿</p>
-  <%= render 'layouts/title-bar2' %>
   <%=render 'users/home_posts' %>
 <% else %>
   <div class="search-part">
-    <h3>ハピランチで充実したランチタイムを過ごそう!</h3>
+    <h3>テスト</h3>
     <%=render 'posts/search_form' %>
   </div>
-  <p class=home-titlebar>みんなの投稿</p>
-  <%= render 'layouts/title-bar2' %>
-  <%= render 'users/home_posts' %>
+  <div class="home-everyone-post"> 
+    <h2 class=home-titlebar>みんなの投稿</h2>
+    <%= render 'users/home_posts' %>
+  </div>
 <%end%>

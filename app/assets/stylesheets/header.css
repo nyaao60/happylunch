@@ -1,8 +1,14 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  color: #1a1a1a;
-  font-family: 'Noto Sans JP', sans-serif;
+  color: #0c0a0a;
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family:'Zen Maru Gothic', sans-serif;
+  font-size:1.6em;
   background: #f6f5f4;
 }
 
@@ -14,15 +20,15 @@ header {
   justify-content: space-between; /* 両端に配置 */
   padding-left: 30px;
   padding-right: 30px;
-  position: fixed;
   top: 0;
   box-sizing: border-box;
   background-color:#FAF4EF;
+  font-weight:bold;
 }
 
 h1 a {
   color: #1a1a1a;
-  font-size: 30px;
+  font-size: 3rem;
   text-decoration: none;
 }
 ul {
@@ -30,16 +36,24 @@ ul {
   display: flex;
 }
 
-ul li{
-margin:10px;
-}
-
 ul li a {
-  padding: 10px 15px;
   color: #1a1a1a;
   text-decoration: none;
   font-weight: bold;
 }
+
+.header-text{
+ font-weight:bold; 
+}
+
+.header-link{
+margin:10px;
+border-left:2px dotted #000000; /*線の設定*/
+border-right:1px dotted #000000; /*線の設定*/
+padding:2px 15px; /*余白の設定*/
+}
+
+
 ul li a:hover {
   text-decoration: underline;
 }
@@ -50,8 +64,16 @@ height:40px;
 margin:0 auto;
 }
 
-.header-text{
- margin:20px;
+
+/* 投稿イメージ */
+.fa-file-pen{
+font-size:3rem;
+margin-right:5px;
+
+}
+
+.fa-user-group{
+  font-size:3rem;
 }
 
 .header-text-logout{
@@ -84,8 +106,7 @@ padding:0px;
 
 ul li ul{
   position: absolute;
-  top: 65px;
-  right: 20px;
+  top: 85px;
   display: block;
   visibility: hidden;
   opacity: 0;
@@ -96,5 +117,6 @@ header ul li:hover ul{
   opacity: 1;
   background-color: rgb(246, 214, 188);
   transition: .60s;
+  padding:5px 20px 20px 5px;
 }
 
