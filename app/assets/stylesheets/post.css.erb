@@ -8,14 +8,6 @@
   padding-bottom:4rem;
 }
 
-.search-part h3{
-  font-size:3rem;
-  color:black;
-  font-weight:bold;
-  text-align:center;
-  font-family: 'Kiwi Maru', serif;  
-}
-
 /* 検索フォーム */
 .search{
   width:70%;
@@ -76,7 +68,6 @@
   border: 1px solid;
 }
 
-
 /*投稿検索ボタン */
 #post-search-btn{
   height:60px;
@@ -96,8 +87,8 @@
 }
 /* HOME画面のpost */
 .home-everyone-post{
-background-image: url(<%= asset_path 'topimage3.jpeg' %>);
-padding:4rem 0;
+  background-image: url(<%= asset_path 'topimage3.jpeg' %>);
+  padding:4rem 0;
 }
 
 /*みんなの投稿欄*/
@@ -275,7 +266,6 @@ padding:4rem 0;
   margin-right:2rem;
 }
 
-
 #post-review{
   width:510px;
   height:200px;
@@ -320,6 +310,22 @@ padding:4rem 0;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+}
+
+#images-preview{  
+  display:none;
+  max-width: 15rem;
+  max-height: 15rem;
+  border-radius:80px;
+  margin-bottom:2.5rem;
+}
+
+.preview-images{
+  max-width: 20rem;
+  max-height: 20rem;
+  border-radius:10px;
+  gap:2px;
+  margin-bottom:2.5rem;
 }
 
 #price-box{
@@ -509,7 +515,6 @@ padding:4rem 0;
   margin:0 0 0 auto;
   border-radius:5px;
 }
-
 
 .posts {
   list-style: none;

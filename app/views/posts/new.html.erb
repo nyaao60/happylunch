@@ -9,8 +9,9 @@
       <%= f.text_field :lunch_name%>
       <%= f.label :address,"住所" %>
       <%= f.text_field :address%>
-      <%= f.label :post_images,"写真" %>
-      <%= f.file_field :post_images,multiple: true %>
+      <%= f.label :post_images,"ランチ画像" %>
+      <div id="images-preview-container" ></div>
+      <%= f.file_field :post_images,multiple: true,id:"images-input" %>     
       <%= f.label :price,"価格" %>
       <p><%= f.text_field :price,id:"price-box" %>円</p>
       <p><%= f.label :five_star_rating,"おすすめ度" %></p>
@@ -23,3 +24,27 @@
     <%end%>
   </div>  
 </div>  
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let imagesInput = document.getElementById("images-input");
+    let imagesPreviewContainer = document.getElementById("images-preview-container");
+
+    imagesInput.addEventListener("change", function() {
+      imagesPreviewContainer.innerHTML = "";
+      const files = imagesInput.files;
+    
+    for (const file of files) {
+        const reader = new FileReader();
+        reader.addEventListener("load", function() { const imgElement = document.createElement("img");
+          imgElement.src = reader.result;
+          imgElement.alt = "プレビュー画像";
+          imgElement.classList.add("preview-images");
+          const previewContainer = document.createElement("div");
+          previewContainer.appendChild(imgElement);
+          imagesPreviewContainer.appendChild(previewContainer);
+        });
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
