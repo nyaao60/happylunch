@@ -70,7 +70,7 @@
 
 /*投稿検索ボタン */
 #post-search-btn{
-  height:60px;
+  height:6rem;
   width:40%;
   font-size:2rem;
   color: #FFFFFF;
@@ -129,6 +129,7 @@
 /* 投稿に係る投稿者情報 */
 .reviewer-info{
   display:flex;
+  font-size:2.5rem;
   justify-content: flex-end;
   margin-right:2.5rem;
 }
@@ -212,6 +213,7 @@
   display: flex;
   margin-top:1rem;
   margin-bottom:2rem;
+
 }
 
 .post-subinfo-left{
@@ -267,10 +269,9 @@
 }
 
 #post-review{
-  width:510px;
-  height:200px;
-  padding:10px ;
-  margin-top:10px;
+  height:20rem;
+  padding:1rem ;
+  margin-top:1rem;
   border: 2px solid #b8b7b7; 
   border-radius:5px;
   overflow-y: scroll;   
@@ -278,26 +279,26 @@
 
 /* 投稿作成画面 */
 .posting-page{
-  width: 600px;
-  padding: 50px 0px 0px 0px;
+  width: 60rem;
+  padding: 5rem 0 0 0;
   margin: auto;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight:400;
 }
 
 .posting-page h2{
-  font-size: 25px;
+  font-size: 2.5rem;
   font-weight:bold;
   text-align: center;
-  padding-bottom:30px;
+  padding-bottom:3rem;
   opacity:0.6;
 }
 
 .make-form{
   background: #fcfaf8;;
-  max-width: 6000px;
-  margin: 0 auto 60px;
-  padding: 45px;
+  max-width: 600rem;
+  margin: 0 auto 6rem;
+  padding: 4.5rem;
   text-align: left;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -307,9 +308,9 @@
   outline: 0;
   background: #f2f2f2;
   border: 0;
-  padding: 15px;
+  padding: 1.5rem;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 #images-preview{  
@@ -334,10 +335,10 @@
 
 #check-box{
   display:inline-block;
-  width:20px;
-  height:20px;
-  margin: 10px;
-  padding: 0px;
+  width:2rem;
+  height:2rem;
+  margin: 1rem;
+  padding: 0;
   background-color: #f0bb86;
   border:1px solid;
   border-color:rgba(42, 42, 42,0.6);
@@ -345,12 +346,12 @@
 }
 
 .make-form p{
-  margin-top:15px;
+  margin-top:1.5rem;
 }
 
 /* 新規作成、編集時のレビュー欄 */
 #review-comment{
-  height:180px;
+  height:18rem;
   display: inline-block;
 }
 
@@ -359,66 +360,184 @@
 .post-edit{
   display:flex;
   justify-content: flex-end;
-  margin:0 20px 20px 0;
+  margin:0 2rem 2rem 0;
 }
 
 #post-edit-btn{
-  font-size:15px;
-  width: 60px;
-  background-color: rgb(236, 156, 102);
+  font-size:1.5rem;
+  width: 6rem;
+  padding:0.5rem 0.5rem;
+  font-size:1.5rem;
   color: #FFFFFF;
+  background-color: rgb(236, 156, 102);
   border-radius:30px;
-  padding:5px 5px;  
-  font-size:15px;
+  
 }
 
 #post-delete-btn{
-  font-size:15px;
-  width: 60px;
+  font-size:1.5rem;
+  width: 6rem;
   background-color: rgb(236, 156, 102);
   color: #FFFFFF;
   border-radius:30px;
-  padding:5px 5px;
-  margin-left:10px;
+  padding:0.5rem 0.5rem;
+  margin-left:1rem;
 }
 
 #reviewer-icon{
-  width:30px;
-  height:30px;
+  width:3rem;
+  height:3rem;
   border:2px solid #bfbeb2;
   border-radius:80px;
-  margin:0 0 0 10px;
+  margin:0.4rem 0 0 1rem;
 }
 
 
 /* ランチ情報bar */
 #lunch-info{
-  font-size:17px;
+  font-size:2.5rem;
   font-weight: bold;
   width: 100%;  
-  line-height:50px;
+  line-height:5rem;
+  margin-bottom:1rem;
   background-color:rgba(249, 171, 93,0.7);
   text-align:center;  
   border-radius:10px;
-  margin-bottom:10px;
 }
 
-.fa-utensils{
-  margin-left:5px;
+/* 投稿詳細画面 */
+
+
+.show-form{
+  background: #fcfaf8;;
+  width: min(45%,1000px);
+  margin: 3rem auto 6rem;
+  padding: 4rem 5rem 4rem 5rem;
+  font-size: 2rem;
+  text-align: left;
+  border:1.5px solid rgba(95,95,95, 0.2);
+  border-radius:10px;
+}
+
+.show-form input,textarea,select {
+  width: 100%;
+  outline: 0;
+  background: #f2f2f2;
+  border: 0;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.show-form p{
+  margin-top:0.5rem;
+}
+
+.recommend-status{
+text-align:right;
+margin-right:3rem;
 }
 
 .shop-info{
-  font-weight: bolder;  
+  font-weight:bold;  
 }
+
+.storename-part{
+display:flex;
+}
+
+.fa-store{
+margin-top:2rem;
+margin-right:2rem;
+}
+
+.postshow-storename
+{
+  font-size:3rem;
+}
+
+.postshow-lunchname{
+  font-size:3rem;
+ }
+
+.show-lunchname{
+  background-color:rgb(224,214,111);
+  text-decoration:underline;
+}
+
+.showutensils{
+  background-color:white;
+}
+
+.postshow-price{
+font-size:3rem;
+}
+
+.fa-yen-sign{
+margin-right:2rem;
+}
+
+#postshow-address{
+font-size:2.5rem;
+margin-top:5rem;
+}
+
+.shop-info .post-lunchname{
+  max-width:none;
+}
+
+#postshow-review{
+  height:20rem;
+  padding:1rem ;
+  margin-top:2rem;
+  border: 2px solid #252525; 
+  border-radius:5px;
+  overflow-y: scroll;   
+  font-size:2.5rem;
+}
+
+#postshow-file{
+  width:min(18vw,260px);
+  height:min(18vw,260px);
+  display:inline-block;  
+  border-radius:50px;
+  margin:2rem 4rem 2rem 0;
+}
+
+.fa-utensils{
+  margin-left:0.5rem;
+}
+
+.showpost-subinfo{
+  display: flex;
+  margin-top:1rem;
+  margin-bottom:2rem;
+  
+}
+
+.likes-icon{
+font-size:2.5rem;
+}
+
+.comments-icon{
+font-size: 2.5rem;  
+opacity:0.6;
+margin-top:1.5rem;
+}
+
 
 /* map機能 */
 #map {
-  height: 250px;
-  width: 500px;
-  margin:10px 0;
+  height: 40rem;
+  margin:3rem 0;
 }
 
 /* コメント機能 */
+
+.comment-part{
+width:70%;
+margin:0 auto 2rem;
+}
+
 .comment-box{
   width:100%;
   font-size:14px;
@@ -426,47 +545,53 @@
 
 /* コメント一覧 */
 .comment h4{
-  font-size:16px;
+  font-size:3rem;
   border-bottom: 1px solid rgba(184, 183, 183,0.6); 
-  padding-bottom:5px;
+  padding-bottom:0.5rem;
 ;}
+
+.comment p{
+  font-size:2rem;
+}
 
 /* コメントヘッダー */
 .comment-header{
   width:100%;
   display:flex;
-  margin-top:10px;
+  margin-top:1rem;
 }
 
 .comment-header-left{
   width:100%;
+  font-size:2rem;
   display:flex;
   justify-content: flex-start;  
 }
 
 .comment-header-right{
   width:100%;
+  font-size:1.5rem;
   display:flex;
   justify-content: flex-end;  
 }
 
 /* コメント投稿者アイコン */
 #commenter-icon{
-  width:30px;
-  height:30px;
+  width:3rem;
+  height:3rem;
   border:2px solid #bfbeb2;
   border-radius:80px;
 }
 
 /* 削除ボタン */
 #comment-delete-btn{
-  font-size:12px;
-  width: 40px;
+  font-size:1.2rem;
+  width: 4rem;
   background-color: rgb(236, 156, 102);
   color: #FFFFFF;
   border-radius:30px;
-  padding:5px 5px;
-  margin-right:15px; 
+  padding:0.5rem 0.5rem;
+  margin-right:1.5rem; 
 }
 
 /* いいねボタン関連 */
@@ -484,8 +609,9 @@
 
 /* コメント内容 */
 #comment-content{
+  font-size:2rem;
   border-bottom: 1px solid rgba(184, 183, 183,0.6);
-  padding:10px 0 20px 0;
+  padding:1rem 0 2rem 0;
 }
 
 
@@ -493,32 +619,34 @@
 #comment-input-field{
   background-color: #f2f2f2;
   width: 100%;
+  height:20rem;
   border: 1px solid #b8b7b7; 
   border-radius:5px;
-  margin: 20px 0 10px;
-  padding: 15px;
+  margin: 3rem 0 1rem;
+  padding: 1.5rem;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 1.8rem;
 }
 
 /* コメントボタン */
 #comment-button{
   display:block;
-  font-size: 14px;
+  font-size: 1.6rem;
+  font-weight:bold;
   color: #FFFFFF;
   background-color: #f17509;
-  width: 120px;
-  height:35px;
-  padding: 5px;
+  width: 12rem;
+  height:5rem;
+  padding: 0.5rem;
   transition: all 0.3 ease;
   cursor: pointer;
-  margin:0 0 0 auto;
-  border-radius:5px;
+  margin:0 0 2rem auto;
+  border-radius:20px;
 }
 
 .posts {
   list-style: none;
-  margin:40px 0 0 0; 
+  margin:4rem 0 0 0; 
   display:block;
 }
 
@@ -528,7 +656,7 @@
 padding-left:0; 
 }
 .posts li p{
-margin-bottom:5px;  
+margin-bottom:0.5rem;  
 }
 
 /* selectの矢印を復活させる */
@@ -543,13 +671,13 @@ select {
 }
 
 #reviewer-icon-top{
-  width:30px;
-  height:30px;
-  margin-left:10px;
+  width:3rem;
+  height:3rem;
+  margin-left:1rem;
   border:2px solid #bfbeb2;
   border-radius:80px;
 }
 
 .post-search-top a{
-  padding:0 0 0 5px ;
+  padding:0 0 0 0.5rem ;
 }

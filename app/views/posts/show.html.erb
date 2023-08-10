@@ -1,11 +1,11 @@
 <% provide(:titlebar, "投稿詳細") %>
-<div class="posting-page">
-  <div class="make-form"> 
+<div class="postshow-page">
+  <div class="show-form"> 
     <div class="post-edit">
-    <% if current_user == @user%>
-      <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
-      <%= button_to "削除", post_path(@post),  { method: :delete, id:"post-delete-btn"} %>
-    <% end %>
+      <% if current_user == @user%>
+        <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
+        <%= button_to "削除", post_path(@post),  { method: :delete, id:"post-delete-btn"} %>
+      <% end %>
     </div>
     <div class="post-show-page">
       <div class="reviwer">
@@ -15,30 +15,42 @@
         <%=@user.name%></p>
       </div>        
       <p id="lunch-info">ランチ情報<span class="fa-solid fa-utensils"></span></p>
-      <% if @post.post_images.present? %>
-        <% @post.post_images.each do |image|%>
-          <%= image_tag image.to_s,id:"post-file"%>
-        <%end%>  
-      <% end %>
       <div class="shop-info">
-        <p>店名：<%= @post.store_name%></p>
-        <p>おすすめのランチ：<%= @post.lunch_name%></p>
-        <p>住所：<%= @post.address %></p>
+        <p class="recommend-status">おすすめ度：<span class="post-star"><%= render 'layouts/five_star_rating' %></span>
+        </p>
+        <div class="storename-part">
+        <span class="fa-solid fa-store"></span>
+        <p class="postshow-storename"><%= @post.store_name%></p>
+        </div>
+        <p class="postshow-lunchname">
+        <span class="fa-solid fa-utensils"></span>
+        <span class="show-lunchname"><%= @post.lunch_name%></span>
+        </p>
+        <p class="postshow-price"><span class="fa-solid fa-yen-sign"></span><%= @post.price%>円
+        </p> 
+        <% if @post.post_images.present? %> 
+          <% @post.post_images.each do |image|%>
+            <%= image_tag image.to_s,id:"postshow-file"%>
+          <%end%>
+        <% end %>
+        <h3 style="white-space:pre-wrap;" id="postshow-review"><%= 
+        @post.body %>
+        </h3>
+        <p id="postshow-address"> <span class="fa-solid fa-location-dot"></span><%= @post.address %>
+        </p>
         <%=render 'layouts/map'  %>
-        <p>価格：<%= @post.price%>円</p>
-        <p>評価：<%= render 'layouts/five_star_rating' %></p>
-        <h3 style="white-space:pre-wrap;" id="post-review"><%= 
-        @post.body %></h3>
       </div>
-      <div class="post-subinfo">
-        <p><%= render 'layouts/like' %></p>
-          <div class="comment-count">
-            <p><i class="fa-regular fa-comment-dots comment-icon"></i>
-          <%= @comments.size %></p>
-          </div>
+      <div class="showpost-subinfo">
+        <p class= "likes-icon"><%= render 'layouts/like' %></p>
+        <div class="comment-count">
+          <p><span class="fa-regular fa-comment-dots comments-icon"></span> <%= @comments.size %>
+          </p>
+        </div>
       </div>
     </div>
   </div>  
-  <p><%= render 'layouts/comment' %></p>
-  <p><%= render 'layouts/comment_form' %></p>
+  <div class="comment-part">
+    <p><%= render 'layouts/comment' %></p>
+    <p><%= render 'layouts/comment_form' %></p>
+  </div>
 </div>
