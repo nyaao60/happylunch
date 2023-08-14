@@ -38,6 +38,7 @@ RSpec.describe '投稿', type: :system do
             login
             visit new_post_path
             fill_in '店名', with: 'テスト店'
+            fill_in 'おすすめのランチ', with: 'テストランチ'
             fill_in '住所', with: '大阪府大阪市北区大深町４−２０'
             attach_file '写真', Rails.root.join('spec', 'fixtures', 'sample.png') 
             fill_in 'post[price]', with: '600'
@@ -46,6 +47,7 @@ RSpec.describe '投稿', type: :system do
             click_button '投稿'
             expect(page).to have_content '投稿しました'
             expect(page).to have_content 'テスト店'
+            expect(page).to have_content 'テストランチ'
             expect(page).to have_content '600円'
             expect(page).to have_content 'とても美味しかったです！'
         end

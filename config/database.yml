@@ -5,10 +5,6 @@ default: &default
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
-  # #  ローカル切り替え用
-  # username: root
-  # password: Sqlnao48! 
-  # host: localhost
 
 development:
   <<: *default
