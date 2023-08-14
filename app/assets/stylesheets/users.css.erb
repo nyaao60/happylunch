@@ -1,14 +1,14 @@
 .signup-page {
-  width: 450px;
-  padding: 50px 0px 0px 0px;
+  width: 45rem;
+  padding-top:5rem ;
   margin: auto;
 }
 
 .signup-page h2{
-  font-size: 25px;
+  font-size: 2.5rem;
   font-weight:bold;
   text-align: center;
-  padding-bottom:30px;
+  padding-bottom:3rem;
   opacity:0.6;
 }
 .form {
@@ -21,7 +21,7 @@
 }
 
 .user-edittitle{
- font-size:2rem;
+  font-size:2rem;
 }
 
 #name-space{
@@ -30,8 +30,8 @@
 }
 
 #introduction-space{
-height:16rem;
-font-size:1.8rem;
+  height:16rem;
+  font-size:1.8rem;
 }
 
 .form input,textarea {
@@ -39,31 +39,33 @@ font-size:1.8rem;
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 10px 0 30px;
-  padding: 15px;
+  margin: 1rem 0 3rem;
+  padding: 1.5rem;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
+
 #signup-button {
   outline: 0;
   background-color: #f17509;
   width: 100%;
-  padding: 15px;
+  padding: 1.5rem;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 1.6rem;
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
-/* show画面 */
 
+/* show画面 */
 .title-bar{
   font-size:2.6rem;
   font-weight: bold;
   width: 100%;  
-  line-height:70px;
+  line-height:7rem;
   background-color:rgba(249, 171, 93,0.7);
   text-align:center;
 }
@@ -75,24 +77,22 @@ font-size:1.8rem;
   text-align:center;
   padding-bottom:1rem;
   margin: 0 auto;
-  border-bottom:4px solid rgb(236, 156, 102);
+  border-bottom:0.4rem solid rgb(236, 156, 102);
 }
 
-
-
 .edit-logout{
-  padding:0px 0px 0px 300px;
+  padding-left:30rem;
 }
 
 /* マイページ */
 
 .mypage-post{
-  background:rgb(246,239,210);
+  background-image: url(<%= asset_path 'topimage3.jpeg' %>);
   padding:5rem 0;
 }
 
 .user-page{
-  height:450px;
+  height:45rem;
   margin:0 auto ;
 }
 
@@ -102,7 +102,6 @@ font-size:1.8rem;
   margin-top:5rem;
   margin-bottom:5rem;
 }
-
 
 .user-topinfo {
   display:flex;
@@ -186,7 +185,6 @@ font-size:1.8rem;
   margin-bottom:2.5rem;
 }
 
-
 .user-status{
   display:flex;
   justify-content:space-around;
@@ -199,12 +197,11 @@ font-size:1.8rem;
   font-size:3.5rem;
   font-weight: bold;
   font-style: italic;
-  }
-
+}
 
 .status-title{
-  margin:10px 0 0 10px;
-  font-size:20px；
+  margin:1rem 0 0 1rem;
+  font-size:2rem;
 }
 
 /* user一覧 */
@@ -215,40 +212,40 @@ font-size:1.8rem;
 }
 
 .users li {
-  font-size:20px;
+  font-size:2rem;
   display:flex;
   width:70%;
-  margin:20px auto;
+  margin:2rem auto;
   overflow: auto;
-  padding: 10px;
+  padding: 1rem;
   border-bottom: 1px solid #dad8d8;
 }
 
 #user-index-icon{
-  width:60px;
-  height:60px;
+  width:6rem;
+  height:6rem;
   border:2px solid #bfbeb2;
   border-radius:80px; 
 }
 
 .user-index-name{
-  margin:30px 30px 0 15px;
-  width:180px;
+  margin:3rem 3rem 0 1.5rem;
+  width:18rem;
 }
 
 .user-index-selfintro{
-  margin:10px 30px 30px 15px;
-  width:500px;
+  margin:1rem 3rem 3rem 1.5rem;
+  width:50rem;
 }
 
 .users-follow {
   display: flex;
-  width:50px;
+  width:5rem;
 }
 
 /* ユーザーの投稿、いいねした投稿 */
 .no-post{
   text-align: center;
-  font-size:20px;
-  margin-top:10px;
+  font-size:2rem;
+  margin-top:1rem;
 }

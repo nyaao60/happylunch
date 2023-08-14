@@ -14,7 +14,7 @@
   margin:25rem  auto 0;
   padding:3rem;
   background-color:rgba(255,255,255,0.9);
-  border-radius:50px
+  border-radius:50px;
 } 
 
 /* 検索条件 */
@@ -85,6 +85,7 @@
 .fa-search{
   padding-right:1rem;
 }
+
 /* HOME画面のpost */
 .home-everyone-post{
   background-image: url(<%= asset_path 'topimage3.jpeg' %>);
@@ -117,7 +118,7 @@
 .post-form {
   font-size:2rem; 
   font-weight: bold;
-  width:min(70%,1000px);
+  width:min(65%,1000px);
   padding: 2rem;
   margin:2rem auto 0;
   overflow: auto;
@@ -213,7 +214,6 @@
   display: flex;
   margin-top:1rem;
   margin-bottom:2rem;
-
 }
 
 .post-subinfo-left{
@@ -250,6 +250,7 @@
   font-size: 2.5rem;  
   opacity:0.6;
 }
+
 /* 投稿情報 */
 .post-bottom{
   display:flex;
@@ -371,8 +372,7 @@
   font-size:1.5rem;
   color: #FFFFFF;
   background-color: rgb(236, 156, 102);
-  border-radius:30px;
-  
+  border-radius:30px;  
 }
 
 #post-delete-btn{
@@ -448,8 +448,7 @@
   margin-right:2rem;
 }
 
-.postshow-storename
-{
+.postshow-storename{
   font-size:3rem;
 }
 
@@ -521,7 +520,6 @@
   margin-top:1.5rem;
 }
 
-
 /* map機能 */
 #map {
   height: 40rem;
@@ -545,7 +543,7 @@
   font-size:3rem;
   border-bottom: 1px solid rgba(184, 183, 183,0.6); 
   padding-bottom:0.5rem;
-;}
+}
 
 .comment p{
   font-size:2rem;
@@ -646,6 +644,14 @@
   display:block;
 }
 
+.select-posts{
+  background-image: url(<%= asset_path 'topimage3.jpeg' %>);
+  padding-bottom:5rem;
+}
+
+.select-posts h2{
+color:rgb(246,239,211);
+}
 /* １投稿 */
 
 .posts li a{

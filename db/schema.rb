@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_052722) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "post_images"
-    t.string "lunch_name"
+    t.string "lunch_name", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
