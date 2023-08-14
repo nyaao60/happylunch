@@ -30,6 +30,14 @@ RSpec.describe Post, type: :model do
         end
       end
 
+      context 'ランチ名が空欄の場合' do
+        before  {post.lunch_name = ''}
+      
+        it 'バリデーションエラー'do
+          expect(post).to be_invalid
+        end
+      end
+
       context '住所が空欄の場合' do
         before{post.address = ''}
 

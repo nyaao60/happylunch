@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :post do
     association :user
     store_name{Faker::Restaurant.name}
+    lunch_name{Faker::Food}
     address{Faker::Address.full_address}
     latitude{Faker::Address.latitude}
     longitude{Faker::Address.longitude }
