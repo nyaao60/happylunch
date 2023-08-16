@@ -1,22 +1,22 @@
 .top-wrapper {
   width: 100%;
-  padding:170px 0 70px 0;
+  padding:17rem 0 7rem 0;
   color:#505050;
   background-color:#fac18f;
   text-align: center;
 }
 
 .top-wrapper h2{
-  font-size:25px;
+  font-size:2.5rem;
 }
 
 .btn-primary{
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 25px;
-  margin-top:15px;
+  padding: 1rem 2.5rem;
+  margin-top:1.5rem;
   color:#505050;
   border-radius: 6px;
   background-color:white;
@@ -29,18 +29,24 @@
 }
 
 .description{
-  padding: 40px  100px ;
-  background-color:#FAF4EF;
+  padding: 4rem 10rem ;
+  background-color:#f8eed39e;
   background-size: cover;
+  text-align: center;
   color:#505050;
+  height:20rem;
 } 
 
 .description-title{
-font-size:20px;
+  font-size:2rem;
+}
+
+.description h2{
+  margin-top:2rem; 
 }
 
 .description h3{
-  padding-top:10px;
+  padding-top:1rem;
+  font-size:rem;
+  font-weight:bold;
 }
-
-

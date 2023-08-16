@@ -37,11 +37,22 @@
         </div>
         <nav>
             <ul>
-                <li id="header-login">  
+                <li class="header-link">
+                    <div class="header-image">           
+                        <%= link_to signup_path do %>
+                            <span class="fa-solid fa-user-plus"></span>
+                        <% end %> 
+                    </div>
+                    <p class="header-text">会員登録</p>
+                </li>
+                <li class="header-link">  
+                    <div class="header-image"> 
                     <%= link_to(login_path) do %>
-                        <p class="fa-solid fa-circle-user fa-3x"></p>
-                        <p class="header-text-logout">ログイン</p>
+                        <span class="fa-solid fa-circle-user"></span>
                     <%end%>  
+                    </div>
+                    <p class="header-text">ログイン</p>
+                    </div>
                 </li>
             </ul>
         </nav>
