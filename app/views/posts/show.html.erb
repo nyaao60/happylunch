@@ -1,6 +1,6 @@
 <% provide(:titlebar, "投稿詳細") %>
 <div class="postshow-page">
-  <div class="show-form"> 
+  <div class="show-form" style="width:min(45%,1000px);"> 
     <div class="post-edit">
       <% if current_user == @user%>
         <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
@@ -30,7 +30,7 @@
         </p> 
         <% if @post.post_images.present? %> 
           <% @post.post_images.each do |image|%>
-            <%= image_tag image.to_s,id:"postshow-file"%>
+            <%= image_tag image.to_s,id:"postshow-file",style:"width:min(18vw,260px);height:min(18vw,260px);"%>
           <%end%>
         <% end %>
         <h3 style="white-space:pre-wrap;" id="postshow-review"><%= 

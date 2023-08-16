@@ -1,7 +1,7 @@
-<div class="post-form">
+<div class="post-form" style="width:min(65%,1000px);">
   <div class="review-info">
     <% if post.post_images.present? %>
-      <%= image_tag(post.post_images[0].to_s,id:"post-file")%>
+      <%= image_tag(post.post_images[0].to_s,id:"post-file",style:"width:min(18vw,240px);height:min(18vw,240px);")%>
     <% end %>
     <li id="post-notimage">
       <div class="post-top">

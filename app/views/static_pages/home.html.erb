@@ -1,15 +1,19 @@
 <%if !logged_in?%>
-  <div class="top-wrapper">
-    <h2>ハピランチで休憩ごはんをおいしく、健康的に！</h2>
-    <%= link_to "会員登録", signup_path, class: "btn-primary" %>
-  </div>
-  <div class="description">
-    <h2 class="description-title">ハピランチとは・・・・・</h2>
-    <h3>「ハピランチ」は、社会人のみなさまが、休憩中のごはんをより充実させるために、お近くの、安くて、美味しい、健康的なランチやお弁当の情報を検索、共有できるサービスです。
-    </h3>  
-  </div> 
-  <p class=home-titlebar>みんなの投稿</p>
-  <%=render 'users/home_posts' %>
+    <div class="top-part">
+    <h3>・ </h3>
+    <div class="register-part">
+      <h2>ハピランチで<br>休憩ごはんをおいしく、健康的に！</h2>
+      <%= link_to "会員登録", signup_path, class: "registerbtn" %>
+    </div>
+    <div class="description">
+      <h2 class="description-title"><span>ハピランチ</span>とは・・・・・</h2>
+      <h3>「ハピランチ」は、社会人のみなさまが、休憩中のごはんをより充実させるために、お近くの、安くて、美味しい、健康的なランチやお弁当の情報を検索、共有できるサービスです。
+      </h3>  
+    </div> 
+    <div class="home-everyone-post"> 
+      <h2 class=home-titlebar>みんなの投稿</h2>
+      <%= render 'users/home_posts' %>
+    </div>
 <% else %>
   <div class="search-part">
     <h3>・ </h3>

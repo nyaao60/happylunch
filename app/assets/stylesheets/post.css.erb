@@ -1,3 +1,48 @@
+.top-part{ 
+  height:70rem;
+  background-image: url(<%= asset_path 'topimage2.jpeg' %>);
+  background-color:rgba(255,255,255,0.1);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom:4rem;
+}
+
+.register-part{
+  background-color:#dd8348b8;
+  width:60%;
+  height:37%;
+  font-size:3rem;
+  color:white;
+  font-weight:bold; 
+  margin: 36rem auto 5rem;
+  padding-top:4rem;
+  text-align:center;
+  border-radius:4.5rem;
+}
+
+.registerbtn{
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 5rem;
+  margin-top:1.5rem;
+  color:white;
+  border-radius: 6px;
+  background-color:rgb(251, 118, 23);
+  opacity: 0.8;
+}
+
+.registerbtn:active{
+  background-color:#505050;
+  color:white;
+}
+
+.description-title span{
+  font-size:2.5rem;
+  font-weight:bold;
+}
+
 /* 検索枠（背景含む） */
 .search-part{ 
   background-image: url(<%= asset_path 'topimage2.jpeg' %>);
@@ -118,7 +163,6 @@
 .post-form {
   font-size:2rem; 
   font-weight: bold;
-  width:min(65%,1000px);
   padding: 2rem;
   margin:2rem auto 0;
   overflow: auto;
@@ -148,8 +192,6 @@
 
 /* 投稿画像 */
 #post-file{
-  width:  min(18vw,240px);
-  height: min(18vw,240px);
   display:inline-block;  
   border-radius:50px;
   margin:0 4rem  0 4rem;
@@ -408,7 +450,6 @@
 /* 投稿詳細画面 */
 .show-form{
   background: #fcfaf8;;
-  width: min(45%,1000px);
   margin: 3rem auto 6rem;
   padding: 4rem 5rem 4rem 5rem;
   font-size: 2rem;
@@ -493,8 +534,6 @@
 }
 
 #postshow-file{
-  width:min(18vw,260px);
-  height:min(18vw,260px);
   display:inline-block;  
   border-radius:50px;
   margin:2rem 4rem 2rem 0;
@@ -535,7 +574,7 @@
 
 .comment-box{
   width:100%;
-  font-size:14px;
+  font-size:1.4rem;
 }
 
 /* コメント一覧 */
