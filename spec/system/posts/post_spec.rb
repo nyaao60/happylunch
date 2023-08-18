@@ -40,7 +40,7 @@ RSpec.describe '投稿', type: :system do
             fill_in '店名', with: 'テスト店'
             fill_in 'おすすめのランチ', with: 'テストランチ'
             fill_in '住所', with: '大阪府大阪市北区大深町４−２０'
-            attach_file 'ランチ画像', Rails.root.join('spec', 'fixtures', 'sample.png') 
+            attach_file 'images-input', Rails.root.join('spec', 'fixtures', 'sample.png') 
             fill_in 'post[price]', with: '600'
             check 'post[lots_of_vegetables]'
             fill_in 'post[body]', with: 'とても美味しかったです！'
@@ -68,7 +68,7 @@ RSpec.describe '投稿', type: :system do
                 visit post_path(login_user_post.id)
                 expect(page).to have_css '#post-edit-btn'
                 find("#post-edit-btn").click
-                attach_file 'ランチ画像', Rails.root.join('spec', 'fixtures', 'sample.png')
+                attach_file 'images-input', Rails.root.join('spec', 'fixtures', 'sample.png')
                 fill_in 'post[body]', with: 'とっても美味しかったです！'
                 click_button '更新'
                 expect(page).to have_content '投稿を更新しました！'
@@ -110,20 +110,20 @@ RSpec.describe '投稿', type: :system do
         it '投稿にいいねができること' do
             visit post_path(post.id)
             expect{
-            find(".unliked-btn") .click
+            find(".unliked-btnlink").click
             }
             .to change { Like.where(post_id:post.id).count}.by(1)
-            expect(page).to have_css '.liked-button'            
+            expect(page).to have_css '.liked-btnlink'            
         end
 
         it '投稿のいいねを取り消せること' do
             visit post_path(post.id)
-            find(".unliked-btn") .click
+            find(".unliked-btnlink").click
             expect{
-            find(".liked-btn") .click
+            find(".liked-btnlink").click
             }
             .to change { Like.where(user_id:user.id).count}.by(-1)
-            expect(page).to have_css '.unliked-button'            
+            expect(page).to have_css '.unliked-btnlink'            
         end
     end
 
