@@ -1,10 +1,11 @@
 <% if @post.liked_by(current_user) %>
-  <%= link_to post_likes_path(@post), method: "delete" do %>
+  <%= button_to post_likes_path(@post), method: "delete", class:"liked-btnlink" do %>
     <span class="fa fa-heart liked-btn"></span>
   <% end %>
 <% else %>
-  <%= link_to post_likes_path(@post),{method: "post"} do %>
+  <%= button_to post_likes_path(@post),method:"post", class:"unliked-btnlink" do %>
     <span class="fa fa-heart unliked-btn"></span>  
   <% end %>
 <% end %>  
-<%= @likes.count %>
+
+<p div id="like-count"><%= @likes.count %></p>

@@ -6,8 +6,7 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
     describe 'ログイン' do
         context '認証情報が正しい場合' do
             it 'ログインができる' do
-                visit root_path
-                find(".fa-circle-user") .click
+                visit login_path
                 fill_in 'メールアドレス', with: user.email
                 fill_in 'パスワード', with: user.password
                 click_button'ログイン'
@@ -18,7 +17,7 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
         context "入力に誤りがある" do
             it 'ログインできない' do
                 visit root_path
-                click_on 'ログイン'
+                find('.login-link').click
                 fill_in 'メールアドレス', with: user.email
                 fill_in 'パスワード', with: '1234'
                 click_button'ログイン'
