@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  
+  before_action :logged_in_user, only: [:create,:destroy]
+
   def create
     @post=Post.find(params[:post_id])
     @like=Like.new(user_id:current_user.id,post_id:@post.id)

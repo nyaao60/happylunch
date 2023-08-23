@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user, only: [:create,:destroy]
 
   def create
     @post=Post.find(params[:post_id])
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
     if @comment.destroy
         flash[:success]="コメントを削除しました！" 
         redirect_to post_path(@post)
-      end  
+    end  
   end
 
   private

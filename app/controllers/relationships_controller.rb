@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :logged_in_user, only: [:create,:destroy]
+
 
   def create 
     current_user.follow(params[:followed_id])
