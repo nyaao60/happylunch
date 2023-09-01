@@ -12,3 +12,8 @@
   color:rgb(255, 255, 255);
   text-align: center;
   }
+
+.error-message{
+  color: rgb(200, 74, 39);
+  margin-bottom:1rem;
+}

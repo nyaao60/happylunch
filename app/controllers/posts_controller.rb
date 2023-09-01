@@ -58,11 +58,20 @@ class PostsController < ApplicationController
       latitude = results.first.coordinates[0]
       longtitude = results.first.coordinates[1]
       #distance = 0.621371 マイルを約1キロ換算
-      posts = Post.within_box(200,latitude,longtitude)
-      # 入力された場所情報の1km範囲内のpostの配列をpostsに入れている。
+      
+      posts = Post.within_box(75,latitude,longtitude)
+      # 投稿が増えれば、入力された場所情報の2km範囲内のpostの配列をpostsに入れたいが、現状、投稿数が少ないため、hit件数を1件でも表示したいため、一時的に梅田駅〜京都駅間の45km範囲内にしている。
       case selection
       when 'near' 
-        @posts=Post.near(results.first.coordinates).page(params[:page])
+        @posts =Post.near(results.first.coordinates).page(params[:page])
+      when 'inexpensive'
+        @posts= posts.order(price: :asc)
+      when 'rating'
+        @posts= posts.order(five_star_rating: :desc)
+      when 'vagetable'
+        @posts= posts.select do |p|
+          p.lots_of_vegetables == true
+        end
       else
         @posts=posts
       end

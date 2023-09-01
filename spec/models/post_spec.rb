@@ -70,8 +70,8 @@ RSpec.describe Post, type: :model do
         end
       end
 
-      context '価格が801円以上の場合' do
-        before{post.price = 801}
+      context '価格が1501円以上の場合' do
+        before{post.price = 1501}
 
         it 'バリデーションエラー'do
         expect(post).to be_invalid
