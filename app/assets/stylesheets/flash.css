@@ -11,7 +11,13 @@
   background-color:rgba(215, 42, 15,0.8); 
   color:rgb(255, 255, 255);
   text-align: center;
-  }
+}
+
+.flash-danger{
+  background-color:rgba(215, 42, 15,0.8); 
+  color:rgb(255, 255, 255);
+  text-align: center;
+}
 
 .error-message{
   color: rgb(200, 74, 39);
