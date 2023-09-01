@@ -38,7 +38,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'dotenv-rails'
 gem "tailwindcss-rails", "~> 2.0"
-
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
