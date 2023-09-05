@@ -1,8 +1,8 @@
 .top-part{ 
-  height:70rem;
   background-image: url(<%= asset_path 'topimage5.jpeg' %>);
   background-color:rgba(255,255,255,0.1);
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   padding-bottom:4rem;
 }
@@ -37,8 +37,8 @@
 
 /* 検索枠（背景含む） */
 .search-part{ 
-  height:70rem;
   background-image: url(<%= asset_path 'topimage2.jpeg' %>);
+  background-size:cover;
   background-color:rgba(255,255,255,0.1);
   background-blend-mode:lighten;
   background-position: center;
@@ -70,7 +70,6 @@
 
 /* 現在地取得欄 */
 #get_current_spot{
-  width:12%;
   list-style:none;
   border: solid 1px;
   border-left:none;
@@ -244,7 +243,7 @@
   padding:1.5rem 0;
   max-height:9rem;
   max-width:40rem;
-  overflow-y: scroll;  
+  overflow: auto;  
   margin-bottom:1rem;
   width:100%;
 }
@@ -319,7 +318,7 @@ margin-top:2rem;
   margin-top:1rem;
   border: 2px solid #b8b7b7; 
   border-radius:5px;
-  overflow-y: scroll;   
+  overflow: auto;   
 }
 
 /* 投稿作成画面 */
@@ -539,7 +538,7 @@ display:flex;
   margin-top:2rem;
   border: 2px solid #252525; 
   border-radius:5px;
-  overflow-y: scroll;   
+  overflow: auto;   
   font-size:2.5rem;
 }
 
@@ -664,6 +663,7 @@ display:flex;
   background-color: #f2f2f2;
   width: 100%;
   height:20rem;
+  line-height:1.5;
   border: 1px solid #b8b7b7; 
   border-radius:5px;
   margin: 3rem 0 1rem;
