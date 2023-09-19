@@ -2,7 +2,7 @@
 <div class="postshow-page">
   <div class="show-form" style="width:min(45%,1000px);"> 
     <div class="post-edit">
-      <% if current_user == @user%>
+      <% if current_user == @user || current_user.admin == true %>
         <%= button_to "編集", edit_post_path(@post), { method: :get, id:"post-edit-btn"} %>
         <%= button_to "削除", post_path(@post),  { method: :delete, id:"post-delete-btn"} %>
       <% end %>

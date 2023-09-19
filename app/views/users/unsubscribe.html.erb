@@ -1,0 +1,8 @@
+<div class= "unsubscribe">
+  <h2>本当に退会しますか？</h2>
+  <p>退会する場合は、『退会する』をクリックしてください。</p>
+  <div class="select-unsubscribe">
+    <p><%= link_to '退会しない', user_path(current_user) %></p>
+    <p><%= link_to "退会する", user_path(current_user),  { method: :delete} %></p>
+  </div>
+</div>

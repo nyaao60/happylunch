@@ -1,0 +1,7 @@
+<% provide(:titlebar, "投稿一覧") %>
+<div class="home-everyone-post">
+<ul class="posts">
+  <%=render @posts%>
+</ul>
+<%= paginate @posts %>
+</div>

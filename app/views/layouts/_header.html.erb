@@ -17,6 +17,9 @@
                         <li><%= link_to "マイページ", user_path(current_user) %></li>
                         <li><%=link_to "アカウント情報変更",'#' %> </li>
                         <li><%= link_to"ログアウト",logout_path, method: :delete %></li>
+                        <% if current_user.email != "guest@example.com" %>
+                            <li><%= link_to"退会ページ","/unsubscribe" %></li>
+                        <% end %>
                     </ul>
                 </li>
                 

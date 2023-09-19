@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:show,:index,:upadate,:edit,:update,:destroy]
+  before_action :correct_user, only: [:edit,:update,:destroy]
   before_action :ensure_normal_user, only: [:update,:destroy]
-  before_action :logged_in_user, only: [:show,:upadate]
+  before_action :admin_user, only: [:index]
 
   def new
     @user= User.new
@@ -22,9 +23,9 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       flash[:success]="ようこそ、ハピランチへ！"
-      redirect_to @user 
+      redirect_to root_path 
     else
-      flash.now[:alert]="ユーザーの作成に失敗しました"
+      flash.now[:alert]="ユーザーの作成に失敗しました。"
       render 'new'
     end
   end      
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "ユーザーを削除しました"
+    flash[:success] = "退会処理を完了しました！"
     redirect_to root_url
   end
 
@@ -86,6 +87,9 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+  def unsubscribe
+  end
+
   private
 
     def user_params
@@ -98,7 +102,7 @@ class UsersController < ApplicationController
     end
 
     def correct_user 
-      if current_user != User.find(params[:id])
+      if current_user != User.find(params[:id]) && current_user.admin == false
         redirect_to user_path(current_user),alert: '他のユーザーの編集や削除はできません。'  
       end
     end
