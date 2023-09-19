@@ -4,13 +4,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  # productionでは、fogで外部ストレージにアップロードする
-  if Rails.env.development?
-    storage :file
-  elsif Rails.env.test?
-    storage :file
+  # 本番環境では、fogで外部ストレージにアップロードする
+  
+  if (Rails.env.development? && ENV['S3_STORAGE']) || Rails.env.production?
+    storage :fog  
   else
-    storage :fog
+    storage :file
   end
 
   # Override the directory where uploaded files will be stored.
@@ -20,9 +19,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   #デフォルト画像の設定
- def default_url
+  def default_url
   "マイページデフォルト.png"
- end
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
