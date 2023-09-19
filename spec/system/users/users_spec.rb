@@ -11,7 +11,7 @@ RSpec.describe '登録', type: :system do
           fill_in 'パスワード(確認)', with: '12345678'
           click_button '登録'
           user_id = User.find_by(email: 'rails@example.com').id
-          expect(current_path).to eq "/users/#{user_id}"
+          expect(current_path).to eq root_path
           expect(page).to have_content 'ようこそ、ハピランチへ！'
         end
       end  
@@ -43,7 +43,7 @@ RSpec.describe '登録', type: :system do
     end
 
     it 'フォローができること' do
-      visit users_path
+      visit user_path(user2.id)
       expect {
       find(" #follow-form-#{user2.id}") .click
       }.to change { Relationship.where(follower_id:user1.id,followed_id:user2.id).count }.by(1)
@@ -51,7 +51,7 @@ RSpec.describe '登録', type: :system do
     end
 
     it 'フォローが解除できること'  do
-      visit users_path
+      visit user_path(user2.id)
       find(" #follow-form-#{user2.id}") .click
       expect{
       find(" #unfollow-form-#{user2.id}") .click
