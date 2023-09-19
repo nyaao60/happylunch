@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:new,:create,:index,:edit, :update,:destroy]
-  
+  before_action :correct_user_post, only: [:edit, :update,:destroy]
+  before_action :logged_in_user, only: [:new,:create,:show,:index,:edit,:update,:destroy]
+  before_action :admin_user, only: [:index]
+
   def new
     @post=Post.new
   end
@@ -25,6 +27,10 @@ class PostsController < ApplicationController
     @likes=@post.likes.includes(:user)
   end
   
+  def index
+    @posts = Post.includes(:user,:likes,:comments).page(params[:page])
+  end
+
   def edit
     @post=Post.find(params[:id])
   end  
@@ -60,7 +66,7 @@ class PostsController < ApplicationController
       #distance = 0.621371 マイルを約1キロ換算
       
       posts = Post.within_box(75,latitude,longtitude)
-      # 投稿が増えれば、入力された場所情報の2km範囲内のpostの配列をpostsに入れたいが、現状、投稿数が少ないため、hit件数を1件でも表示したいため、一時的に梅田駅〜京都駅間の45km範囲内にしている。
+      # 投稿が増えれば、入力された場所情報の2km範囲内のpostの配列をpostsに入れたいが、現状、投稿数が少ないため、hit件数を1件でも多く表示したいため、一時的に梅田駅〜京都駅間の45km範囲内にしている。
       case selection
       when 'near' 
         @posts =Post.near(results.first.coordinates).page(params[:page])
@@ -83,4 +89,12 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:store_name,:lunch_name,:address, :latitude, :longitude, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
     end
-end
+
+    def correct_user_post 
+      @post=Post.find(params[:id])
+      if User.find_by(id:@post.user_id) != current_user && current_user.admin == false
+      redirect_to user_path(current_user),alert: '他のユーザーの投稿の編集や削除はできません。'  
+      end
+    end 
+
+  end

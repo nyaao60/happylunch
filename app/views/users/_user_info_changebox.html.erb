@@ -1,0 +1,12 @@
+<% if current_user == @user && current_user.admin != true%>
+  <%= button_to "編集", edit_user_path(@user), { method: :get, id:"edit-btn"} %>
+<% elsif current_user == @user && current_user.admin == true %>
+  <%= button_to "編集", edit_user_path(@user), { method: :get, id:"edit-btn"} %>
+  <%= button_to "削除", user_path(@user),  { method: :delete, id:"edit-btn"} %>
+<% elsif current_user != @user && current_user.admin == true %>
+  <p><%= render 'layouts/follow_form' ,user: @user %></p>
+  <%= button_to "編集", edit_user_path(@user), { method: :get, id:"edit-btn"} %>
+  <%= button_to "削除", user_path(@user),  { method: :delete, id:"edit-btn"} %>
+<% else %>
+  <p><%= render 'layouts/follow_form' ,user: @user %></p>
+<% end %>
