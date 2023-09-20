@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.includes(:user,:likes,:comments).page(params[:page])
+    @posts = Post.includes(:user,:likes,:comments).order(created_at: :desc).page(params[:page])
   end
 
   def edit
@@ -65,36 +65,34 @@ class PostsController < ApplicationController
       longtitude = results.first.coordinates[1]
       #distance = 0.621371 マイルを約1キロ換算
       
-      posts = Post.within_box(75,latitude,longtitude)
+      posts = Post.includes(:user,:likes,:comments).within_box(75,latitude,longtitude)
       # 投稿が増えれば、入力された場所情報の2km範囲内のpostの配列をpostsに入れたいが、現状、投稿数が少ないため、hit件数を1件でも多く表示したいため、一時的に梅田駅〜京都駅間の45km範囲内にしている。
       case selection
       when 'near' 
-        @posts =Post.near(results.first.coordinates).page(params[:page])
+        @posts =Post.includes(:user,:likes,:comments).near(results.first.coordinates).page(params[:page])
       when 'inexpensive'
-        @posts= posts.order(price: :asc)
+        @posts= posts.order(price: :asc, created_at: :desc).page(params[:page])
       when 'rating'
-        @posts= posts.order(five_star_rating: :desc)
+        @posts= posts.order(five_star_rating: :desc, created_at: :desc).page(params[:page])
       when 'vagetable'
-        @posts= posts.select do |p|
-          p.lots_of_vegetables == true
-        end
+        @posts= posts.where(lots_of_vegetables:true).near(results.first.coordinates).page(params[:page])
       else
-        @posts=posts
+        @posts=posts.order(created_at: :desc).page(params[:page])
       end
     end
   end   
 
-    private
+  private
 
-    def post_params
-      params.require(:post).permit(:store_name,:lunch_name,:address, :latitude, :longitude, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
-    end
-
-    def correct_user_post 
-      @post=Post.find(params[:id])
-      if User.find_by(id:@post.user_id) != current_user && current_user.admin == false
-      redirect_to user_path(current_user),alert: '他のユーザーの投稿の編集や削除はできません。'  
-      end
-    end 
-
+  def post_params
+    params.require(:post).permit(:store_name,:lunch_name,:address, :latitude, :longitude, {post_images:[]},:price,:five_star_rating,:lots_of_vegetables,:body)
   end
+
+  def correct_user_post 
+    @post=Post.find(params[:id])
+    if User.find_by(id:@post.user_id) != current_user && current_user.admin == false
+    redirect_to user_path(current_user),alert: '他のユーザーの投稿の編集や削除はできません。'  
+    end
+  end 
+
+end
