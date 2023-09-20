@@ -1,0 +1,15 @@
+<% provide(:titlebar, "アカウント情報変更") %> 
+<div class="signup-page">
+  <div class="form">
+    <%= form_with(model: @user,url:accountupdate_user_path(@user),method: :patch, local:true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object%>
+      <%= f.label :email,"メールアドレス" %>
+      <%= f.email_field :email %>
+      <%= f.label :password,"パスワード" %>
+      <%= f.password_field :password %>
+      <%= f.label :password_confirmation,"パスワード(確認)" %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit "更新", id:"signup-button"%>
+    <% end %> 
+  </div>
+</div>
