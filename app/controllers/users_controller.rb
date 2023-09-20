@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show,:index,:upadate,:edit,:update,:destroy]
-  before_action :correct_user, only: [:edit,:update,:destroy]
-  before_action :ensure_normal_user, only: [:update,:destroy]
+  before_action :logged_in_user, only: [:show,:index,:edit,:update,:accountedit,:accountupdate,:destroy]
+  before_action :correct_user, only: [:edit,:update,:accountedit,:accountupdate,:destroy]
+  before_action :ensure_normal_user, only: [:update,:accountedit,:accountupdate,:destroy]
   before_action :admin_user, only: [:index]
 
   def new
@@ -43,6 +43,21 @@ class UsersController < ApplicationController
       render 'edit'
     end 
   end
+
+  def accountedit
+    @user = User.find(params[:id])
+  end
+
+  def accountupdate
+    @user = User.find(params[:id])
+    if @user.update(user_accountupdate_params) 
+      flash[:success]="アカウント情報を更新しました！"
+      redirect_to root_path
+    else
+      render 'accountedit'
+    end 
+  end
+
 
   def destroy
     User.find(params[:id]).destroy
@@ -92,25 +107,29 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,:password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password,:password_confirmation)
+  end
 
-    def user_update_params
-      params.require(:user).permit(:name,
-      :user_image,:self_introduction)
-    end
+  def user_update_params
+    params.require(:user).permit(:name,
+    :user_image,:self_introduction)
+  end
 
-    def correct_user 
-      if current_user != User.find(params[:id]) && current_user.admin == false
-        redirect_to user_path(current_user),alert: '他のユーザーの編集や削除はできません。'  
-      end
-    end
+  def user_accountupdate_params
+    params.require(:user).permit(:email, :password,:password_confirmation)
+  end
 
-    def ensure_normal_user
-      if current_user.email == 'guest@example.com'
-        redirect_to user_path, alert: '申し訳ございません、ゲストユーザーはユーザー編集や削除ができません。'
-      end
+  def correct_user 
+    if current_user != User.find(params[:id]) && current_user.admin == false
+      redirect_to user_path(current_user),alert: '他のユーザーの編集や削除はできません。'  
     end
+  end
+
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to user_path, alert: '申し訳ございません、ゲストユーザーはユーザー編集や削除ができません。'
+    end
+  end
 
 end   

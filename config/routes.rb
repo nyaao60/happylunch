@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :following, :followers,:likes,:personal_posts
+      get :following, :followers,:likes,:personal_posts,:accountedit
+      patch :accountupdate
     end
   end
 
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#destroy'
   get '/search', to: 'posts#search'
   get '/unsubscribe', to: 'users#unsubscribe'
+
 end
