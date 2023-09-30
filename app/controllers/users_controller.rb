@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @relationship=Relationship.find_by(follower_id:current_user.id,followed_id:@user.id)
-    @posts=Post.where(user_id:params[:id])
+    @posts=Post.includes(:user,:likes,:comments,:tags).where(user_id:params[:id]).order(created_at: :desc).page(params[:page])
   end  
 
   def index
@@ -82,13 +82,13 @@ class UsersController < ApplicationController
 
   def personal_posts
     @user=User.find(params[:id])
-    @posts=Post.where(user_id:params[:id])
+    @posts=Post.includes(:user,:likes,:comments,:tags).where(user_id:params[:id]).order(created_at: :desc).page(params[:page])
   end
 
   def likes
     @user=User.find(params[:id])
     likes=Like.where(user_id:params[:id]).pluck(:post_id)
-    @posts=Post.where(id:likes)
+    @posts=Post.includes(:user,:likes,:comments,:tags).where(id:likes).order(created_at: :desc).page(params[:page])
   end
 
   def guest
