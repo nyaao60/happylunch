@@ -73,8 +73,8 @@ class Post < ApplicationRecord
   private
 
   def tag_count_within_limit
-    if tags.size > 4
-      errors.add(:tags, "は4つまでです")
+    if tags.size > 5
+      errors.add(:tags, "は5つまでです")
     end
   end
 end

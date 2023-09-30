@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @tag_list = Tag.find(PostTagRelation.group(:tag_id).order('count(tag_id) desc').limit(7).pluck(:tag_id))
+    @tag_list = Tag.find(PostTagRelation.group(:tag_id).order('count(tag_id) desc').limit(8).pluck(:tag_id))
     
     if logged_in? && current_user.following.count > 0
       user_ids = current_user.following.ids << current_user.id
