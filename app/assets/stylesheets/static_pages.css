@@ -28,6 +28,67 @@
   color:white;
 }
 
+tabs {
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.tabs .tab {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.tabs .tab:not(.active):hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #bfa41eb5;
+  color:white;
+  font-weight: bold;
+}
+
+#form2{
+  display: none;
+}
+
+.search-keyword-form{
+display: flex;
+width: 100%;
+}
+
+.search-keyword1{
+  font-size:1.8rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+  margin-left:2rem;
+}
+
+.keyword-box1{
+  width:60%;
+}
+
+.keyword-box1-sub{
+  display:flex;
+}
+
+.keyword-box2{
+  width:40%;
+  margin-left:1rem;
+}
+
+.popular-tags{
+  font-size:1.8rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
 .description{
   padding: 4rem 10rem ;
   background-color:#f8eed39e;
