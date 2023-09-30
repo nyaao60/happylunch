@@ -1,8 +1,13 @@
 <div class="search">
-  <%= form_with url: search_path, :method => 'get' , local: true do |f| %>
+  <div class="tabs">
+    <button  class="tab active" id="tab1">現在地・指定場所から検索</button>
+    <button class="tab" id="tab2">キーワード検索</button>
+  </div>
+  <!-- 現在地から検索フォーム -->
+  <%= form_with url: search_path, :method => 'get' , local: true, id: "form1" do |f| %>
     <div class="search-conditions">
       <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
-        <li  id="get_current_spot">
+        <li id="get_current_spot">
           <div class=search-spot>
             <span class="fa-solid fa-magnifying-glass-location"></span>
             <p id="current_spot">現在地取得(緯度,経度)</p>
@@ -15,11 +20,33 @@
           ['野菜豊富メニューのみ（距離が近い順）','vagetable']
         ], id:"search-selection"%>
     </div>
-    <%= button_tag type: "submit", id: "post-search-btn" do %>
-    <p><span class="fas fa-search"></span>今日のランチを検索</p>
+    <%= button_tag type: "submit", id: "post-search-btn1" do %>
+    <p><span class="fas fa-search"></span>ランチを検索</p>
     <% end %>
-  <% end %>
+  <% end %>  
+  <!--  キーワード検索フォーム --> 
+  <%= form_with url: search_keyword_path, :method => 'get' , local: true, id: "form2" do |f| %>
+    <div class="search-keyword-form">
+      <div class= "keyword-box1">
+        <p class="search-keyword1">投稿からキーワード検索</p>
+        <div class="keyword-box1-sub">
+          <%= f.text_field :keywords, placeholder: "例）野菜、リーズナブル", class: "search-keyword2" %>
+          <%= button_tag type: "submit", id: "post-search-btn2" do %>
+            <p><span class="fas fa-search"></span>ランチを検索</p>
+          <% end %>
+        </div>
+      </div>
+      <div class= "keyword-box2">
+        <p class="popular-tags"><span class="fa-solid fa-tag top-fa-tag"></span>人気のタグ</p>
+        <% @tag_list.each do |tag| %>
+          <%= link_to "##{tag.tag_name}", tag_posts_path(tag_id: tag.id), class: "post-tag" %>
+          <%= "(#{tag.posts.count})" %>
+        <% end %>
+      </div>
+    </div>
+  <%end%>
 </div>
+
 <script>
   function geoFindMe() { 
     function success(position) {
@@ -42,4 +69,35 @@
   }
 
   document.querySelector('#get_current_spot').addEventListener('click', geoFindMe);
+
+  document.getElementById('tab1').addEventListener('click', function() {
+  document.getElementById('form1').style.display = 'block';
+  document.getElementById('form2').style.display = 'none';
+  document.getElementById('tab1').classList.add('active');
+  document.getElementById('tab2').classList.remove('active');
+});
+
+document.getElementById('tab2').addEventListener('click', function() {
+  document.getElementById('form1').style.display = 'none';
+  document.getElementById('form2').style.display = 'block';
+  document.getElementById('tab2').classList.add('active');
+  document.getElementById('tab1').classList.remove('active');
+});
+
+document.getElementById('post-search-btn1').addEventListener('click', function(e) {
+  var keyword = document.querySelector('.search-location').value.trim();
+  if (!keyword) {
+    e.preventDefault();
+    alert('現在地か指定したい場所を入力してください。');
+  }
+});
+
+document.getElementById('post-search-btn2').addEventListener('click', function(e) {
+  var keywords = document.querySelector('.search-keyword2').value.trim();
+  if (!keywords) {
+    e.preventDefault();
+    alert('キーワード検索にはキーワードが必要です。');
+  }
+});
+
 </script>
