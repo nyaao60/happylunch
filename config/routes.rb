@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources:comments,only:[:create,:destroy]
-    resource:likes,only: [:create, :destroy]
+    resources :comments,only:[:create,:destroy]
+    resource :likes,only: [:create, :destroy]
+  end
+
+  resources :tags do
+    get 'posts', to: 'posts#tags'
   end
 
   resources :relationships, only: [:create, :destroy]
@@ -22,6 +26,7 @@ Rails.application.routes.draw do
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
   get '/search', to: 'posts#search'
+  get '/search_keyword', to: 'posts#search_keyword'
   get '/unsubscribe', to: 'users#unsubscribe'
 
 end

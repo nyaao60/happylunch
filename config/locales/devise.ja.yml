@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       post: '投稿'
       comment: 'コメント'
+      tag: 'タグ'
     attributes:
       user:
         email: 'メールアドレス'
@@ -13,15 +14,18 @@ ja:
         user_image: '画像'
       post:
         store_name: '店名'
+        lunch_name: 'ランチ名'
         address: '住所'
         price: '価格'
         body: 'レビューコメント'
-        post_images: '写真'
+        post_images: '画像'
+        tags: 'タグ'
       comment:
         body: 'コメント'
         user_id: 'ユーザー'
         post_id: '投稿'
-
+      tag:
+        tag_name: 'タグ名'
   attributes:
     created_at: '作成日時'
     updated_at: '更新日時'
