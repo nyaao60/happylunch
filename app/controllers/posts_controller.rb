@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   def tags
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
-    @posts = @tag.posts.all.includes(:user,:tags,:likes,:comments,:tags)
+    @posts = @tag.posts.all.includes(:user,:tags,:likes,:comments,:tags).order(created_at: :desc)
   end
 
   def search
@@ -97,7 +97,6 @@ class PostsController < ApplicationController
 
   def search_keyword
     @posts = Post.search(params[:keywords]).order(created_at: :desc).page(params[:page]).per(8)    
-    @tag_list = Tag.find(PostTagRelation.group(:tag_id).order('count(tag_id) desc').limit(6).pluck(:tag_id))
   end
 
   private
