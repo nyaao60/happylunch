@@ -16,8 +16,8 @@
       <p><%= f.text_field :price,id:"price-box" %>円</p>
       <p><%= f.label :five_star_rating,"おすすめ度" %></p>
       <%= f.select :five_star_rating,[['★☆☆☆☆',1],['★★☆☆☆',2],['★★★☆☆',3],['★★★★☆',4],['★★★★★',5]],{selected:3}%>
-      <%= f.label :lots_of_vegetables,"野菜が豊富" %>
-      <%= f.check_box :lots_of_vegetables, id:"check-box"%>
+      <p>タグ（任意）<span class="tag-warning">※２つ目以降は、,で区切ってください。</span></p>
+      <%= f.text_field :tag_name, value: @tags,placeholder: "例）野菜豊富,ボリューム満点"%>
       <p><%= f.label :body,"レビューコメント" %>
       <%= f.text_area :body,id:"review-comment"%></p>
       <%= f.submit "更新", id:"signup-button"%>

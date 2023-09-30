@@ -19,14 +19,14 @@
         <p class="recommend-status">おすすめ度：<span class="post-star"><%= render 'layouts/five_star_rating' %></span>
         </p>
         <div class="storename-part">
-        <span class="fa-solid fa-store"></span>
+        <p><span class="fa-solid fa-store"></span>
         <p class="postshow-storename"><%= @post.store_name%></p>
         </div>
         <p class="postshow-lunchname">
         <span class="fa-solid fa-utensils"></span>
         <span class="show-lunchname"><%= @post.lunch_name%></span>
         </p>
-        <p class="postshow-price"><span class="fa-solid fa-yen-sign"></span><%= @post.price%>円
+        <p class="postshow-price"><span class="fa-solid fa-yen-sign"></span><%= @post.price.to_s(:delimited)%>円
         </p> 
         <% if @post.post_images.present? %> 
           <% @post.post_images.each do |image|%>
@@ -36,6 +36,11 @@
         <h3 style="white-space:pre-wrap;" id="postshow-review"><%= 
         @post.body %>
         </h3>
+        <span class="fa-solid fa-tag"></span>
+        <% @post_tags.each do |tag| %>
+          <%= link_to "##{tag.tag_name}", tag_posts_path(tag_id: tag.id),
+          class: "postshow-tag"%>
+        <% end %>
         <p id="postshow-address"> <span class="fa-solid fa-location-dot"></span><%= @post.address %>
         </p>
         <%=render 'layouts/map'  %>
