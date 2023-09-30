@@ -1,0 +1,14 @@
+<% provide(:titlebar, "キーワード「#{params[:keywords]}」の検索結果") %>
+<% if @posts.any? %>
+  <div class="select-posts">
+    <h2>・</h2>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+  </div>
+<% else %>
+  <div class="search-no-post">
+    <p>検索結果は見つかりませんでした。</p>
+    <%= link_to "TOPに戻る",root_path, {class: "back-root"}%>
+  </div>
+<% end %>

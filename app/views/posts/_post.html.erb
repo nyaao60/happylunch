@@ -8,7 +8,7 @@
         <p class="post-recommend">おすすめ度<span class="post-star"> <%=render 'layouts/star',post:post%></span>
         </p>
         <p class="post-price-yen">
-        <span class="post-price"> <%= post.price %></span> 円
+        <span class="post-price"> <%= post.price.to_s(:delimited) %></span> 円
         </p>
       </div>
       <p class="post-storename">
@@ -35,12 +35,22 @@
       </div>
     </div>
   </div>
-  <div class="post-bottom"> 
-        <p class="post-search-time"><%=l post.created_at %></p>
-    <p class="reviewer-info-bottom">
-    投稿者：
-    <%= link_to image_tag(post.user.user_image.thumb.url,id:"reviewer-icon-top"),user_path(post.user) %>
-    <%=post.user.name%>
-    </p>
+  <div class="post-bottom">
+    <div class="post-bottom-left">
+      <% if post.tags.present?%>
+        <span class="fa-solid fa-tag top-fa-tag"></span>
+        <% post.tags.take(3).each do |tag| %>
+          <%= link_to "##{tag.tag_name}", tag_posts_path(tag_id: tag.id),class: "post-tag" %>
+        <% end %>
+      <% end %>
+    </div> 
+    <div class="post-bottom-right"> 
+      <p class="post-search-time"><%=l post.created_at %></p>
+      <p class="reviewer-info-bottom">
+      投稿者：
+      <%= link_to image_tag(post.user.user_image.thumb.url,id:"reviewer-icon-top"),user_path(post.user) %>
+      <%=post.user.name%>
+      </p>
+    </div>
   </div>
 </div>
