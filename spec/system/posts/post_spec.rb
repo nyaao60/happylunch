@@ -23,6 +23,7 @@ RSpec.describe '投稿', type: :system do
                 expect(page).to_not have_content other_user_post.store_name
             end
         end
+
         context "ログインしていない場合" do
             it 'home画面に全ての投稿が表示される' do
                 visit root_path 
@@ -42,7 +43,6 @@ RSpec.describe '投稿', type: :system do
             fill_in '住所', with: '大阪府大阪市北区大深町４−２０'
             attach_file 'images-input', Rails.root.join('spec', 'fixtures', 'sample.png') 
             fill_in 'post[price]', with: '600'
-            check 'post[lots_of_vegetables]'
             fill_in 'post[body]', with: 'とても美味しかったです！'
             click_button '投稿'
             expect(page).to have_content '投稿しました'
@@ -62,7 +62,7 @@ RSpec.describe '投稿', type: :system do
             login_as login_user 
         end 
 
-        context '自分の投稿の場合' do
+            context '自分の投稿の場合' do
         
             it '編集ボタンが表示され編集ができること' do
                 visit post_path(login_user_post.id)

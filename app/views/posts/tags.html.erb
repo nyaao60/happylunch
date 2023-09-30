@@ -1,0 +1,7 @@
+<% provide(:titlebar, "##{@tag.tag_name} のタグの投稿 #{@posts.count}件") %>
+<div class="select-posts">
+  <h2>・</h2>
+  <ul class="posts">
+    <%= render @posts %>
+  </ul>
+</div>

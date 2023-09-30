@@ -10,7 +10,6 @@
 .top-part h3{
   color:rgb(238,208,152);
 }
-
 .register-part{
   margin: 52rem auto 5rem;
   text-align:center;
@@ -56,8 +55,8 @@
 
 /* 検索フォーム */
 .search{
-  width:70%;
   margin:44rem  auto 0;
+  width:70%;
   padding:3rem;
   background-color:rgba(255,255,255,0.9);
   border-radius:50px;
@@ -118,11 +117,21 @@
   border: 1px solid;
 }
 
+#keywords{
+  font-size:1.6rem;
+  font-weight:bold;
+  width:70%;
+  margin:0 2rem;
+  background-color: #FFFFFF;
+  border: 1px solid;
+}
+
 /*投稿検索ボタン */
-#post-search-btn{
+#post-search-btn1{
   height:6rem;
-  width:40%;
+  width:25%;
   font-size:2rem;
+  font-weight:bold;
   color: #FFFFFF;
   display:block;
   padding:0.5rem;  
@@ -130,6 +139,20 @@
   border-radius:40px;
   background-color:rgb(242,148,35)
 }
+
+#post-search-btn2{
+  height:6rem;
+  width:30%;
+  font-size:2rem;
+  font-weight:bold;
+  color: #FFFFFF;
+  display:block;
+  padding:0.5rem;
+  margin-top:1rem;  
+  border-radius:40px;
+  background-color:rgb(242,148,35)
+}
+
 
 /*投稿検索アイコン */
 .fa-search{
@@ -304,9 +327,40 @@ margin-top:2rem;
 
 /* 投稿情報 */
 .post-bottom{
+  width:100%;
+  display:flex;
+}
+
+.post-bottom-left{
+  width:100%;
+  display:flex;
+  justify-content: flex-start;
+  font-size:1.7rem;
+  margin-left:8rem;
+} 
+
+.top-fa-tag{
+  display:innline-block;
+  margin-top:1rem;
+}
+
+.post-tag{
+  display:inline-block;
+  font-weight:bold;
+  color:white;
+  background-color:#f3a645ed;
+  border-radius:15px;
+  padding:0.5rem;
+  margin-left:1rem;
+  margin-bottom:0.5rem;
+}
+
+.post-bottom-right{
+  width:100%;
   display:flex;
   justify-content: flex-end;
   font-size:1.7rem;
+  
 } 
 
 .reviewer-info-bottom{
@@ -389,6 +443,12 @@ display:flex;
 #price-box{
   width:30%;
   font-size:2rem;
+}
+
+.tag-warning{
+  font-size:75%;
+  font-weight:normal;
+  color:#1a1a1a;
 }
 
 #check-box{
@@ -486,6 +546,7 @@ display:flex;
 
 .show-form p{
   margin-top:0.5rem;
+  color:#2a2929cf;
 }
 
 .recommend-status{
@@ -502,8 +563,9 @@ display:flex;
 }
 
 .fa-store{
+  padding-left:0.8rem;
   margin-top:2rem;
-  margin-right:2rem;
+  margin-right:1.2rem;
 }
 
 .postshow-storename{
@@ -528,12 +590,13 @@ display:flex;
 }
 
 .fa-yen-sign{
-  margin-right:2rem;
+  padding-left:0.8rem;
+  margin-right:1.2rem;
 }
 
 #postshow-address{
-  font-size:2.5rem;
-  margin-top:5rem;
+  font-size:2rem;
+  margin-top:2rem;
 }
 
 .shop-info .post-lunchname{
@@ -541,13 +604,14 @@ display:flex;
 }
 
 #postshow-review{
-  height:20rem;
+  height:18rem;
   padding:1rem ;
   margin-top:2rem;
   border: 2px solid #252525; 
   border-radius:5px;
   overflow: auto;   
-  font-size:2.5rem;
+  font-size:2.2rem;
+  color:#2a2929cf;
 }
 
 #postshow-file{
@@ -555,6 +619,21 @@ display:flex;
   border-radius:50px;
   margin:2rem 4rem 2rem 0;
 }
+
+.fa-tag{
+  color:#2a2929cf;
+}
+
+.postshow-tag{
+  display:inline-block;
+  font-size:2rem;
+  font-weight:bold;
+  margin-top:2rem;
+  color:white;
+  background-color:#f3a645d4;
+  border-radius:15px;
+  padding:0.8rem;
+} 
 
 .fa-utensils{
   margin-left:0.5rem;
@@ -696,15 +775,35 @@ display:flex;
   border-radius:20px;
 }
 
+.select-posts{
+  background-image: url(<%= asset_path 'topimage3.jpeg' %>);
+  padding-bottom:5rem;
+}
+
 .posts {
   list-style: none;
   margin:4rem 0 0 0; 
   display:block;
 }
 
-.select-posts{
-  background-image: url(<%= asset_path 'topimage3.jpeg' %>);
-  padding-bottom:5rem;
+.search-no-post{
+  height:20rem;
+}
+
+.search-no-post p{
+  font-size:2.5rem;
+  text-align:center;
+  margin-top:10rem;
+  margin-bottom:2rem;
+}
+
+.back-root{
+  display: block;
+  font-size:2.5rem;
+  color:#0764FF;
+  font-weight:bold;
+  text-decoration:underline;
+  text-align: center;
 }
 
 .select-posts h2{
