@@ -9,8 +9,8 @@
       <%= f.text_field :location, value: params[:location], placeholder: "現在地の住所や指定したい場所を入力してください。", class:"search-location" %>
         <li id="get_current_spot">
           <div class=search-spot>
-            <span class="fa-solid fa-magnifying-glass-location"></span>
-            <p id="current_spot">現在地取得(緯度,経度)</p>
+            <span class="fa-solid fa-solid fa-location-arrow"></span>
+            <p id="current_spot">現在地取得 </p>
           </div>
         </li>
         <%= f.select :keyword, [
@@ -48,16 +48,27 @@
 </div>
 
 <script>
-  function geoFindMe() { 
+ // 現在地取得
+document.querySelector('#get_current_spot').addEventListener('click', function() {
+  document.getElementById('current_spot').textContent = '現在地取得中！';
+  document.getElementById('current_spot').classList.add('loading');
+  geoFindMe();
+});
+
+function geoFindMe() { 
     function success(position) {
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
       document.getElementById('location').value = `${latitude},${longitude}`;
-      // 上記text_fieldのlocationに情報を渡す。
-  }
+      document.getElementById('current_spot').textContent = '現在地取得';
+      document.getElementById('current_spot').classList.remove('loading');
+    }
+
 
     function error() {
       alert('エラーが発生しました。')
+      document.getElementById('current_spot').textContent = '現在地取得';
+      document.getElementById('current_spot').classList.remove('loading');
     }
 
     if(!navigator.geolocation) {
@@ -68,8 +79,7 @@
     }
   }
 
-  document.querySelector('#get_current_spot').addEventListener('click', geoFindMe);
-
+ // タブ
   document.getElementById('tab1').addEventListener('click', function() {
   document.getElementById('form1').style.display = 'block';
   document.getElementById('form2').style.display = 'none';
@@ -84,6 +94,7 @@ document.getElementById('tab2').addEventListener('click', function() {
   document.getElementById('tab1').classList.remove('active');
 });
 
+ // 現在地検索
 document.getElementById('post-search-btn1').addEventListener('click', function(e) {
   var keyword = document.querySelector('.search-location').value.trim();
   if (!keyword) {
@@ -92,6 +103,7 @@ document.getElementById('post-search-btn1').addEventListener('click', function(e
   }
 });
 
+// キーワード検索
 document.getElementById('post-search-btn2').addEventListener('click', function(e) {
   var keywords = document.querySelector('.search-keyword2').value.trim();
   if (!keywords) {

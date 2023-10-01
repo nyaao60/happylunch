@@ -26,11 +26,16 @@
   border-radius: 36px;
   background-color:rgb(251, 118, 23);
   opacity: 0.8;
+  transition: all 0.1s ease-in-out;
 }
 
+.registerbtn:hover{
+  background-color:rgb(255,138,43); 
+}
+
+
 .registerbtn:active{
-  background-color:#505050;
-  color:white;
+  transform: scale(0.95); 
 }
 
 .description-title span{
@@ -81,20 +86,40 @@
   border: solid 1px;
   border-left:none;
   padding-top:0.5rem;
+  padding-right:1rem;
 }
-.fa-magnifying-glass-location{
+
+/* 現在値取得フォント */
+.fa-location-arrow{
   margin-right:2rem;
+  font-size:2.5rem;
+  margin-left:2rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.fa-location-arrow:hover{
+  color:rgb(255,168,55); 
+}
+
+.fa-location-arrow:active{
+  transform: scale(0.7);
 }
 
 .search-spot{
   text-align:center;
 }
 
-/* 虫眼鏡フォント */
-.fa-magnifying-glass-location{
-  font-size:3rem;
-  margin-left:2rem;
+/* 現在値取得アニメーション */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
+
+#current_spot.loading {
+  animation: blink 1s linear infinite;
+}
+
 
 /* 現在地取得文字 */
 #current_spot{
@@ -137,7 +162,16 @@
   padding:0.5rem;  
   margin: 2rem auto 0;
   border-radius:40px;
-  background-color:rgb(242,148,35)
+  background-color:rgb(242,148,35);
+  transition: all 0.1s ease-in-out;
+}
+
+#post-search-btn1:active{
+  transform: scale(0.95); 
+}
+
+#post-search-btn1:hover{
+  background-color:rgb(255,168,55); /* ボタンの背景色を少し明るく */
 }
 
 #post-search-btn2{
@@ -151,8 +185,16 @@
   margin-top:1rem;  
   border-radius:40px;
   background-color:rgb(242,148,35)
+  transition: all 0.1s ease-in-out;
 }
 
+#post-search-btn2:active{
+  transform: scale(0.95);
+}
+
+#post-search-btn2:hover{
+  background-color:rgb(255,168,55);
+}
 
 /*投稿検索アイコン */
 .fa-search{
