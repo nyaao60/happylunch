@@ -12,7 +12,9 @@
   ※ゲストログイン機能を実装しておりますので、お気軽にお試しできます。<br>
 
 ### ゲストログイン
-https://github.com/nyaao60/happylunch/assets/99575972/9d6b607e-ae0c-49f3-bac6-cccd45525620
+https://github.com/nyaao60/happylunch/assets/99575972/c7d0deba-e03c-4071-89fc-be840d32a4c3
+
+
 
 ### TOP画面
 ![TOP画像１](https://github.com/nyaao60/happylunch/assets/99575972/d82a03f0-0ad0-4f9c-b362-e35323e3e850)
