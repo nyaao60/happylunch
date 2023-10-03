@@ -12,12 +12,26 @@
   ※以下の通り、ゲストログイン機能を実装しておりますので、お気軽にお試しできます。<br>
 
 ### ゲストログイン
-![ゲストログイン1](https://github.com/nyaao60/happylunch/assets/99575972/752aada1-ada3-4b02-b488-b2b56b46caf7)
+<img alt="ゲストログイン画面" src= '/README_images/ゲストログイン画面.gif' >
 
-
+## 画面イメージ
 
 ### TOP画面
-![TOP画像１](https://github.com/nyaao60/happylunch/assets/99575972/d82a03f0-0ad0-4f9c-b362-e35323e3e850)
+<img alt="トップページ画面" src= '/README_images/TOP画像.png' >
+
+### 投稿検索画面
+現在地を取得し、そこから一定の範囲内のお店のランチメニューを<br>
+複数の条件で検索できます。特定の場所を指定することも可能です。<br>
+<img alt="現在地検索画面" src= '/README_images/現在地検索画面.gif' >
+
+### キーワード検索画面
+<img alt="キーワード検索画面" src= '/README_images/キーワード検索画面.gif' >
+現在の位置情報に依存せずに、幅広く投稿を検索できるように<br>
+キーワード検索やハッシュタグの機能も実装しました。<br>
+
+### 投稿のいいね画面
+お気に入りの投稿は、いいねをして、ユーザーページに保存できます。<br>
+<img alt="投稿のいいね画面" src= '/README_images/いいね画面.gif' >
 
 
 ## Happylunchの開発背景
@@ -101,10 +115,10 @@
 ・Github Actionsを用いてCI/CDパイプラインを構築しました。<br>
 
 ## インフラ構成
-<img width="1286" alt="インフラ構成図2" src="https://github.com/nyaao60/happylunch/assets/99575972/464fea1e-dfa5-45c1-a733-ebac2983b7c9">
+<img width="1286" alt="インフラ構成図" src="/README_images/インフラ構成図.png">
 
-## ER図
-<img width="950" alt="ER図3" src="https://github.com/nyaao60/happylunch/assets/99575972/060e6d30-f573-463f-b46e-ac4247647b83">
+## ER図　
+<img width="950" alt="ER図" src="/README_images/ER図.png">
 
 
 ## 現時点での課題、将来的に実装予定の機能（2023年9月20日現在）
@@ -112,5 +126,7 @@
 　現在横幅、1280px〜1920pxまでのPCサイズでのみ、レイアウトの崩れがないことを確認。
 <br>
 ・検索フォームの現在地の取得に時間がかかるため、改善予定<br>
+・添付画像の画質が悪いため、アップロード時の画質の劣化を軽減予定<br>
+・現在地から距離が近い順の検索で、指定の場所とお店間の距離を表示するように改善予定<br>
 ・Vuejsによる完全SPA化、UXの向上を実装予定（いいね、フォローなどのボタンアニメーション）<br>
 ・投稿ありきのサービスで、現在投稿数が少ないため、投稿数に応じてポイントが付与されるような投稿意欲を促 進させる機能を実装予定<br>
