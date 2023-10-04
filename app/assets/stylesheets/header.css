@@ -49,7 +49,7 @@ ul li a {
 .header-link{
 margin:10px;
 border-left:2px dotted #000000; /*線の設定*/
-border-right:1px dotted #000000; /*線の設定*/
+border-right:2px dotted #000000; /*線の設定*/
 padding:0.2rem 1.5rem; /*余白の設定*/
 }
 
